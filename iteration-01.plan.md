@@ -5,7 +5,7 @@
 # Roles
 - Customer: Kyle
 - Project leader: Brandon
-- Analyst: xun
+- Analyst: Xun
 - Programmer: Arjun
 - business consultant: Pablo
 - scrum master: Peijun
