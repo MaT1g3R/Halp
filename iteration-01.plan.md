@@ -7,7 +7,7 @@
 - Project leader: Brandon
 - Analyst: xun
 - Programmer: Arjun
-- busniess consaltant: Pablo
+- business consultant: Pablo
 - scrum master: Peijun
 
 # Events
@@ -27,7 +27,7 @@
 # Artifacts
 
 - GitHub board/issues
-- ...
+- Discord for communication and online voice meetings
 
 # Product
 
@@ -39,21 +39,20 @@
         - user can receive job posts notification if he is available
         - once the job post has been 
     - What the product looks like
-        - 
-    - ...
+        - General idea and consensus
+        
 - Find the tech stack which we would program our product:
     - Determine the tech stack which most if not all of our group is comfortable with
-        - Java/python
+        - Java
+        - Android Studio/SDK
     - Platform of our product
         - mobile app(android)
-    - ...
+        
 - Determine the target users:
     - Identifying our problem
     - To whom that problem affects
-    - ...
+    - Identifying both user groups, since the app is asymmetrical
 
 ## Artifacts
-- Video
-- Live demo
-- Build an interactive application prototype that can be used on mobile
-- Text/Code
+-Iteration-01.plan
+-Iteration-01.review
