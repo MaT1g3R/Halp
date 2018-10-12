@@ -3,21 +3,12 @@
 - review: 2018-10-12
 
 # Roles
-<<<<<<< HEAD
-Customer: Kyle
-Project leader: Brandon
-Analyst: Xun
-Programmer: Arjun
-busniess consaltant: Pablo
-scrum master: Peijun
-=======
 - Customer: Kyle
 - Project leader: Brandon
 - Analyst: xun
 - Programmer: Arjun
 - busniess consaltant: Pablo
 - scrum master: Peijun
->>>>>>> 1e4cbad86b0cb30c7bc2a8b51811caef4a4a846f
 
 # Events
 - Planning Meeting:
