@@ -7,26 +7,16 @@ YOUR ANSWER GOES HERE ...
 
  * Short (1 - 2 min' read)
  * Start with a single sentence, high-level description of the product.
-
-   Misc. Job finding app like Uber
-
  * Be clear - Describe the problem you are solving in simple terms.
-
-    Helping unemployed people finding temp. jobs
-
  * Be concrete. For example:
-    * What are you planning to build? Is it a website, mobile app,
+  * What are you planning to build? Is it a website, mobile app,
    browser extension, command-line app, etc.?
-
-   mobile app
-
-    * When describing the problem/need, give concrete examples of common use cases.
+  * When describing the problem/need, give concrete examples of common use cases.
  * Focus on *what* your product does, and avoid discussing *how* you're going to implement it.
-
-    It brings workers and customers without going through a employer
-
    For example: This is not the time or the place to talk about which programming language and/or framework you are planning to use.
  * **Feel free (and very much encouraged) to include useful diagrams, mock-ups and/or links**.
+
+ Our product is a misc. job finding app. We are helping unemployed people and people who want extra money finding temporary jobs and clients getting random tasks done. We plan on building an Android mobile app. Which brings workers and clients without going through a employer. One use case would be a student where they have a free weekend and they are looking for extra cash, they could go turn on the app and find someone that is looking for work without much hassle. Or someone who is looking for a job in their field and needs something in the meantime, they can use the app and, for example, assemble a client’s new furniture they just bought from IKEA.
 
 
 #### Q2: Who are your target users?
