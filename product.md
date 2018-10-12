@@ -1,6 +1,3 @@
- > _Note:_ This document is meant to evolve throughout the planning phase of your project.    
- > That is, it makes sense for you commit regularly to this file while working on the project (especially edits/additions/deletions to the _Highlights_ section).
-
 #### Q1: What are you planning to build?
 
 Our product is a misc. job finding app. We are helping unemployed people and people who want extra money finding 
@@ -15,7 +12,6 @@ they can use the app and, for example, assemble a client’s new furniture they 
     
 Clients:
 -People who need odd jobs done 
-
 
 Workers:
 -People without jobs
