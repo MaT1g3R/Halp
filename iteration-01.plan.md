@@ -35,12 +35,14 @@
 - To have an working idea of the product that we want to build:
     - What features should we include
         - search/post jobs
-        - employee can set the work schedule/interval to receive/reject works
-        - user can receive job posts notification if he is available
-        - once the job post has been accepted, this search will be closed
+        - workers can set the work schedule/interval to receive/reject works
+        - workers can receive job posts notification if he is available(not working)
+        - client can decided which worker(s) to hire
+        - once the job-post has been accepted, this search will be closed
         
     - What the product looks like
-        - General idea and consensus
+        - like uber/kijiji
+        - 2 different interfaces for search/post
         
 - Find the tech stack which we would program our product:
     - Determine the tech stack which most if not all of our group is comfortable with
@@ -50,9 +52,11 @@
         - mobile app(android)
         
 - Determine the target users:
-    - Identifying our problem
-    - To whom that problem affects
-    - Identifying both user groups, since the app is asymmetrical
+    - client: -People who need odd jobs done 
+    - worker: -People without jobs
+              -People who want freelance work
+              -People who want extra work
+              -Students who have free time for work
 
 ## Artifacts
 -Iteration-01.plan

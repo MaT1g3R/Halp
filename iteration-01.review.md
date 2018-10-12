@@ -7,8 +7,8 @@
 
 ## Iteration XX - Review & Retrospect
 
- * When: FILL IN THE DATE WHEN YOU ACTUALLY HAD YOUR REVIEW MEETING
- * Where: PHYSICAL LOCATION AND/OR ONLINE
+ * When: 2018-10-12 4pm
+ * Where: Myhal 5th floor
 
 ## Process - Reflection
 
@@ -16,27 +16,26 @@
 
 List process-related (i.e. team organization) decisions that, in retrospect, turned out to be successful.
 
-
- * 2 - 4 decisions.
- * Ordered from most to least important.
- * Explain why (i.e. give a supporting argument) you consider a decision to be successful.
- * Feel free to refer/link to process artifact(s).
+    - we agreed on the most features in this app
+    - we agreed on the enviroument(java/android)
+    - we agreed on the communication tools
+    - 
 
 #### Decisions that did not turn out as well as we hoped
 
 List process-related (i.e. team organization) decisions that, in retrospect, were not as successful as you thought they would be.
 
- * 2 - 4 decisions.
- * Ordered from most to least important.
- * Feel free to refer/link to process artifact(s).
+    - if we should have 2 interfaces for client/worker or 2 different apps
+    - more wireframe
+    - time conflict for meeting
+    - 
 
 
 #### Planned changes
 
 List any process-related changes you are planning to make (if there are any)
 
- * Ordered from most to least important.
- * Explain why you are making a change.
+    - we will polish the features(add/delete based on skills)
 
 
 ## Product - Review
