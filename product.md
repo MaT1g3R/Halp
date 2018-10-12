@@ -3,8 +3,6 @@
 
 #### Q1: What are you planning to build?
 
-
-
 Our product is a misc. job finding app. We are helping unemployed people and people who want extra money finding 
 temporary jobs and clients getting random tasks done. We plan on building an Android mobile app.
 Which brings workers and clients without going through a employer. One use case would be a student where they have a 
@@ -14,7 +12,6 @@ they can use the app and, for example, assemble a client’s new furniture they 
 
 
 #### Q2: Who are your target users?
-
     
 Clients:
 -People who need odd jobs done 
@@ -41,7 +38,6 @@ own boss, effectively taking the work into their own hands. For people who need 
 (the people supplying the jobs) this could range from anything like getting help with moving furniture,
 assembling things , or even other housework. Someone that is looking for extra work but does not want to make 
 a time commitment to either a full or part time job would be able to use this app as an opportunity to find jobs.
-
 
 ----
 
