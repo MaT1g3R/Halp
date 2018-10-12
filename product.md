@@ -65,6 +65,3 @@ the conclusion that we will need separate interfaces for it to work. Apps like U
 We decided to use the issue and board system already in Github, to minimize the amount of software we 
 need to keep track of. Discord was a software everyone is comfortable with, and has a decent amount of tools that
 can assist with organization and effective communication. 
-
-
-
