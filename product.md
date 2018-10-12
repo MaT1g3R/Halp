@@ -1,9 +1,4 @@
- > _Note:_ This document is meant to evolve throughout the planning phase of your project.    
- > That is, it makes sense for you commit regularly to this file while working on the project (especially edits/additions/deletions to the _Highlights_ section).
-
 #### Q1: What are you planning to build?
-
-
 
 Our product is a misc. job finding app. We are helping unemployed people and people who want extra money finding 
 temporary jobs and clients getting random tasks done. We plan on building an Android mobile app.
@@ -14,11 +9,9 @@ they can use the app and, for example, assemble a client’s new furniture they 
 
 
 #### Q2: Who are your target users?
-
     
 Clients:
 -People who need odd jobs done 
-
 
 Workers:
 -People without jobs
@@ -42,11 +35,9 @@ own boss, effectively taking the work into their own hands. For people who need 
 assembling things , or even other housework. Someone that is looking for extra work but does not want to make 
 a time commitment to either a full or part time job would be able to use this app as an opportunity to find jobs.
 
-
 ----
 
 ### Highlights
-
 
 1) We had a few product ideas in mind. And we collectively narrowed down the options to the one we were all most 
 comfortable with. Our decision process was just a discussion about which product resonated the most with everyone. 
@@ -65,6 +56,3 @@ the conclusion that we will need separate interfaces for it to work. Apps like U
 We decided to use the issue and board system already in Github, to minimize the amount of software we 
 need to keep track of. Discord was a software everyone is comfortable with, and has a decent amount of tools that
 can assist with organization and effective communication. 
-
-
-
