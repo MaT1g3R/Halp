@@ -1,0 +1,15 @@
+dist: xenial
+sudo: false
+
+language: java
+
+pre-install:
+  - sudo apt-get update -y;
+  - sudo apt-get install pandoc -y;
+
+
+script:
+  - make docs
+
+notifications:
+  email: false
