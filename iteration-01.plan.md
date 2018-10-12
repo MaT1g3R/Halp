@@ -3,12 +3,21 @@
 - review: 2018-10-12
 
 # Roles
+<<<<<<< HEAD
+Customer: Kyle
+Project leader: Brandon
+Analyst: Xun
+Programmer: Arjun
+busniess consaltant: Pablo
+scrum master: Peijun
+=======
 - Customer: Kyle
 - Project leader: Brandon
 - Analyst: xun
 - Programmer: Arjun
 - busniess consaltant: Pablo
 - scrum master: Peijun
+>>>>>>> 1e4cbad86b0cb30c7bc2a8b51811caef4a4a846f
 
 # Events
 - Planning Meeting:
@@ -34,11 +43,18 @@
 ## Goals
 - To have an working idea of the product that we want to build:
     - What features should we include
+        - search/post jobs
+        - 
+        - 
     - What the product looks like
+        - 
+        - 
     - ...
 - Find the tech stack which we would program our product:
     - Determine the tech stack which most if not all of our group is comfortable with
+        - Java/python
     - Platform of our product
+        - mobile app(android)
     - ...
 - Determine the target users:
     - Identifying our problem
