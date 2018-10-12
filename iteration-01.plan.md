@@ -41,7 +41,7 @@
         - once the job-post has been accepted, this search will be closed
         
     - What the product looks like
-        - like uber/kijiji
+        - like uber/kijiji/AirBNB
         - 2 different interfaces for search/post
         
 - Find the tech stack which we would program our product:

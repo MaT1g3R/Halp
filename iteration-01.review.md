@@ -35,11 +35,23 @@ List any process-related changes you are planning to make (if there are any)
 
 #### Goals and/or tasks that were met/completed:
 
+-Rough idea of what we want to build
+
+-Find the tech stack we want to work with (java, android studio)
+
+-Determine target users
+
+-Organize communication and board
+
  * From most to least important.
  * Refer/link to artifact(s) that show that a goal/task was met/completed.
  * If a goal/task was not part of the original iteration plan, please mention it.
 
 #### Goals and/or tasks that were planned but not met/completed:
+
+-More detailed idea of the app
+
+-Wire frames or mock ups
 
  * From most to least important.
  * For each goal/task, explain why it was not met/completed.      
@@ -48,6 +60,14 @@ List any process-related changes you are planning to make (if there are any)
 ## Meeting Highlights
 
 Going into the next iteration, our main insights are:
+
+-We want to make sure we organize better and stay in contact more. We were all pretty busy outside of this class, 
+so we need to make sure out meetings are productive and effective. 
+
+-We want to try to produce more artifacts during our next sprint. We need to start working on the mock ups and 
+begin coding. 
+
+-Improve communication, and start using our board and issue tracker more effectively. 
 
  * 2 - 4 items
  * Short (no more than one short paragraph per item)
