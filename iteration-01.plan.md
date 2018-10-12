@@ -37,7 +37,8 @@
         - search/post jobs
         - employee can set the work schedule/interval to receive/reject works
         - user can receive job posts notification if he is available
-        - once the job post has been 
+        - once the job post has been accepted, this search will be closed
+        
     - What the product looks like
         - General idea and consensus
         
