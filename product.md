@@ -62,6 +62,9 @@ YOUR ANSWER GOES HERE ...
     * Provide users with more accurate and/or informative data (what kind of data? Why is it useful to them?)
 
 
+    Students that have extra free time either on weekends or during holidays would be able to use the app and make some extra cash. People without jobs would be able to use the app to find odd jobs between applying for a full time job to hold them over. People who want freelance work would see this as an opportunity to work their own hours and be their own boss, effectively taking the work into their own hands. For people who need odd jobs done (the people supplying the jobs) this could range from anything like getting help with moving furniture, assembling things , or even other housework. Someone that is looking for extra work but does not want to make a time commitment to either a full or part time job would be able to use this app as an opportunity to find jobs.
+
+
 ----
 
 ### Highlights
