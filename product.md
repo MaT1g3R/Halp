@@ -39,7 +39,6 @@ a time commitment to either a full or part time job would be able to use this ap
 
 ### Highlights
 
-
 1) We had a few product ideas in mind. And we collectively narrowed down the options to the one we were all most 
 comfortable with. Our decision process was just a discussion about which product resonated the most with everyone. 
 We also got some insight from the TAs to help us inform our decision. 
