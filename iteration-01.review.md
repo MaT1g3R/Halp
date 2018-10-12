@@ -1,11 +1,6 @@
-# YOUR PRODUCT/TEAM NAME
+# Team 22
 
- > _Note:_ This document is meant to be written during (or shortly after) your review meeting, which should happen fairly close to the due date.      
- >      
- > _Suggestion:_ Have your review meeting a day or two before the due date. This way you will have some time to go over (and edit) this document, and all team members should have a chance to make their contribution.
-
-
-## Iteration XX - Review & Retrospect
+## Iteration 01 - Review & Retrospect
 
  * When: 2018-10-12 4pm
  * Where: Myhal 5th floor
@@ -16,26 +11,24 @@
 
 List process-related (i.e. team organization) decisions that, in retrospect, turned out to be successful.
 
-    - we agreed on the most features in this app
-    - we agreed on the enviroument(java/android)
-    - we agreed on the communication tools
-    - 
+- we agreed on the most features in this app
+- we agreed on the enviroument(java/android)
+- we agreed on the communication tools
 
 #### Decisions that did not turn out as well as we hoped
 
 List process-related (i.e. team organization) decisions that, in retrospect, were not as successful as you thought they would be.
 
-    - if we should have 2 interfaces for client/worker or 2 different apps
-    - more wireframe
-    - time conflict for meeting
-    - 
+- if we should have 2 interfaces for client/worker or 2 different apps
+- more wireframe
+- time conflict for meeting
 
 
 #### Planned changes
 
 List any process-related changes you are planning to make (if there are any)
 
-    - we will polish the features(add/delete based on skills)
+- we will polish the features(add/delete based on skills)
 
 
 ## Product - Review
