@@ -23,13 +23,15 @@ YOUR ANSWER GOES HERE ...
 
 YOUR ANSWER GOES HERE ...
     
-    Students and people without jobs
+Clients:
+-People who need odd jobs done 
 
-    People want extra work
 
-    People who want free lance work
-
-    People who need odd jobs done
+Workers:
+-People without jobs
+-People who want freelance work
+-People who want extra work
+-Students who have free time for work
 
 
  * Short (1 - 2 min' read max)
