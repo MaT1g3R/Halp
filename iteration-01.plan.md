@@ -1,32 +1,37 @@
-# YOUR PRODUCT/TEAM NAME
-Team 22
-plan: 2018-10-09
-review: 2018-10-12
+# Team 22
+- plan: 2018-10-09
+- review: 2018-10-12
 
 # Roles
+<<<<<<< HEAD
 Customer: Kyle
 Project leader: Brandon
 Analyst: Xun
 Programmer: Arjun
 busniess consaltant: Pablo
 scrum master: Peijun
+=======
+- Customer: Kyle
+- Project leader: Brandon
+- Analyst: xun
+- Programmer: Arjun
+- busniess consaltant: Pablo
+- scrum master: Peijun
+>>>>>>> 1e4cbad86b0cb30c7bc2a8b51811caef4a4a846f
 
 # Events
-
-Planning Meeting
-- In person
-- Plan
-- Initial ideas and the foundation of the project
-
-Progress Meeting
-- Online on discord
-- State progress
-- Keep track of every one's task
-
-Review Meeting
-- In person
-- Review
-- Determine if goals are met
+- Planning Meeting:
+    - In person
+    - Plan
+    - Initial ideas and the foundation of the project
+- Progress Meeting:
+    - Online on discord
+    - State progress
+    - Keep track of every one's task
+- Review Meeting:
+    - In person
+    - Review
+    - Determine if goals are met
 
 # Artifacts
 
@@ -36,8 +41,7 @@ Review Meeting
 # Product
 
 ## Goals
-
-To have an working idea of the product that we want to build
+- To have an working idea of the product that we want to build:
     - What features should we include
         - search/post jobs
         - 
@@ -46,15 +50,13 @@ To have an working idea of the product that we want to build
         - 
         - 
     - ...
-
-Find the tech stack which we would program our product
+- Find the tech stack which we would program our product:
     - Determine the tech stack which most if not all of our group is comfortable with
         - Java/python
     - Platform of our product
         - mobile app(android)
     - ...
-
-Determine the target users
+- Determine the target users:
     - Identifying our problem
     - To whom that problem affects
     - ...
@@ -64,4 +66,3 @@ Determine the target users
 - Live demo
 - Build an interactive application prototype that can be used on mobile
 - Text/Code
-
