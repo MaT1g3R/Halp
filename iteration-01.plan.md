@@ -44,10 +44,10 @@ scrum master: Peijun
 - To have an working idea of the product that we want to build:
     - What features should we include
         - search/post jobs
-        - 
-        - 
+        - employee can set the work schedule/interval to receive/reject works
+        - user can receive job posts notification if he is available
+        - once the job post has been 
     - What the product looks like
-        - 
         - 
     - ...
 - Find the tech stack which we would program our product:
