@@ -3,7 +3,7 @@ sudo: false
 
 language: java
 
-pre-install:
+before_install:
   - sudo apt-get update -y;
   - sudo apt-get install pandoc -y;
 
