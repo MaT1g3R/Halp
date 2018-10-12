@@ -41,15 +41,7 @@ Workers:
 
 #### Q3: Why would your users choose your product? What are they using today to solve their problem/need?
 
-It easy and convenient,
-
-It solves a common issue
-
-You get to pick your own hours
-
-You can save money on odd jobs
-
-No stiff approval process
+It is an easy and convenient solution to an issue that a lot of people are facing in the current job market. The app would allow the users to either post jobs that they need done, or help the other users with their posted job and get money for it. The workers in this case would be able to work when they choose to and the customers in this case would get to pick when they are available to get the work done.
 
 
 YOUR ANSWER GOES HERE ...
