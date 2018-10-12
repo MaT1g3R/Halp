@@ -6,7 +6,7 @@ review: 2018-10-12
 # Roles
 Customer: Kyle
 Project leader: Brandon
-Analyst: xun
+Analyst: Xun
 Programmer: Arjun
 busniess consaltant: Pablo
 scrum master: Peijun
@@ -39,12 +39,19 @@ Review Meeting
 
 To have an working idea of the product that we want to build
     - What features should we include
+        - search/post jobs
+        - 
+        - 
     - What the product looks like
+        - 
+        - 
     - ...
 
 Find the tech stack which we would program our product
     - Determine the tech stack which most if not all of our group is comfortable with
+        - Java/python
     - Platform of our product
+        - mobile app(android)
     - ...
 
 Determine the target users
