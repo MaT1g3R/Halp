@@ -1,28 +1,36 @@
-dist: xenial
 sudo: false
 
 language: android
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+    - $HOME/.android/build-cache
+
 android:
   components:
-    - build-tools-28.0.0
+    - tools
+    - platform-tools
+    - build-tools-28.0.2
     - android-28
-    - extra
-    - sys-img-armeabi-v7a-android-28
+    - android-24
+    - extra-google-google_play_services
+    - extra-google-m2repository
+    - extra-android-m2repository
+    - addon-google_apis-google-28
+    - sys-img-armeabi-v7a-android-24
+    - extra-android-support
   licenses:
-    - 'android-sdk-preview-license-.+'
-    - 'android-sdk-license-.+'
-    - 'google-gdk-license-.+'
-
+    - android-sdk-preview-license-.+
+    - android-sdk-license-.+
+    - google-gdk-license-.+
 
 before_install:
-  - sudo apt-get update -y;
-  - sudo apt-get install pandoc -y;
+  - yes | sdkmanager "platforms;android-28"
+  - yes | sdkmanager "build-tools;28.0.3"
 
 script:
   - make test
-
-after_script:
-  - make docs
 
 notifications:
   email: false

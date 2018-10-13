@@ -12,6 +12,7 @@
 
 # Package Files #
 *.jar
+!AndroidApp/gradle/wrapper/gradle-wrapper.jar
 *.war
 *.nar
 *.ear

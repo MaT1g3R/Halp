@@ -10,19 +10,16 @@ list:
 
 no_targets__:
 
+test: emulator
+	./scripts/test.sh
+
+emulator: ; ./scripts/emulator.sh
+
+build: ; mkdir build
+
 docs: build
 	./scripts/docs.sh
 
 clean:
 	-rm -rf build/*
 
-test: emulator
-	./scripts/test.sh
-
-emulator:
-	echo no | android create avd --force -n test -t android-28 --abi armeabi-v7a
-	emulator -avd test -no-skin -no-audio -no-window &
-	android-wait-for-emulator
-	adb shell input keyevent 82 &
-
-build: ; mkdir build
