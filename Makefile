@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 
-.PHONY: list no_targets__ docs clean
+.PHONY: list no_targets__ docs clean test emulator
 
 list:
 	@sh -c "$(MAKE) -p no_targets__ | \
@@ -15,5 +15,14 @@ docs: build
 
 clean:
 	-rm -rf build/*
+
+test: emulator
+	./scripts/test.sh
+
+emulator:
+	echo no | android create avd --force -n test -t android-28 --abi armeabi-v7a
+	emulator -avd test -no-skin -no-audio -no-window &
+	android-wait-for-emulator
+	adb shell input keyevent 82 &
 
 build: ; mkdir build

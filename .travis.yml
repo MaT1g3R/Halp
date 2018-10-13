@@ -1,14 +1,27 @@
 dist: xenial
 sudo: false
 
-language: java
+language: android
+android:
+  components:
+    - build-tools-28.0.0
+    - android-28
+    - extra
+    - sys-img-armeabi-v7a-android-28
+  licenses:
+    - 'android-sdk-preview-license-.+'
+    - 'android-sdk-license-.+'
+    - 'google-gdk-license-.+'
+
 
 before_install:
   - sudo apt-get update -y;
   - sudo apt-get install pandoc -y;
 
-
 script:
+  - make test
+
+after_script:
   - make docs
 
 notifications:
