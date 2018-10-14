@@ -12,23 +12,27 @@
 List process-related (i.e. team organization) decisions that, in retrospect, turned out to be successful.
 
 - we agreed on the most features in this app
-- we agreed on the enviroument(java/android)
+- we agreed on the environment(java/android)
 - we agreed on the communication tools
 
 #### Decisions that did not turn out as well as we hoped
 
 List process-related (i.e. team organization) decisions that, in retrospect, were not as successful as you thought they would be.
 
-- if we should have 2 interfaces for client/worker or 2 different apps
-- more wireframe
-- time conflict for meeting
+- if we should have 2 interfaces for client/worker or 2 different apps. We still are not entirely sure which is the best option. 
+-Being better organized and using the board and github ticketing system more are two things we need to focus on 
+during the next sprint. We want to make sure we are using the tools we have set up. 
+- There was a time conflict for the meeting. Because of our conflicting schedules other commitments, it is 
+important to plan out meeting times well in advance to make sure everyone can make it. 
 
 
 #### Planned changes
 
 List any process-related changes you are planning to make (if there are any)
 
-- we will polish the features(add/delete based on skills)
+- We will polish the features(add/delete based on skills)
+- We will make sure to plan well in advance
+-We will make sure to use the board and ticketing system more
 
 
 ## Product - Review
@@ -36,6 +40,7 @@ List any process-related changes you are planning to make (if there are any)
 #### Goals and/or tasks that were met/completed:
 
 -Rough idea of what we want to build
+    There is a wire frame mock-up titled "Rough-Mockup" in the deliverables folder
 
 -Find the tech stack we want to work with (java, android studio)
 
@@ -51,11 +56,10 @@ List any process-related changes you are planning to make (if there are any)
 
 -More detailed idea of the app
 
--Wire frames or mock ups
+-Starting the wire frames earlier and having them be more in depth
 
- * From most to least important.
- * For each goal/task, explain why it was not met/completed.      
-   e.g. Did you change your mind, or did you just not get to it yet?
+-A more detailed view on our user base. We have a pretty god idea of the user base, but coming 
+up with some personas would have been helpful. 
 
 ## Meeting Highlights
 
@@ -69,8 +73,3 @@ begin coding.
 
 -Improve communication, and start using our board and issue tracker more effectively. 
 
- * 2 - 4 items
- * Short (no more than one short paragraph per item)
- * High-level concepts that should guide your work for the next iteration.
- * These concepts should help you decide on where to focus your efforts.
- * Can be related to product and/or process.

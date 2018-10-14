@@ -35,6 +35,7 @@ Responsible for ensuring that the meetings are fast, efficient, and that all par
 
 - GitHub board/issues
 - Discord for communication and online voice meetings
+-Balsamiq for mock-ups
 
 # Product
 
@@ -66,5 +67,7 @@ Responsible for ensuring that the meetings are fast, efficient, and that all par
               -Students who have free time for work
 
 ## Artifacts
--Iteration-01.plan
--Iteration-01.review
+-Iteration-01.plan.md
+-Iteration-01.review.md
+-Product.md
+-Rough_Mockup.pdf
