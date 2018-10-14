@@ -8,7 +8,9 @@ work without much hassle. Or someone who is looking for a job in their field and
 they can use the app and, for example, assemble a client’s new furniture they just bought from IKEA.
 
 There is a rough mock-up in the deliverables folder titled "Rough_Mockup.pdf". This mock-up is only a rough draft and 
-is subject to change and be iterated on during the next few sprints. 
+is subject to change and be iterated on during the next few sprints. The mock-up can be interacted with, 
+but it is required that you download the pdf first since github does not seem to handle the interactive components 
+of the pdf. 
 
 
 #### Q2: Who are your target users?
