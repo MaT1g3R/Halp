@@ -4,6 +4,7 @@
 
 # Roles
 - Customer: Kyle
+
 Will be responsible for acting as the target user for this product, during meetings will elaborate on what problem this product is supposed to solve, and what features a target user would need and want out of this product.
 - Project leader: Brandon
 Acts as the leader of the project. Delegates tasks to the team and keeps track of everyone's progress. During meetings is responsible for coming up with the tasks that need to be done and assigning them to the appropriate people.
