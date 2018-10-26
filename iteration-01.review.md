@@ -36,6 +36,7 @@ List process-related (i.e. team organization) decisions that, in retrospect, wer
 List any process-related changes you are planning to make (if there are any)
 
     - we will polish the features(add/delete based on skills)
+    - we started to use github board
 
 
 ## Product - Review
