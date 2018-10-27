@@ -1,2 +1,4 @@
 #!/bin/bash
-find ./ -iname "*.md" -type f -exec sh -c 'pandoc "${0}" -o "build/${0%.md}.pdf"' {} \;
+for file in deliverables/*.md; do
+    pandoc $file -o build/${file##*/}.pdf;
+done

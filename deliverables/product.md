@@ -7,6 +7,11 @@ free weekend and they are looking for extra cash, they could go turn on the app 
 work without much hassle. Or someone who is looking for a job in their field and needs something in the meantime, 
 they can use the app and, for example, assemble a client’s new furniture they just bought from IKEA.
 
+There is a rough mock-up in the deliverables folder titled "Rough_Mockup.pdf". This mock-up is only a rough draft and 
+is subject to change and be iterated on during the next few sprints. The mock-up can be interacted with, 
+but it is required that you download the pdf first since github does not seem to handle the interactive components 
+of the pdf. 
+
 
 #### Q2: Who are your target users?
     
@@ -56,3 +61,5 @@ the conclusion that we will need separate interfaces for it to work. Apps like U
 We decided to use the issue and board system already in Github, to minimize the amount of software we 
 need to keep track of. Discord was a software everyone is comfortable with, and has a decent amount of tools that
 can assist with organization and effective communication. 
+
+5)Created a rough wire frame mock-up for the app
