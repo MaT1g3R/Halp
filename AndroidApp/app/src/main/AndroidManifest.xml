@@ -23,6 +23,7 @@
         </activity>
         <activity android:name=".login" />
         <activity android:name=".create_account"></activity>
+        <activity android:name=".activity_request_frontpage" />
     </application>
 
 </manifest>
