@@ -50,7 +50,7 @@
         android:id="@+id/scrollViewRequestList"
         style="@android:style/Widget.Material.ScrollView"
         android:layout_width="match_parent"
-        android:layout_height="495dp"
+        android:layout_height="502dp"
         android:background="@color/base00"
         android:scrollbarStyle="outsideOverlay">
 
