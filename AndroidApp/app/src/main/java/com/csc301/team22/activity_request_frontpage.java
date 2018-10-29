@@ -30,12 +30,10 @@ public class activity_request_frontpage extends AppCompatActivity {
 
     private void setupRequests(List<Request> requests) {
         for (Request request : requests) {
-            ExpandableView requestView = new ExpandableView(this, request.getName(), request.getDescription());
-            requestView.getButtonTitle().setBackgroundColor(getColor(R.color.base01));
-            requestView.getTextViewDescription().setPadding(10, 10, 10, 10);
+            RequestCardView requestCardView = new RequestCardView(this, request.getName(), request.getDescription());
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
             lp.setMargins(10, 0, 10, 0);
-            linearLayoutRequestList.addView(requestView, lp);
+            linearLayoutRequestList.addView(requestCardView.getLayout(), lp);
         }
     }
 }
