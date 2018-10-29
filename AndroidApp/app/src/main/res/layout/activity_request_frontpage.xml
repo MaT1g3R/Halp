@@ -51,7 +51,7 @@
         style="@android:style/Widget.Material.ScrollView"
         android:layout_width="match_parent"
         android:layout_height="495dp"
-        android:scrollbarStyle="insideOverlay">
+        android:scrollbarStyle="outsideOverlay">
 
         <LinearLayout
             android:id="@+id/linearLayoutRequestList"
