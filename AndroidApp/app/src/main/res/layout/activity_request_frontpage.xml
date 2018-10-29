@@ -51,6 +51,7 @@
         style="@android:style/Widget.Material.ScrollView"
         android:layout_width="match_parent"
         android:layout_height="495dp"
+        android:background="@color/base00"
         android:scrollbarStyle="outsideOverlay">
 
         <LinearLayout
@@ -65,7 +66,7 @@
         style="@android:style/Widget.Material.Button"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:backgroundTint="@android:color/holo_green_dark"
+        android:backgroundTint="@color/base0C"
         android:text="@string/post_a_new_request"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Button" />
 </LinearLayout>

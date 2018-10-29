@@ -34,6 +34,14 @@ public class ExpandableView extends LinearLayout implements View.OnClickListener
         this.buttonTitle.setOnClickListener(this);
     }
 
+    public Button getButtonTitle() {
+        return buttonTitle;
+    }
+
+    public TextView getTextViewDescription() {
+        return textViewDescription;
+    }
+
     @Override
     public void onClick(View v) {
         if (expanded) {
