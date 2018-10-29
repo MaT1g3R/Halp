@@ -35,7 +35,7 @@
             android:background="@android:color/transparent"
             android:contentDescription="@string/profile_picture"
             android:scaleType="fitCenter"
-            tools:srcCompat="@tools:sample/avatars" />
+            tools:srcCompat="@tools:sample/avatars[0]" />
     </LinearLayout>
 
     <Button
@@ -49,7 +49,7 @@
     <ScrollView
         android:id="@+id/scrollViewRequestList"
         android:layout_width="match_parent"
-        android:layout_height="415dp"
+        android:layout_height="513dp"
         android:scrollbarStyle="insideOverlay">
 
     </ScrollView>
@@ -59,7 +59,7 @@
         style="@android:style/Widget.Material.Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/holo_green_dark"
+        android:backgroundTint="@android:color/holo_green_dark"
         android:text="@string/post_a_new_request"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Button" />
 </LinearLayout>
