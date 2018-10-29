@@ -48,17 +48,23 @@
 
     <ScrollView
         android:id="@+id/scrollViewRequestList"
+        style="@android:style/Widget.Material.ScrollView"
         android:layout_width="match_parent"
-        android:layout_height="513dp"
+        android:layout_height="495dp"
         android:scrollbarStyle="insideOverlay">
 
+        <LinearLayout
+            android:id="@+id/linearLayoutRequestList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"></LinearLayout>
     </ScrollView>
 
     <Button
         android:id="@+id/buttonPostRequest"
         style="@android:style/Widget.Material.Button"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:backgroundTint="@android:color/holo_green_dark"
         android:text="@string/post_a_new_request"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Button" />
