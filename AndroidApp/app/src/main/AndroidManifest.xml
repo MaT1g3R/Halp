@@ -17,14 +17,18 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".login" />
-        <activity android:name=".create_account"></activity>
+        <activity android:name=".create_account" />
         <activity
             android:name=".activity_request_frontpage"
             android:exported="true" />
+        <activity
+            android:name=".DetailedRequestList"
+            android:exported="true"></activity>
     </application>
 
 </manifest>
