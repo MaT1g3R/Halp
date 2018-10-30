@@ -24,7 +24,7 @@
         <activity android:name=".login" />
         <activity android:name=".create_account" />
         <activity
-            android:name=".activity_request_frontpage"
+            android:name=".RequestFrontpage"
             android:exported="true" />
         <activity
             android:name=".DetailedRequestList"

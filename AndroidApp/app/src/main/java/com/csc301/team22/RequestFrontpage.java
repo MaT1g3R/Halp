@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.LinearLayout;
 
-public class activity_request_frontpage extends AppCompatActivity {
+public class RequestFrontpage extends AppCompatActivity {
     private LinearLayout linearLayoutRequestList;
 
     @Override
