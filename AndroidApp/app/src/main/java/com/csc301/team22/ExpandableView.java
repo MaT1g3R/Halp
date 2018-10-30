@@ -1,47 +1,46 @@
 package com.csc301.team22;
 
-import android.content.Context;
 import android.view.View;
-import android.widget.Button;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
-public class ExpandableView extends LinearLayout implements View.OnClickListener {
+public abstract class ExpandableView implements IExpandableView {
+    View titleView;
+    View bodyView;
+    LinearLayout layout;
+    LinearLayout.LayoutParams layoutParams;
+    boolean expanded = false;
 
-    private String title;
-    private String description;
-    private Button buttonTitle;
-    private TextView textViewDescription;
-    private LinearLayout.LayoutParams layoutParams;
-    private boolean expanded = false;
+    public static LinearLayout.LayoutParams defaultLayoutParams() {
+        return new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+    }
 
-    public ExpandableView(Context context, String title, String description) {
-        super(context);
-        this.setOrientation(VERTICAL);
-        this.title = title;
-        this.description = description;
+    public LinearLayout getLayout() {
+        return layout;
+    }
 
-        layoutParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+    void setUpViews() {
+        layout.setOrientation(LinearLayout.VERTICAL);
+        layout.addView(titleView, layoutParams);
+        titleView.setOnClickListener(this);
+    }
 
-        buttonTitle = new Button(getContext());
-        buttonTitle.setText(this.title);
+    public void expand() {
+        layout.addView(bodyView, layoutParams);
+        expanded = true;
+    }
 
-        textViewDescription = new TextView(getContext());
-        textViewDescription.setText(this.description);
-
-        addView(buttonTitle, layoutParams);
-
-        this.buttonTitle.setOnClickListener(this);
+    public void collapse() {
+        layout.removeView(bodyView);
+        expanded = false;
     }
 
     @Override
     public void onClick(View v) {
         if (expanded) {
-            removeView(textViewDescription);
-            expanded = false;
+            collapse();
         } else {
-            addView(textViewDescription, layoutParams);
-            expanded = true;
+            expand();
         }
     }
 }
