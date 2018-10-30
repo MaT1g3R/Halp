@@ -18,7 +18,7 @@ public class RequestFrontpage extends AppCompatActivity {
 
     private void setupRequests(Iterable<Request> requests) {
         for (Request request : requests) {
-            RequestCardView requestCardView = new RequestCardView(this, request.getName(), request.getDescription());
+            RequestCardView requestCardView = request.toCardView(this);
             LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
             lp.setMargins(10, 0, 10, 0);
             linearLayoutRequestList.addView(requestCardView.getLayout(), lp);
