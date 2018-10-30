@@ -1,5 +1,9 @@
 package com.csc301.team22;
 
+import android.content.Context;
+import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
+
 import java.util.Arrays;
 
 public class RequestManager {
@@ -19,5 +23,14 @@ public class RequestManager {
                 new Request("3-Day Manual Labor", ""),
                 new Request("Garbage Disposal", "")
         );
+    }
+
+    public void addToLinearLayout(Context context, LinearLayout layout) {
+        for (Request request : getRequests()) {
+            RequestCardView cardView = request.toCardView(context);
+            LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+            lp.setMargins(10, 0, 10, 0);
+            layout.addView(cardView.getLayout(), lp);
+        }
     }
 }

@@ -13,15 +13,6 @@ public class RequestFrontpage extends AppCompatActivity {
         setContentView(R.layout.activity_request_frontpage);
 
         linearLayoutRequestList = findViewById(R.id.linearLayoutRequestList);
-        setupRequests(RequestManager.getInstance().getRequests());
-    }
-
-    private void setupRequests(Iterable<Request> requests) {
-        for (Request request : requests) {
-            RequestCardView requestCardView = request.toCardView(this);
-            LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-            lp.setMargins(10, 0, 10, 0);
-            linearLayoutRequestList.addView(requestCardView.getLayout(), lp);
-        }
+        RequestManager.getInstance().addToLinearLayout(this, linearLayoutRequestList);
     }
 }
