@@ -17,4 +17,7 @@
     <string name="profile_picture">Profile Picture</string>
     <string name="current_requests">Current Requests</string>
     <string name="post_a_new_request">Post a new Request</string>
+    <string name="find_work">Find Work</string>
+    <string name="post_job">Post Job</string>
+    <string name="profile">Profile</string>
 </resources>

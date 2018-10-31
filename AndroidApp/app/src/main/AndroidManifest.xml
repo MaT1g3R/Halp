@@ -28,7 +28,8 @@
             android:exported="true" />
         <activity
             android:name=".DetailedRequestList"
-            android:exported="true"></activity>
+            android:exported="true" />
+        <activity android:name=".PostJobFindWork"></activity>
     </application>
 
 </manifest>
