@@ -6,37 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="49dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/buttonHome"
-            style="@android:style/Widget.Material.Button"
-            android:layout_width="134dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:elevation="0dp"
-            android:text="@string/home"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Button" />
-
-        <Space
-            android:layout_width="165dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-        <ImageButton
-            android:id="@+id/buttonProfile"
-            style="@android:style/Widget.Material.ImageButton"
-            android:layout_width="37dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@android:color/transparent"
-            android:contentDescription="@string/profile_picture"
-            android:scaleType="fitCenter"
-            tools:srcCompat="@tools:sample/avatars[0]" />
-    </LinearLayout>
+    <include layout="@layout/topbar_layout" />
 
     <ScrollView
         android:id="@+id/scrollViewRequestList"
