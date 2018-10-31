@@ -28,6 +28,9 @@
             android:exported="true" />
         <activity
             android:name=".DetailedRequestList"
+            android:exported="true" />
+        <activity
+            android:name=".RequestSubmissionActivity"
             android:exported="true"></activity>
     </application>
 
