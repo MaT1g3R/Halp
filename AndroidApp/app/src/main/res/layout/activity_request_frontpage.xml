@@ -18,20 +18,10 @@
         android:text="@string/current_requests"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Button" />
 
-    <ScrollView
-        android:id="@+id/scrollViewRequestList"
-        style="@android:style/Widget.Material.ScrollView"
+    <include
+        layout="@layout/request_list_layout"
         android:layout_width="match_parent"
-        android:layout_height="502dp"
-        android:background="@color/base00"
-        android:scrollbarStyle="outsideOverlay">
-
-        <LinearLayout
-            android:id="@+id/linearLayoutRequestList"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"></LinearLayout>
-    </ScrollView>
+        android:layout_height="501dp" />
 
     <Button
         android:id="@+id/buttonPostRequest"

@@ -8,19 +8,6 @@
 
     <include layout="@layout/topbar_layout" />
 
-    <ScrollView
-        android:id="@+id/scrollViewRequestList"
-        style="@android:style/Widget.Material.ScrollView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/base00"
-        android:scrollbarStyle="outsideOverlay">
-
-        <LinearLayout
-            android:id="@+id/linearLayoutRequestList"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"></LinearLayout>
-    </ScrollView>
+    <include layout="@layout/request_list_layout" />
 
 </LinearLayout>
