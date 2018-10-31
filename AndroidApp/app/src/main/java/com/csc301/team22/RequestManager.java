@@ -5,6 +5,7 @@ import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 
 import java.util.Arrays;
+import java.util.Date;
 
 public class RequestManager {
     private static final RequestManager ourInstance = new RequestManager();
@@ -31,6 +32,14 @@ public class RequestManager {
             LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
             lp.setMargins(10, 0, 10, 0);
             layout.addView(cardView.getLayout(), lp);
+        }
+    }
+
+    public void createRequest(String title, String description, Date date) {
+        if (date == null) {
+            System.out.println("Creating Request now: " + title + " - " + description);
+        } else {
+            System.out.println("Creating Request later: " + title + " - " + description + " at " + date);
         }
     }
 }
