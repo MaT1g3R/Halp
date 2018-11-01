@@ -50,8 +50,7 @@ public class PostJobFindWork extends AppCompatActivity {
     }
 
     public void findWork() {
-        //TODO: Jump to Work Finder page
-        Intent intent = new Intent(getApplicationContext(), RequestFrontpage.class);
+        Intent intent = new Intent(getApplicationContext(), WorkFinder.class);
         startActivity(intent);
     }
 
