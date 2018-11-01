@@ -1,9 +1,9 @@
 package com.csc301.team22;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
-public class create_account extends AppCompatActivity {
+public class CreateAccount extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

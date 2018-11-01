@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         public void openCreateAccount(){
-            Intent intent = new Intent(this, create_account.class);
+            Intent intent = new Intent(this, CreateAccount.class);
             startActivity(intent);
         }
 

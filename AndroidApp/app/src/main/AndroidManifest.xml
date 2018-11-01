@@ -22,7 +22,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".login" />
-        <activity android:name=".create_account" />
+        <activity
+            android:name=".CreateAccount"
+            android:exported="true" />
         <activity
             android:name=".RequestFrontpage"
             android:exported="true" />
