@@ -17,8 +17,8 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        buttonHome = findViewById(R.id.home);
-        buttonHome.setOnClickListener(v -> Util.openActivity(this, MainActivity.class));
+        buttonHome = findViewById(R.id.buttonHome);
+        buttonHome.setOnClickListener(v -> Util.openActivity(this, PostJobFindWorkActivity.class));
     }
 
 
