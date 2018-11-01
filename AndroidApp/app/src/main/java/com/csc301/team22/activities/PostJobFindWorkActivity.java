@@ -32,9 +32,9 @@ public class PostJobFindWorkActivity extends AppCompatActivity {
         Util.openActivity(this, RequestFrontpageActivity.class);
     }
 
-    public void findWork() {
-        //TODO: Jump to Work Finder page
+    public void findWork() {Util.openActivity(this, RequestFrontpageActivity.class);
     }
 
-    public void openProfile() {Util.openActivity(this, ProfileActivity.class);}
+    public void openProfile() {Util.openActivity(this, ProfileActivity.class);
+    }
 }
