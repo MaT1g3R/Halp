@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.csc301.team22.activities.CreateAccountActivity;
+
 public class MainActivity extends AppCompatActivity {
     private Button login;
     private Button createAccount;
@@ -40,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         public void openCreateAccount(){
-            Intent intent = new Intent(this, create_account.class);
+            Intent intent = new Intent(this, CreateAccountActivity.class);
             startActivity(intent);
         }
 
