@@ -18,7 +18,7 @@ public final class Util {
         return r;
     }
 
-    static <T extends AppCompatActivity> void
+    public static <T extends AppCompatActivity> void
     openActivity(AppCompatActivity source, Class<T> target) {
         Intent intent = new Intent(source.getApplicationContext(), target);
         source.startActivity(intent);

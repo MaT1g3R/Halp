@@ -1,9 +1,11 @@
-package com.csc301.team22;
+package com.csc301.team22.views;
 
 import android.content.Context;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.csc301.team22.R;
 
 public class RequestCardView extends ExpandableView {
     private Button buttonTitle;

@@ -1,13 +1,15 @@
-package com.csc301.team22;
+package com.csc301.team22.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-public class Login extends AppCompatActivity {
+import com.csc301.team22.R;
+
+public class CreateAccountActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_create_account);
     }
 }

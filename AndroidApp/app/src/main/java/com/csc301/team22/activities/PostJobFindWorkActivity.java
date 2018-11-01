@@ -1,10 +1,13 @@
-package com.csc301.team22;
+package com.csc301.team22.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 
-public class PostJobFindWork extends AppCompatActivity {
+import com.csc301.team22.R;
+import com.csc301.team22.Util;
+
+public class PostJobFindWorkActivity extends AppCompatActivity {
     private Button postJob;
     private Button findWork;
     private Button buttonProfile;
@@ -26,7 +29,7 @@ public class PostJobFindWork extends AppCompatActivity {
     }
 
     public void postJob() {
-        Util.openActivity(this, RequestFrontpage.class);
+        Util.openActivity(this, RequestFrontpageActivity.class);
     }
 
     public void findWork() {

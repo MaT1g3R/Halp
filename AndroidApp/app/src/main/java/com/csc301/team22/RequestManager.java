@@ -4,6 +4,8 @@ import android.content.Context;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 
+import com.csc301.team22.views.RequestCardView;
+
 import java.util.Arrays;
 import java.util.Date;
 
