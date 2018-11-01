@@ -39,6 +39,9 @@
         <activity
             android:name=".activities.RequestSubmissionActivity"
             android:exported="true"></activity>
+        <activity
+            android:name=".activities.WorkerFoundConfirmationActivity"
+            android:exported="true"></activity>
     </application>
 
 </manifest>
