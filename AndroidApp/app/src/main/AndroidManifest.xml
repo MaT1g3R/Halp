@@ -40,6 +40,7 @@
             android:name=".activities.RequestSubmissionActivity"
             android:exported="true"></activity>
         <activity
+            android:name=".activities.WorkNowWorkLaterActivity"
             android:name=".activities.WorkerFoundConfirmationActivity"
             android:exported="true"></activity>
         <activity
