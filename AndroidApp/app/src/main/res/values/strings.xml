@@ -33,4 +33,6 @@
     <string name="radius_of_travel">Radius of travel:</string>
     <string name="enter_distance">Enter distance...</string>
     <string name="enter_address">Enter address...</string>
+    <string name="distance">Distance</string>
+    <string name="address">Address</string>
 </resources>
