@@ -10,11 +10,15 @@ import com.csc301.team22.R;
 import com.csc301.team22.Util;
 
 public class ProfileActivity extends AppCompatActivity {
+    private Button buttonHome;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        buttonHome = findViewById(R.id.buttonHome);
+        buttonHome.setOnClickListener(v -> Util.openActivity(this, PostJobFindWorkActivity.class));
     }
 
 }
