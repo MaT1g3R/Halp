@@ -30,6 +30,9 @@
             android:name=".DetailedRequestList"
             android:exported="true" />
         <activity android:name=".PostJobFindWork"></activity>
+        <activity
+            android:name=".RequestSubmissionActivity"
+            android:exported="true"></activity>
     </application>
 
 </manifest>

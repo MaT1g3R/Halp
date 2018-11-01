@@ -20,4 +20,11 @@
     <string name="find_work">Find Work</string>
     <string name="post_job">Post Job</string>
     <string name="profile">Profile</string>
+    <string name="Title">Title:</string>
+    <string name="reqeust_title">Reqeust Title</string>
+    <string name="description">Description:</string>
+    <string name="request_description">request description</string>
+    <string name="i_need_help_now">I Need Help Now</string>
+    <string name="i_need_help_later">I Need Help Later</string>
+    <string name="request_title">Request Title</string>
 </resources>
