@@ -35,4 +35,6 @@
     <string name="enter_address">Enter address...</string>
     <string name="distance">Distance</string>
     <string name="address">Address</string>
+    <string name="work_now">Work Now</string>
+    <string name="work_later">Work Later</string>
 </resources>
