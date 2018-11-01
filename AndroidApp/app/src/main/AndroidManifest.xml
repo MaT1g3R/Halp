@@ -31,7 +31,8 @@
             android:exported="true" />
         <activity
             android:name=".RequestSubmissionActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
+        <activity android:name=".WorkFinder"></activity>
     </application>
 
 </manifest>
