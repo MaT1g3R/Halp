@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Team22</string>
     <string name="title_activity_login">Sign in</string>
-    <!-- Strings related to login -->
+    <!-- Strings related to LoginActivity -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
     <string name="action_sign_in">Sign in or register</string>
@@ -13,4 +13,18 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="home">Home</string>
+    <string name="profile_picture">Profile Picture</string>
+    <string name="current_requests">Current Requests</string>
+    <string name="post_a_new_request">Post a new Request</string>
+    <string name="find_work">Find Work</string>
+    <string name="post_job">Post Job</string>
+    <string name="profile">Profile</string>
+    <string name="Title">Title:</string>
+    <string name="reqeust_title">Reqeust Title</string>
+    <string name="description">Description:</string>
+    <string name="request_description">request description</string>
+    <string name="i_need_help_now">I Need Help Now</string>
+    <string name="i_need_help_later">I Need Help Later</string>
+    <string name="request_title">Request Title</string>
 </resources>
