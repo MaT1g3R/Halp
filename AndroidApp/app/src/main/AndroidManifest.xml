@@ -44,10 +44,14 @@
             android:exported="true" />
         <activity
             android:name=".activities.WorkerFoundConfirmationActivity"
-            android:exported="true" />
+
+            android:exported="true"></activity>
+        <activity
+            android:name=".activities.JobConfirmationActivity"
+            android:exported="true"></activity>
         <activity
             android:name=".activities.ProfileActivity"
-            android:exported="true" />
+            android:exported="true"></activity>
     </application>
 
 </manifest>
