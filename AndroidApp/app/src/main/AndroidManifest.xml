@@ -7,6 +7,9 @@
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
+    <!-- To access Google+ APIs: -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -40,6 +43,7 @@
             android:name=".activities.RequestSubmissionActivity"
             android:exported="true" />
         <activity
+            android:name=".activities.WorkNowWorkLaterActivity"
             android:name=".activities.WorkerFoundConfirmationActivity"
             android:exported="true" />
         <activity

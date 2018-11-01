@@ -27,4 +27,6 @@
     <string name="i_need_help_now">I Need Help Now</string>
     <string name="i_need_help_later">I Need Help Later</string>
     <string name="request_title">Request Title</string>
+    <string name="work_now">Work Now</string>
+    <string name="work_later">Work Later</string>
 </resources>
