@@ -1,4 +1,4 @@
-package com.csc301.team22;
+package com.csc301.team22.views;
 
 import android.view.View;
 

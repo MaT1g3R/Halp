@@ -1,10 +1,14 @@
-package com.csc301.team22;
+package com.csc301.team22.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.csc301.team22.R;
+import com.csc301.team22.RequestManager;
+import com.csc301.team22.Util;
 
 import java.util.Date;
 

@@ -1,10 +1,13 @@
-package com.csc301.team22;
+package com.csc301.team22.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.LinearLayout;
 
-public class DetailedRequestList extends AppCompatActivity {
+import com.csc301.team22.R;
+import com.csc301.team22.RequestManager;
+
+public class DetailedRequestListActivity extends AppCompatActivity {
 
     private LinearLayout linearLayoutRequestList;
 

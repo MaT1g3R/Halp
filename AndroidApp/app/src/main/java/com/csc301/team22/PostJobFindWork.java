@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.csc301.team22.activities.RequestFrontpageActivity;
+
 public class PostJobFindWork extends AppCompatActivity {
     private Button PostJob;
     private Button FindWork;
@@ -45,7 +47,7 @@ public class PostJobFindWork extends AppCompatActivity {
     }
 
     public void postJob() {
-        Intent intent = new Intent(getApplicationContext(), RequestFrontpage.class);
+        Intent intent = new Intent(getApplicationContext(), RequestFrontpageActivity.class);
         startActivity(intent);
     }
 
@@ -56,7 +58,7 @@ public class PostJobFindWork extends AppCompatActivity {
 
     public void openProfile() {
         //TODO: Jump to Profile page
-        Intent intent = new Intent(getApplicationContext(), RequestFrontpage.class);
+        Intent intent = new Intent(getApplicationContext(), RequestFrontpageActivity.class);
         startActivity(intent);
     }
 }
