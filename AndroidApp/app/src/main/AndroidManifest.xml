@@ -29,7 +29,9 @@
         <activity
             android:name=".DetailedRequestList"
             android:exported="true" />
-        <activity android:name=".PostJobFindWork"></activity>
+        <activity
+            android:name=".PostJobFindWork"
+            android:exported="true"></activity>
         <activity
             android:name=".RequestSubmissionActivity"
             android:exported="true"></activity>

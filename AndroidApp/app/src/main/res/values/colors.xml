@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="base00">#1b2b34</color>
-    <color name="base01">#343d46</color>
-    <color name="base02">#4f5b66</color>
-    <color name="base03">#65737e</color>
-    <color name="base04">#a7adba</color>
-    <color name="base05">#c0c5ce</color>
-    <color name="base06">#cdd3de</color>
-    <color name="base07">#d8dee9</color>
-    <color name="base08">#ec5f67</color>
-    <color name="base09">#e37b42</color>
-    <color name="base0A">#fac863</color>
-    <color name="base0B">#68cf5d</color>
-    <color name="base0C">#5fb3b3</color>
-    <color name="base0D">#04c0dc</color>
-    <color name="base0E">#c594c5</color>
-    <color name="base0F">#ab7967</color>
+    <color name="base00">#181818</color>
+    <color name="base01">#282828</color>
+    <color name="base02">#383838</color>
+    <color name="base03">#585858</color>
+    <color name="base04">#b8b8b8</color>
+    <color name="base05">#d8d8d8</color>
+    <color name="base06">#e8e8e8</color>
+    <color name="base07">#f8f8f8</color>
+    <color name="base08">#ab4642</color>
+    <color name="base09">#dc9656</color>
+    <color name="base0A">#f7ca88</color>
+    <color name="base0B">#a1b56c</color>
+    <color name="base0C">#86c1b9</color>
+    <color name="base0D">#7cafc2</color>
+    <color name="base0E">#ba8baf</color>
+    <color name="base0F">#a16946</color>
 </resources>
