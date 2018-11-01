@@ -1,6 +1,5 @@
 package com.csc301.team22.activities;
 
-import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
