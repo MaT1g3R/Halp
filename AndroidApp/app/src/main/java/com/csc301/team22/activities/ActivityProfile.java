@@ -1,10 +1,12 @@
-package com.csc301.team22;
+package com.csc301.team22.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class profile extends AppCompatActivity {
+import com.csc301.team22.R;
+
+public class ActivityProfile extends AppCompatActivity {
 
 
     @Override
