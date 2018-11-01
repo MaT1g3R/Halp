@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 
-import com.csc301.team22.PostJobFindWork;
 import com.csc301.team22.R;
 
 public class LoginActivity extends AppCompatActivity {

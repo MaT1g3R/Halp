@@ -9,19 +9,11 @@ import com.csc301.team22.Util;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    private Button buttonHome;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-
-        buttonHome = findViewById(R.id.home);
-        buttonHome.setOnClickListener(v -> Util.openActivity(this, MainActivity.class));
     }
-
-
-    public void home(){Util.openActivity(this, RequestFrontpageActivity.class);}
 
 }

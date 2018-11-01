@@ -28,19 +28,19 @@
             android:name=".activities.CreateAccountActivity"
             android:exported="true" />
         <activity
-            android:name=".RequestSubmissionActivity"
+            android:name=".activities.RequestSubmissionActivity"
             android:exported="true" />
-        <activity android:name=".WorkFinder" />
-        android:name=".activities.RequestFrontpageActivity"
-        android:exported="true" />
+        <activity
+            android:name=".activities.RequestFrontpageActivity"
+            android:exported="true" />
         <activity
             android:name=".activities.DetailedRequestListActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.PostJobFindWorkActivity"
+            android:name=".activities.ProfileActivity"
             android:exported="true" />
         <activity
-            android:name=".activities.RequestSubmissionActivity"
+            android:name=".activities.PostJobFindWorkActivity"
             android:exported="true" />
         <activity
             android:name=".activities.WorkerFoundConfirmationActivity"

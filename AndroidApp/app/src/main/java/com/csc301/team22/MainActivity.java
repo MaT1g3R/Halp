@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.csc301.team22.activities.CreateAccountActivity;
+import com.csc301.team22.activities.PostJobFindWorkActivity;
 
 public class MainActivity extends AppCompatActivity {
     private Button login;
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
         public void openLogin(){
-            Intent intent = new Intent(this, PostJobFindWork.class);
+            Intent intent = new Intent(this, PostJobFindWorkActivity.class);
             startActivity(intent);
         }
 

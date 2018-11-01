@@ -32,7 +32,7 @@ public class PostJobFindWorkActivity extends AppCompatActivity {
         Util.openActivity(this, RequestFrontpageActivity.class);
     }
 
-    public void findWork() {Util.openActivity(this, RequestFrontpageActivity.class);
+    public void findWork() {Util.openActivity(this, PostJobFindWorkActivity.class);
     }
 
     public void openProfile() {Util.openActivity(this, ProfileActivity.class);
