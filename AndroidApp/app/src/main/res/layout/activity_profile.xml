@@ -6,15 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include
-        android:id="@+id/include2"
-        layout="@layout/topbar_layout"
-        android:layout_width="match_parent"
+    <fragment
+        android:id="@+id/fragment5"
+        android:name="com.csc301.team22.fragments.TopBarFragment"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,27 +40,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="129dp"
         android:layout_marginEnd="40dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/include2" />
+        app:layout_constraintStart_toEndOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="85dp"
         android:layout_height="41dp"
         android:layout_marginStart="45dp"
-        android:layout_marginTop="140dp"
         android:layout_marginEnd="20dp"
         android:text="Name"
         android:textAlignment="center"
         app:layout_constraintEnd_toStartOf="@+id/editText4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/include2" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
     <EditText
