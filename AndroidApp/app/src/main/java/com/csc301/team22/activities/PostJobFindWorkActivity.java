@@ -36,7 +36,5 @@ public class PostJobFindWorkActivity extends AppCompatActivity {
         //TODO: Jump to Work Finder page
     }
 
-    public void openProfile() {
-        //TODO: Jump to profile page
-    }
+    public void openProfile() {Util.openActivity(this, ProfileActivity.class);}
 }
