@@ -35,18 +35,21 @@
             android:exported="true" />
         <activity
             android:name=".activities.PostJobFindWorkActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".activities.RequestSubmissionActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".activities.WorkerFoundConfirmationActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".activities.JobConfirmationActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".activities.ProfileActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.FoundJobActivity"
             android:exported="true"></activity>
     </application>
 
