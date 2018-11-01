@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.csc301.team22">
 
-    <!-- To auto-complete the email text field in the Login form with the user's emails -->
+    <!-- To auto-complete the email text field in the LoginActivity form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
@@ -14,7 +14,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".MainActivity">
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,22 +22,22 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Login"
+            android:name=".activities.LoginActivity"
             android:exported="true" />
         <activity
-            android:name=".CreateAccount"
+            android:name=".activities.CreateAccountActivity"
             android:exported="true" />
         <activity
-            android:name=".RequestFrontpage"
+            android:name=".activities.RequestFrontpageActivity"
             android:exported="true" />
         <activity
-            android:name=".DetailedRequestList"
+            android:name=".activities.DetailedRequestListActivity"
             android:exported="true" />
         <activity
-            android:name=".PostJobFindWork"
+            android:name=".activities.PostJobFindWorkActivity"
             android:exported="true"></activity>
         <activity
-            android:name=".RequestSubmissionActivity"
+            android:name=".activities.RequestSubmissionActivity"
             android:exported="true"></activity>
     </application>
 
