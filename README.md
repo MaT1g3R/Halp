@@ -14,3 +14,7 @@ cannot render these correctly.
 ## Code
 
 All of the code are under the [AndroidApp](AndroidApp) sub directory.
+
+For pages #2, 10, and 15, code for the clock taken from:
+
+Android Timepicker - Use EditText to Show TimePickerDialog - Coding Demos. (2018). Retrieved from https://www.codingdemos.com/android-timepicker-edittext/

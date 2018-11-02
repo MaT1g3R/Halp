@@ -13,8 +13,8 @@ import com.csc301.team22.Util;
 
 import java.util.Calendar;
 
-public class ProfileActivity extends AppCompatActivity {
-    private Button buttonHome;
+public class CalendarActivity extends AppCompatActivity {
+    private Button submit;
     EditText chooseTime, pickTime;
     TimePickerDialog timePickerDialog;
     Calendar calendar;
@@ -25,12 +25,12 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_calendar);
 
-        buttonHome = findViewById(R.id.buttonHome);
-        buttonHome.setOnClickListener(v -> Util.openActivity(this, PostJobFindWorkActivity.class));
+        submit = findViewById(R.id.submitButton);
+        submit.setOnClickListener(v -> Util.openActivity(this, PostJobFindWorkActivity.class));
 
-        chooseTime = findViewById(R.id.editText8);
+        chooseTime = findViewById(R.id.editText10);
         chooseTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -38,7 +38,7 @@ public class ProfileActivity extends AppCompatActivity {
                 currentHour = calendar.get(Calendar.HOUR_OF_DAY);
                 currentMinute = calendar.get(Calendar.MINUTE);
 
-                timePickerDialog = new TimePickerDialog(ProfileActivity.this, new TimePickerDialog.OnTimeSetListener() {
+                timePickerDialog = new TimePickerDialog(CalendarActivity.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int hourOfDay, int minutes) {
                         if (hourOfDay >= 12) {
@@ -54,7 +54,7 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        pickTime = findViewById(R.id.editText9);
+        pickTime = findViewById(R.id.editText11);
         pickTime.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,7 +62,7 @@ public class ProfileActivity extends AppCompatActivity {
                 currentHour = calendar.get(Calendar.HOUR_OF_DAY);
                 currentMinute = calendar.get(Calendar.MINUTE);
 
-                timePickerDialog = new TimePickerDialog(ProfileActivity.this, new TimePickerDialog.OnTimeSetListener() {
+                timePickerDialog = new TimePickerDialog(CalendarActivity.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int hourOfDay, int minutes) {
                         if (hourOfDay >= 12) {
@@ -78,5 +78,4 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
     }
-
 }
