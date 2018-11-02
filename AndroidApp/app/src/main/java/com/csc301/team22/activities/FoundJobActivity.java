@@ -20,6 +20,6 @@ public class FoundJobActivity extends AppCompatActivity {
 
         //TODO: Go to page #7
         decline = findViewById(R.id.buttonDecline);
-        decline.setOnClickListener(v -> Util.openActivity(this, PostJobFindWorkActivity.class));
+        decline.setOnClickListener(v -> Util.openActivity(this, LookingForWorkerActivity.class));
     }
 }

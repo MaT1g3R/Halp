@@ -26,7 +26,12 @@ public class RequestSubmissionActivity extends AppCompatActivity {
         editTextDescription = findViewById(R.id.editTextDescription);
 
         //TODO: Make help now go to found worker page
-        buttonHelpNow.setOnClickListener(v -> Util.openActivity(this, PostJobFindWorkActivity.class));
+        buttonHelpNow.setOnClickListener(v ->{
+            Bundle bundle = new Bundle();
+            bundle.putString("title", getRequestTitle());
+            bundle.putString("description", getRequestDescription());
+            Util.openActivity(this, LookingForWorkerActivity.class, bundle);
+        });
         buttonHelpLater.setOnClickListener(v -> {
             Bundle bundle = new Bundle();
             bundle.putString("title", getRequestTitle());

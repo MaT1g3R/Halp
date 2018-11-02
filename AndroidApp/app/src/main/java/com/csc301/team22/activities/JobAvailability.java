@@ -4,10 +4,12 @@ import android.app.TimePickerDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TimePicker;
 
 import com.csc301.team22.R;
+import com.csc301.team22.Util;
 
 import java.util.Calendar;
 
@@ -19,12 +21,20 @@ public class JobAvailability extends AppCompatActivity {
     int currentHour;
     int currentMinute;
     String amPm;
+    Button submit;
+    Button use_profile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job_availability);
+        submit = findViewById(R.id.button);
+        use_profile = findViewById(R.id.button2);
 
+        submit.setOnClickListener(v -> Util.openActivity(this,
+                JobListingActivity.class));
+        use_profile.setOnClickListener(v -> Util.openActivity(this,
+                JobListingActivity.class));
 
 
         chooseTime = findViewById(R.id.editText8);

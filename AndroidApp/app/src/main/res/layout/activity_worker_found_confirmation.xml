@@ -18,18 +18,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout="@layout/fragment_topbar" />
 
     <TextView
         android:id="@+id/ConfirmationText"
         android:layout_width="282dp"
         android:layout_height="90dp"
-        android:layout_marginBottom="440dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="372dp"
         android:text="You're Done! Jason will be with you shortly. If you want, feel free to check the tracking information to see how far away Jason is. "
         android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragment4"
+        app:layout_constraintVertical_bias="0.142" />
 
     <ImageView
         android:id="@+id/map"
@@ -38,7 +42,7 @@
         android:src="@drawable/map"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.578"
+        app:layout_constraintHorizontal_bias="0.421"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ConfirmationText"
         app:layout_constraintVertical_bias="0.0" />

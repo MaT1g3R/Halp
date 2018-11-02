@@ -65,10 +65,13 @@
             android:exported="true" />
         <activity
             android:name=".activities.JobAvailability"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".activities.WorkAcceptActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
+        <activity
+            android:name=".activities.LookingForWorkerActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>
