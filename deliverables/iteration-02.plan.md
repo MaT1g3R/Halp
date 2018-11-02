@@ -30,6 +30,11 @@
 - Mat(Peijun): Front End Programmer
 
 - Pablo: Front End Programmer
+  - Post Job/Find Work Page
+  - Calendar Page
+  - Work Acceptance
+  - Clock code
+  - Check over all buttons to make sure they work as intended
 
 #### Events
 
