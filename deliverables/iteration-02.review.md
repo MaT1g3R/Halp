@@ -1,6 +1,6 @@
 # Halp
 
-## Iteration XX - Review & Retrospect
+## Iteration 02 - Review & Retrospect
 
 Review meeting will occur on November 2, in person in Myhal's Atrium.
 
