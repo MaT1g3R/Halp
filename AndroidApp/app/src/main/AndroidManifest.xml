@@ -17,16 +17,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".activities.MainActivity">
+        <activity android:name=".activities.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activities.LoginActivity"
-            android:exported="true" />
         <activity
             android:name=".activities.CreateAccountActivity"
             android:exported="true" />
@@ -57,6 +54,10 @@
         <activity
             android:name=".activities.FoundJobActivity"
             android:exported="true" />
+
+        <activity 
+            android:name=".activities.JobDescriptionActivity"
+            android:exported="true"></activity>
         <activity
             android:name=".activities.CalendarActivity"
             android:exported="true"></activity>
