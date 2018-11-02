@@ -28,7 +28,7 @@ public class CalendarActivity extends AppCompatActivity {
         setContentView(R.layout.activity_calendar);
 
         submit = findViewById(R.id.submitButton);
-        submit.setOnClickListener(v -> Util.openActivity(this, PostJobFindWorkActivity.class));
+        submit.setOnClickListener(v -> Util.openActivity(this, JobDescriptionActivity.class));
 
         chooseTime = findViewById(R.id.editText10);
         chooseTime.setOnClickListener(new View.OnClickListener() {

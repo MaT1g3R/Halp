@@ -19,22 +19,12 @@ public class PostJobFindWorkActivity extends AppCompatActivity {
         setContentView(R.layout.activity_post_job_find_work);
 
         postJob = findViewById(R.id.PostJobButton);
-        postJob.setOnClickListener(v -> postJob());
+        postJob.setOnClickListener(v -> Util.openActivity(this, RequestFrontpageActivity.class));
 
         findWork = findViewById(R.id.FindWorkButton);
-        findWork.setOnClickListener(v -> findWork());
+        findWork.setOnClickListener(v -> Util.openActivity(this, WorkNowWorkLaterActivity.class));
 
         buttonProfile = findViewById(R.id.FindWorkProfileButton);
-        buttonProfile.setOnClickListener(v -> openProfile());
+        buttonProfile.setOnClickListener(v -> Util.openActivity(this, ProfileActivity.class));
     }
-
-    public void postJob() {
-        Util.openActivity(this, RequestFrontpageActivity.class);
-    }
-
-    public void findWork() {
-        //TODO: Jump to Work Finder page
-    }
-
-    public void openProfile() {Util.openActivity(this, ProfileActivity.class);}
 }

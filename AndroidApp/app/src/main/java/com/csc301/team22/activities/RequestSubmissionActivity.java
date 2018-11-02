@@ -45,8 +45,11 @@ public class RequestSubmissionActivity extends AppCompatActivity {
         editTextTitle = findViewById(R.id.editTextTitle);
         editTextDescription = findViewById(R.id.editTextDescription);
 
-        buttonHelpNow.setOnClickListener(createRequestNow);
-        buttonHelpLater.setOnClickListener(createRequestLater);
+        //buttonHelpNow.setOnClickListener(createRequestNow);
+        //buttonHelpLater.setOnClickListener(createRequestLater);
+        //TODO: Make help now go to found worker page
+        buttonHelpNow.setOnClickListener(v -> Util.openActivity(this, PostJobFindWorkActivity.class));
+        buttonHelpLater.setOnClickListener(v -> Util.openActivity(this, CalendarActivity.class));
     }
 
     private String getRequestTitle() {

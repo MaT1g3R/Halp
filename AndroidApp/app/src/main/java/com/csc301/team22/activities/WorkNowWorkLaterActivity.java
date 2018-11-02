@@ -20,8 +20,8 @@ public class WorkNowWorkLaterActivity extends AppCompatActivity {
         buttonWorkNow = findViewById(R.id.buttonWorkNow);
         buttonWorkLater = findViewById(R.id.buttonWorkLater);
 
-        buttonWorkNow.setOnClickListener(v -> Util.openActivity(this, CreateAccountActivity.class));
-        buttonWorkLater.setOnClickListener(v -> Util.openActivity(this, CreateAccountActivity.class));
+        buttonWorkNow.setOnClickListener(v -> Util.openActivity(this, WorkAcceptActivity.class));
+        buttonWorkLater.setOnClickListener(v -> Util.openActivity(this, JobAvailability.class));
     }
 
 
