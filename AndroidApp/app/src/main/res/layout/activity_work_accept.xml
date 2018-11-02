@@ -7,7 +7,7 @@
     tools:context=".activities.WorkAcceptActivity">
 
     <Button
-        android:id="@+id/acceptButton2"
+        android:id="@+id/declineButton"
         android:layout_width="136dp"
         android:layout_height="43dp"
         android:layout_marginStart="47dp"
