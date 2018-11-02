@@ -28,13 +28,6 @@ public class RequestManager {
         );
     }
 
-    public void addToLinearLayout(Context context, LinearLayout layout) {
-        for (Request request : getRequests()) {
-            RequestCardView cardView = request.toCardView(context);
-            LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-            layout.addView(cardView.getLayout(), lp);
-        }
-    }
 
     public void createRequest(String title, String description, Date date) {
         if (date == null) {
