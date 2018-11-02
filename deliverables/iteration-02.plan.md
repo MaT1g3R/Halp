@@ -1,4 +1,4 @@
-# YOUR PRODUCT/TEAM NAME
+# YOUR PRODUCT/TEAM 22
 
  > _Note:_ This document is meant to be written during (or shortly after) your initial planning meeting.     
  > It does not really make sense for you to edit this document much (if at all) while working on the project - Instead, at the end of the planning phase, you can refer back to this document and decide which parts of your plan you are happy with and which parts you would like to change.
@@ -6,27 +6,39 @@
 
 ## Iteration 02
 
- * Start date: October 08, 2018
- * End date: October 30, 2018 
+ * Start date: October 09, 2018
+ * End date: November 02, 2018 
 
 ## Process
 
 #### Roles & responsibilities
 
-- Kyle
-- Arjun
-- Xun
-- Brandon
-- Mat
+- Kyle: Front End Programmer
+
+
+
+- Arjun: Front End Programmer
+
+
+
+- Xun: Front End Programmer
+
+
+- Brandon: Front End Programmer
+
+
+- Mat:Front End Programmer
 
 #### Events
 
 Describe meetings (and other events) you are planning to have:
 
- * When and where? In-person or online?
- * What's the purpose of each meeting?
- * Other events could be coding sessions, code reviews, quick weekly sync' meeting online, etc.
-
+ * Initial planning meeting will occur on October 06. This meeting will be in person. The purpose of this meeting will be to flesh out what we want to get done for this deliverable, including coming up with tasks and deciding how far we want to go for this deliverable.
+ * Secondary planning meeting will occur on October 13. This meeting will be held in person. The purpose of this meeting is to finalize all the tasks for this deliverable and start assigning tasks. Also meant to catch up members of the team who were not present at the first planning meeting
+ * Progress meeting will occur on October 26. This meeting will be held in person. The purpose of this meeting is to check on the progress of the deliverable, see where everyone is at with their tasks, as well as plan what we are going to do with our demo video.
+ * Second progress meeting will occur on October 27. This meeting will be held online on discord. The purpose of this meeting is to catch up on anyone who was not able to make the first progress meeting as well as finalize the script for our demo video
+ * Review meeting will occur on November 2. This meeting will be held in person 
+ 
 #### Artifacts
 
 List/describe the artifacts you will produce in order to organize your team.       
