@@ -11,8 +11,7 @@ import com.csc301.team22.R;
 import com.csc301.team22.Util;
 
 public class LoginActivity extends AppCompatActivity {
-    private Button buttonLogin;
-    private Button buttonCreateAccount;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
