@@ -8,7 +8,7 @@ CSC301, Fall 2018, team project.
 
 All of the deliverable documents are in the [deliverable](deliverables) sub directory.
 
-The mock up of our application is in the [Rough_Mockup.pdf](deliverables/Rough_Mockup.pdf) file under the deliverables sub directory. You must download it and run it on your local machine to be able to use the interactive features, since GitHub
+The mock up of our application is in the [Rough_Mockup.pdf](deliverables/Artifacts/Rough_Mockup.pdf) file under the deliverables sub directory. You must download it and run it on your local machine to be able to use the interactive features, since GitHub
 cannot render these correctly.
 
 ## Code

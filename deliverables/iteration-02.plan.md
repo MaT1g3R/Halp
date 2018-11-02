@@ -27,9 +27,9 @@
 - Brandon: Front End Programmer
 
 
-- Mat(Peijun): Front End Programmer
+- Mat(Peijun): Lead Front End Programmer
 
-- Pablo: Front End Programmer
+- Pablo: Lead Front End Programmer
 
 #### Events
 
@@ -45,24 +45,17 @@ Describe meetings (and other events) you are planning to have:
 
 List/describe the artifacts you will produce in order to organize your team.       
 
- * Artifacts can be To-do lists, Task boards, schedule(s), etc.
- * We want to understand:
-   * How do you keep track of what needs to get done?
-   * How do you prioritize tasks?
-   * How do tasks get assigned to team members?
-
+ * https://github.com/csc301-fall-2018/project-team-22/projects/1
+    * We will use the built in To-Do List and progress tracker on GitHub in order to organize  
+    * This list allows people to assign themselves tasks and for the entire team to keep track of the progress of all the tasks as well as contribute themselves to tasks that were not assigned to them if help is needed.
+ * Discord Server
+    * We will use the discord app the same way we used it for the first deliverable, as a way to communicate with each other outside of our in person meetings. Something we might consider doing is using the voice chat feature of the app in order to hold meetings when not everyone is able to meet in person.
+ 
 #### Git / GitHub workflow
-
-Describe your Git / GitHub workflow.     
-Essentially, we want to understand how your team members share a codebase and avoid conflicts. You must incorporate 'Pull Requests' into your process. 
-
- * Be concise, yet precise.      
-For example, "we use pull-requests" is not a precise statement since it leaves too many open questions - Pull-requests from where to where? Who reviews the pull-requests? Who is responsible for merging them? etc.
- * If applicable, specify any naming conventions or standards you decide to adopt.
- * Don't forget to **explain why** you chose this workflow.
-
-
-
+ * How people would work on the repo would either be branching from the repo or forking and cloning a local copy of the repo onto their local machine
+ * Any new code that would be added to the master repo would either be merged from a branch or a fork. If there are no conflicts with the existing code in the repo, then programmers can approve the pull requests on their own.
+ * In the event of a merge conflict, one of the lead programmers would review the code fragments in question and make the decision which version to proceed with
+ 
 ## Product
 
 #### Goals and tasks
