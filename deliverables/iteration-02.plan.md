@@ -13,23 +13,19 @@
 
 #### Roles & responsibilities
 
-- Kyle: Front End Programmer
-
-
+- Kyle: Front End Programmer and Planning Meeting Writer
 
 - Arjun: Front End Programmer
 
-
-
 - Xun: Front End Programmer
 
+- Brandon: Front End Programmer and Code Reviewer
 
-- Brandon: Front End Programmer
+- Mat(Peijun): Lead Front End Programmer and Review Meeting Writer
 
+- Pablo: Lead Front End Programmer, Review Meeting Writer, Demo Recorder
 
-- Mat(Peijun): Lead Front End Programmer
-
-- Pablo: Lead Front End Programmer
+Each individual is responsible for coding a working version of one or more of the pages of the mockup that was created in deliverable one. In addition, two individuals are responsible for writing up the planning meeting document and two individuals are responsible for writing up the reveiw meeting document. Pablo will record and edit the demo video.
 
 #### Events
 
@@ -52,9 +48,9 @@ List/describe the artifacts you will produce in order to organize your team.
     * We will use the discord app the same way we used it for the first deliverable, as a way to communicate with each other outside of our in person meetings. Something we might consider doing is using the voice chat feature of the app in order to hold meetings when not everyone is able to meet in person.
  
 #### Git / GitHub workflow
- * How people would work on the repo would either be branching from the repo or forking and cloning a local copy of the repo onto their local machine
+ * How people would work on the repo would either be branching from the repo or forking and cloning a local copy of the repo onto their local machine.
  * Any new code that would be added to the master repo would either be merged from a branch or a fork. If there are no conflicts with the existing code in the repo, then programmers can approve the pull requests on their own.
- * In the event of a merge conflict, one of the lead programmers would review the code fragments in question and make the decision which version to proceed with
+ * In the event of a merge conflict, the code reviewer will resolve the conflicts manually. If the conflict is too complicated to resolve with one person, one or both of the lead programmers would also review the code fragments in question and make the decision which version to proceed with.
  
 ## Product
 
