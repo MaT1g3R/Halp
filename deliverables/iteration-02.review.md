@@ -1,6 +1,4 @@
-# YOUR PRODUCT/TEAM NAME
-
-Halp
+# Halp
 
 ## Iteration XX - Review & Retrospect
 
