@@ -42,6 +42,7 @@ public class ProfileActivity extends AppCompatActivity {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int hourOfDay, int minutes) {
                         if (hourOfDay >= 12) {
+                            hourOfDay -= 12;
                             amPm = "PM";
                         } else {
                             amPm = "AM";
@@ -66,6 +67,7 @@ public class ProfileActivity extends AppCompatActivity {
                     @Override
                     public void onTimeSet(TimePicker timePicker, int hourOfDay, int minutes) {
                         if (hourOfDay >= 12) {
+                            hourOfDay -= 12;
                             amPm = "PM";
                         } else {
                             amPm = "AM";
