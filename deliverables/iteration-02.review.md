@@ -23,7 +23,7 @@ List process-related (i.e. team organization) decisions that, in retrospect, tur
  * Explain why (i.e. give a supporting argument) you consider a decision to be successful.
  * Feel free to refer/link to process artifact(s).
  
- We used a [GitHub planning board](deliverables/Artifacts/Board.png) to assign tasks to members and see what functions have not been implemented yet. This allowed us to know exactly who was working on what tasks and showed us how much workload we had left (by number of issues left) and gave us a physical view of exactly how much progress we had done so far.
+ We used a [GitHub planning board](0Artifacts/Board.png) to assign tasks to members and see what functions have not been implemented yet. This allowed us to know exactly who was working on what tasks and showed us how much workload we had left (by number of issues left) and gave us a physical view of exactly how much progress we had done so far.
  
  To communicate we decided on making a discord server. This helped us communicate in an environment that no confusion as to who was talking was created, as well as allowed us to have our audio meeting for people who were not able to make it in person.
  
