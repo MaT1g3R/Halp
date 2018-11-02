@@ -54,12 +54,14 @@
         <activity
             android:name=".activities.FoundJobActivity"
             android:exported="true" />
-
-        <activity 
+        <activity
             android:name=".activities.JobDescriptionActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".activities.CalendarActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activities.WorkAcceptActivity"
             android:exported="true"></activity>
     </application>
 
