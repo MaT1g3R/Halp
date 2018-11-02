@@ -22,6 +22,9 @@ List process-related (i.e. team organization) decisions that, in retrospect, tur
  * Ordered from most to least important.
  * Explain why (i.e. give a supporting argument) you consider a decision to be successful.
  * Feel free to refer/link to process artifact(s).
+ 
+ We used a GitHub planning board to assign tasks to members and see what functions have not been implemented yet. This allowed us to know exactly who was working on what taks and showed us how much workload we had left (by number of issues left) and gave us a physical view of exactly how much progress we had done so far.
+ 
 
 #### Decisions that did not turn out as well as we hoped
 
@@ -36,13 +39,11 @@ List process-related (i.e. team organization) decisions that, in retrospect, wer
 
 List any process-related changes you are planning to make (if there are any)
 
-<<<<<<< HEAD:iteration-01.review.md
-    - we will polish the features(add/delete based on skills)
-    - we started to use github board
-=======
  * Ordered from most to least important.
  * Explain why you are making a change.
->>>>>>> 2e361b86d5ccd3e859a6da055aefed6637c377e7:deliverables/iteration-02.review.md
+
+    - we will polish the features(add/delete based on skills)
+    - we started to use github board
 
 
 ## Product - Review
