@@ -25,8 +25,9 @@ public final class Util {
     }
 
     public static <T extends AppCompatActivity> void
-    openActivity(AppCompatActivity source, Class<T> target, Bundle options) {
+    openActivity(AppCompatActivity source, Class<T> target, Bundle extras) {
         Intent intent = new Intent(source.getApplicationContext(), target);
-        source.startActivity(intent, options);
+        intent.putExtras(extras);
+        source.startActivity(intent);
     }
 }
