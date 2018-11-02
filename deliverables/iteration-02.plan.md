@@ -55,14 +55,16 @@ List/describe the artifacts you will produce in order to organize your team.
 ## Product
 
 #### Goals and tasks
-
- * Describe your goals for this iteration and the tasks that you will have to complete in order to achieve these goals.
- * Order the items from most to least important.
- * Feel free (but not obligated) to specify some/all tasks as user stories.
+Goals:
+- Front end UI
+- User authentication
 
 #### Artifacts
 
 List/describe the artifacts you will produce in order to present your project idea.
+- PDF mock up to base our front code on
+- Finish basic front end UI code
+- Populate the GitHub board to keep track of progress
 
  * Artifacts can be text, code, images, videos, interactive mock-ups and/or any other useful artifact you can think of.
  * Make sure to explain the purpose of each artifact (i.e. Why is it on your to-do list? Why is it useful for your team?)
