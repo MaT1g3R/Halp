@@ -7,8 +7,7 @@
 
 ## Iteration XX - Review & Retrospect
 
- * When: FILL IN THE DATE WHEN YOU ACTUALLY HAD YOUR REVIEW MEETING
- * Where: PHYSICAL LOCATION AND/OR ONLINE
+Review meeting will occur on November 2, in person in Myhal's Atrium.
 
 ## Process - Reflection
 
