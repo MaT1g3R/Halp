@@ -27,7 +27,9 @@
 - Brandon: Front End Programmer
 
 
-- Mat:Front End Programmer
+- Mat: Front End Programmer
+
+- Pablo: Front End Programmer
 
 #### Events
 
@@ -37,7 +39,7 @@ Describe meetings (and other events) you are planning to have:
  * Secondary planning meeting will occur on October 13. This meeting will be held in person. The purpose of this meeting is to finalize all the tasks for this deliverable and start assigning tasks. Also meant to catch up members of the team who were not present at the first planning meeting
  * Progress meeting will occur on October 26. This meeting will be held in person. The purpose of this meeting is to check on the progress of the deliverable, see where everyone is at with their tasks, as well as plan what we are going to do with our demo video.
  * Second progress meeting will occur on October 27. This meeting will be held online on discord. The purpose of this meeting is to catch up on anyone who was not able to make the first progress meeting as well as finalize the script for our demo video
- * Review meeting will occur on November 2. This meeting will be held in person 
+ * Review meeting will occur on November 2. This meeting will be held in person. We will go over the app, making sure everything is done and ready to be submitted, as well as recording the video for submition.
  
 #### Artifacts
 
