@@ -1,4 +1,4 @@
-# Halp
+# YOUR PRODUCT/TEAM 22
 
  > _Note:_ This document is meant to be written during (or shortly after) your initial planning meeting.     
  > It does not really make sense for you to edit this document much (if at all) while working on the project - Instead, at the end of the planning phase, you can refer back to this document and decide which parts of your plan you are happy with and which parts you would like to change.
@@ -30,11 +30,6 @@
 - Mat(Peijun): Front End Programmer
 
 - Pablo: Front End Programmer
-  - Post Job/Find Work Page
-  - Calendar Page
-  - Work Acceptance
-  - Clock code
-  - Check over all buttons to make sure they work as intended
 
 #### Events
 
@@ -50,21 +45,13 @@ Describe meetings (and other events) you are planning to have:
 
 List/describe the artifacts you will produce in order to organize your team.       
 
- * Artifacts can be To-do lists, Task boards, schedule(s), etc.
- * We want to understand:
-   * How do you keep track of what needs to get done?
-   * How do you prioritize tasks?
-   * How do tasks get assigned to team members?
-
+ * https://github.com/csc301-fall-2018/project-team-22/projects/1
+  * We will use the built in To-Do List and progress tracker on GitHub in order to organize  
+  * This list allows people to assign themselves tasks and for the entire team to keep track of the progress of all the tasks as well as contribute themselves to tasks that were not assigned to them if help is needed.
+ * Discord Server
+  * We will use the discord app the same way we used it for the first deliverable, as a way to communicate with each other outside of our in person meetings. Something we might consider doing is using the voice chat feature of the app in order to hold meetings when not everyone is able to meet in person.
+ 
 #### Git / GitHub workflow
-
-Describe your Git / GitHub workflow.     
-Essentially, we want to understand how your team members share a codebase and avoid conflicts. You must incorporate 'Pull Requests' into your process. 
-
- * Be concise, yet precise.      
-For example, "we use pull-requests" is not a precise statement since it leaves too many open questions - Pull-requests from where to where? Who reviews the pull-requests? Who is responsible for merging them? etc.
- * If applicable, specify any naming conventions or standards you decide to adopt.
- * Don't forget to **explain why** you chose this workflow.
 
 
 
