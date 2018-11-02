@@ -54,7 +54,8 @@
         <activity
             android:name=".activities.FoundJobActivity"
             android:exported="true" />
-        <activity android:name=".activities.JobDescriptionActivity"></activity>
+        <activity android:name=".activities.JobDescriptionActivity"
+            android:exported="true"></activity>
     </application>
 
 </manifest>
