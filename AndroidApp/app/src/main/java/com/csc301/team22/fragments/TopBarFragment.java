@@ -29,6 +29,7 @@ public class TopBarFragment extends Fragment {
 
         buttonProfile = activity.findViewById(R.id.buttonProfile);
         buttonProfile.setOnClickListener(v -> Util.openActivity(activity, ProfileActivity.class));
+        buttonProfile.setBackgroundResource(R.drawable.default_profile_pic);
     }
 
     @Override
