@@ -23,11 +23,11 @@ List process-related (i.e. team organization) decisions that, in retrospect, tur
  * Explain why (i.e. give a supporting argument) you consider a decision to be successful.
  * Feel free to refer/link to process artifact(s).
  
- We used a GitHub planning board to assign tasks to members and see what functions have not been implemented yet. This allowed us to know exactly who was working on what taks and showed us how much workload we had left (by number of issues left) and gave us a physical view of exactly how much progress we had done so far.
+ We used a GitHub planning board to assign tasks to members and see what functions have not been implemented yet. This allowed us to know exactly who was working on what tasks and showed us how much workload we had left (by number of issues left) and gave us a physical view of exactly how much progress we had done so far.
  
  To communicate we decided on making a discord server. This helped us communicate in an environment that no confusion as to who was talking was created, as well as allowed us to have our audio meeting for people who were not able to make it in person.
  
- we used branches so that everyone could code their own task while avoiding conflicts and making sure the code was perfect before being pushed to master. For trivial changes, however, like typos and small bugfixes we did not use branches, but me coordinated on the discord chat to make sure only one person was working on master at a time.
+ We used branches so that everyone could code their own task while avoiding conflicts and making sure the code was perfect before being pushed to master. For trivial changes, however, like typos and small bug fixes we did not use branches, but me coordinated on the discord chat to make sure only one person was working on master at a time.
  
  Everyone used Android Studio for the project, making sure everyone was working on the same environment, making it easier to solve problems. We also used the same resolution and emulator for the Android device for the same reasons.
  
@@ -53,7 +53,7 @@ List any process-related changes you are planning to make (if there are any)
  * Ordered from most to least important.
  * Explain why you are making a change.
 
-We are going to have a scrum master from now on. As stated above, we already experienced the concequences of not having one. Therefore, in order to meet our deadlines and making sure everyone is keeping up with the workload, we will assign someone to be the scrum master.
+We are going to have a scrum master from now on. As stated above, we already experienced the consequences not having one. Therefore, in order to meet our deadlines and making sure everyone is keeping up with the workload, we will assign someone to be the scrum master.
 
 ## Product - Review
 
@@ -72,7 +72,7 @@ We are going to have a scrum master from now on. As stated above, we already exp
  * For each goal/task, explain why it was not met/completed.      
    e.g. Did you change your mind, or did you just not get to it yet?
    
-  This wasn't a plan, but it was something we would've liked to implement after all our goals were met. We wanted to have a login authentification process, checking that the user exists and enters the right password. However, since we didn't meet our goals early enough, we were not able to implement this feature.
+  This wasn't a plan, but it was something we would've liked to implement after all our goals were met. We wanted to have a login authentication process, checking that the user exists and enters the right password. However, since we didn't meet our goals early enough, we were not able to implement this feature.
 
 ## Meeting Highlights
 
