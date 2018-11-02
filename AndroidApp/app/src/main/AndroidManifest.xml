@@ -37,6 +37,9 @@
             android:name=".activities.PostJobFindWorkActivity"
             android:exported="true" />
         <activity
+            android:name=".activities.JobListingActivity"
+            android:exported="true" />
+        <activity
             android:name=".activities.RequestSubmissionActivity"
             android:exported="true" />
         <activity
