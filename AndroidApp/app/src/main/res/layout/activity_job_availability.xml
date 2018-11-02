@@ -26,53 +26,53 @@
         android:id="@+id/calendarView"
         android:layout_width="224dp"
         android:layout_height="252dp"
-        app:layout_constraintBottom_toTopOf="@+id/editText9"
+        android:layout_marginTop="186dp"
+        android:layout_marginBottom="220dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editText8"
-        android:layout_width="125dp"
+        android:layout_width="110dp"
         android:layout_height="45dp"
         android:layout_marginStart="48dp"
         android:layout_marginTop="25dp"
-        android:layout_marginEnd="15dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="84dp"
         android:ems="10"
         android:focusableInTouchMode="false"
         android:hint="From"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.071"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/calendarView"
-        app:layout_constraintVertical_bias="0.088" />
+        app:layout_constraintVertical_bias="0.268" />
 
     <EditText
         android:id="@+id/editText9"
-        android:layout_width="127dp"
+        android:layout_width="110dp"
         android:layout_height="48dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="48dp"
-        android:layout_marginBottom="84dp"
+        android:layout_marginBottom="132dp"
         android:ems="10"
         android:focusableInTouchMode="false"
         android:hint="To"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/editText8"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/calendarView" />
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
         android:backgroundTint="@color/base0B"
         android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -97,8 +97,8 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="47dp"
+        android:layout_width="130dp"
+        android:layout_height="50dp"
         android:backgroundTint="@color/base0D"
         android:text="Use Profile"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -107,5 +107,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText8"
         app:layout_constraintVertical_bias="0.428" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="205dp" />
 
 </android.support.constraint.ConstraintLayout>
