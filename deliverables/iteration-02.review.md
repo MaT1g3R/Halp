@@ -31,12 +31,12 @@ We are going to have a scrum master from now on. As stated above, we already exp
 
 #### Goals and/or tasks that were met/completed:
  
- We implemented all the features we planned on doing. 
+ We implemented the UI just as we intended. 
 
 
 #### Goals and/or tasks that were planned but not met/completed:
    
-  This wasn't a plan, but it was something we would've liked to implement after all our goals were met. We wanted to have a login authentication process, checking that the user exists and enters the right password. However, since we didn't meet our goals early enough, we were not able to implement this feature.
+We did not complete the login authentication process, checking that the user exists and enters the right password. However, since we didn't meet our goals early enough, we were not able to implement this feature.
 
 ## Meeting Highlights
  
