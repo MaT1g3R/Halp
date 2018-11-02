@@ -23,7 +23,7 @@
 
 - Mat(Peijun): Lead Front End Programmer and Review Meeting Writer
 
-- Pablo: Lead Front End Programmer, Review Meeting Writer, Demo Recorder
+- Pablo: Front End Programmer, Review Meeting Writer, Demo Recorder
 
 Each individual is responsible for coding a working version of one or more of the pages of the mockup that was created in deliverable one. In addition, two individuals are responsible for writing up the planning meeting document and two individuals are responsible for writing up the reveiw meeting document. Pablo will record and edit the demo video.
 
