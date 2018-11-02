@@ -32,7 +32,6 @@ public class RequestManager {
         for (Request request : getRequests()) {
             RequestCardView cardView = request.toCardView(context);
             LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-            lp.setMargins(10, 0, 10, 0);
             layout.addView(cardView.getLayout(), lp);
         }
     }

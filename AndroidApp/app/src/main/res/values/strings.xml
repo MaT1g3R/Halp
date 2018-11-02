@@ -29,4 +29,7 @@
     <string name="request_title">Request Title</string>
     <string name="work_now">Work Now</string>
     <string name="work_later">Work Later</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
