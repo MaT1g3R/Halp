@@ -29,11 +29,12 @@ public class TopBarFragment extends Fragment {
 
         buttonProfile = activity.findViewById(R.id.buttonProfile);
         buttonProfile.setOnClickListener(v -> Util.openActivity(activity, ProfileActivity.class));
+        buttonProfile.setBackgroundResource(R.drawable.default_profile_pic);
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View
+    onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_topbar, container, false);
     }
