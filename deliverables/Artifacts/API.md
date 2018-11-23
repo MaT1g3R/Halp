@@ -25,7 +25,7 @@ with a more detailed error message in the response body as JSON like so:
 
 ## Authentication
 
-User authentication is done via HTTP basic auth
+User authentication is done via HTTP basic auth.
 
 To make an authenticated request, join the user name and password with a
 colon (:), then base64 encode the resulting string. Prepend the resulting
