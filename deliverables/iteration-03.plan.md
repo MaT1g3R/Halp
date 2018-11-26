@@ -54,6 +54,10 @@ List/describe the artifacts you will produce in order to organize your team.
  * Board
  * Branches
  * Pull Requests
+ 
+ * How people would work on the repo would either be branching from the repo or forking and cloning a local copy of the repo onto their local machine.
+ * Any new code that would be added to the master repo would either be merged from a branch or a fork. A peer will review the code and make sure there are no typos and, if there are no conflicts, approve the pull request.
+ * In the event of a merge conflict, the code reviewer will resolve the conflicts manually. If the conflict is too complicated to resolve with one person, the reviewer will request for help from the group and then make the decision which version to proceed with.
 
 ## Product
 
