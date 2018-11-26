@@ -12,7 +12,7 @@
 
  * Have a scrum master
  * We will have a more detailed board
- * We decided to get rid of the decline job option
+ * Due to the heavy workload out core tasks create and the limited time the team has due to our other classes, we have decided to get rid of the decline job option and the schedule, so we can focus on our core features.
 
 #### Roles & responsibilities
 
@@ -28,7 +28,7 @@
 
 - Pablo: Front End Programmer, Planning Meeting Writer
 
-Each indicidual is responsible for coding a working version of one or more of the tasks that were created during this planning meeting. In addition, Pablo and Mat are responsible for writing up the planning meeting document, with Brandon coming in to help make decisions on the tasks to be implemented.
+Each indicidual is responsible for coding a working version of one or more of the tasks that were created during this planning meeting. In addition, Pablo and Mat are responsible for writing up the planning meeting document along with deciding the database, architecture and their diagrams, with Brandon coming in to help so the three make decisions on the tasks to be implemented.
 
 #### Events
 
@@ -41,18 +41,19 @@ Each indicidual is responsible for coding a working version of one or more of th
 
 List/describe the artifacts you will produce in order to organize your team.       
  
- * Board
- * We want to understand:
-   * How do you keep track of what needs to get done?
-   * How do you prioritize tasks?
-   * How do tasks get assigned to team members?
+ * https://github.com/csc301-fall-2018/project-team-22/projects/1
+    * We will use the built in To-Do List and progress tracker on GitHub in order to organize  
+    * This list allows people to assign themselves tasks and for the entire team to keep track of the progress of all the tasks as well as contribute themselves to tasks that were not assigned to them if help is needed.
+    
+ * Discord Server
+    * We will use the discord app the same way we used it for the first deliverable, as a way to communicate with each other outside of our in-person meetings. Something we might consider doing is using the voice chat feature of the app in order to hold meetings when not everyone is able to meet in person.
 
 #### Git / GitHub workflow
 
- * Milestones for deadline
- * Board
- * Branches
- * Pull Requests
+ * Milestones are used to help set a pace for the workload and tasks being done on time.
+ * How people would work on the repo would either be branching from the repo or forking and cloning a local copy of the repo onto their local machine.
+ * Any new code that would be added to the master repo would either be merged from a branch or a fork. A peer will review the code and make sure there are no typos and, if there are no conflicts, approve the pull request.
+ * In the event of a merge conflict, the code reviewer will resolve the conflicts manually. If the conflict is too complicated to resolve with one person, the reviewer will request for help from the group and then make the decision which version to proceed with.
 
 ## Product
 
