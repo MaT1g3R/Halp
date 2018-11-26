@@ -43,6 +43,7 @@ Describe meetings (and other events) you are planning to have:
 List/describe the artifacts you will produce in order to organize your team.       
  
  * Board
+ * Architecture diagram
  * Artifacts can be to-do lists, task boards, schedule(s), etc.
  * We want to understand:
    * How do you keep track of what needs to get done?
@@ -56,14 +57,25 @@ List/describe the artifacts you will produce in order to organize your team.
  * Branches
  * Pull Requests
 
-
 ## Product
 
 #### Goals and tasks
 
  * Implement the back end of our application
+ * Implement a RESTful API using JSON as the data format.
+ * Implement a Controller for back end to fetch data from Persistence and send it to the view as JSON.
+ * Implement Persistence for talking to the database.
+ * Implement the Core of the back end, handling any computation by the controller.
+ * Implement a Temporary State to keep track of temporal data (e.g searching for worker, etc.)
+ 
  * Integrate the front end and the back end of the application
+ * Implement a Controller for front end to get data from the HTML adapter and push it to the GUI.
+ * Implement the HTML adapter to fetch data from back end and to the controller.
+ * Implement a Session Storage to store temporary data for the current user session.
+ 
  * Flesh out the front end of our application, make it look better
+ 
+ 
 
 #### Artifacts
 
