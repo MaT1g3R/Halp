@@ -41,11 +41,12 @@ Each indicidual is responsible for coding a working version of one or more of th
 
 List/describe the artifacts you will produce in order to organize your team.       
  
- * Board
- * We want to understand:
-   * How do you keep track of what needs to get done?
-   * How do you prioritize tasks?
-   * How do tasks get assigned to team members?
+ * https://github.com/csc301-fall-2018/project-team-22/projects/1
+    * We will use the built in To-Do List and progress tracker on GitHub in order to organize  
+    * This list allows people to assign themselves tasks and for the entire team to keep track of the progress of all the tasks as well as contribute themselves to tasks that were not assigned to them if help is needed.
+    
+ * Discord Server
+    * We will use the discord app the same way we used it for the first deliverable, as a way to communicate with each other outside of our in person meetings. Something we might consider doing is using the voice chat feature of the app in order to hold meetings when not everyone is able to meet in person.
 
 #### Git / GitHub workflow
 
