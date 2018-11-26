@@ -28,7 +28,7 @@
 
 - Pablo: Front End Programmer, Planning Meeting Writer
 
-Each indicidual is responsible for coding a working version of one or more of the tasks that were created during this planning meeting. In addition, Pablo and Mat are responsible for writing up the planning meeting document, with Brandon coming in to help so the three make decisions on the tasks to be implemented.
+Each indicidual is responsible for coding a working version of one or more of the tasks that were created during this planning meeting. In addition, Pablo and Mat are responsible for writing up the planning meeting document along with deciding the database, architecture and their diagrams, with Brandon coming in to help so the three make decisions on the tasks to be implemented.
 
 #### Events
 
