@@ -62,16 +62,16 @@ List/describe the artifacts you will produce in order to organize your team.
 #### Goals and tasks
 
  * Back End:
-  * Implement a RESTful API using JSON as the data format.
-  * Implement a Controller for back end to fetch data from Persistence and send it to the view as JSON.
-  * Implement Persistence for talking to the database.
-  * Implement the Core of the back end, handling any computation by the controller.
-  * Implement a Temporary State to keep track of temporal data (e.g searching for worker, etc.)
+   * Implement a RESTful API using JSON as the data format.
+   * Implement a Controller for back end to fetch data from Persistence and send it to the view as JSON.
+   * Implement Persistence for talking to the database.
+   * Implement the Core of the back end, handling any computation by the controller.
+   * Implement a Temporary State to keep track of temporal data (e.g searching for worker, etc.)
  
  * Front End:
-  * Implement a Controller for front end to get data from the HTML adapter and push it to the GUI.
-  * Implement the HTML adapter to fetch data from back end and to the controller.
-  * Implement a Session Storage to store temporary data for the current user session.
+   * Implement a Controller for front end to get data from the HTML adapter and push it to the GUI.
+   * Implement the HTML adapter to fetch data from back end and to the controller.
+   * Implement a Session Storage to store temporary data for the current user session.
  
  * Flesh out the front end of our application, make it look better
  
