@@ -4,16 +4,15 @@
 ## Iteration 3
 
  * Start date: 2018-11-13
- * End date: FILL IN THE DATE WHEN YOU ARE PLANNING TO HAVE YOUR REVIEW MEETING
+ * End date: 2018-11-30
 
 ## Process
 
 #### Changes from previous iteration
 
-List the most significant changes you made to your process (if any).
-
  * Have a scrum master
  * We will have a more detailed board
+ * We decided to get rid of the decline job option
 
 #### Roles & responsibilities
 
@@ -31,8 +30,6 @@ List the most significant changes you made to your process (if any).
 
 #### Events
 
-Describe meetings (and other events) you are planning to have:
-
  * The initial planning meeting will be on 2018-11-16, it will be in person in MyHal.
  * The purpose of this meeting is to come up with tasks for the 3rd deliverable,
  and most importantly tasks for the back end of our application
@@ -43,8 +40,6 @@ Describe meetings (and other events) you are planning to have:
 List/describe the artifacts you will produce in order to organize your team.       
  
  * Board
- * Architecture diagram
- * Artifacts can be to-do lists, task boards, schedule(s), etc.
  * We want to understand:
    * How do you keep track of what needs to get done?
    * How do you prioritize tasks?
@@ -84,4 +79,6 @@ List/describe the artifacts you will produce in order to present your project id
  * Video
  * Live Demo
  * Code
+ * Architecture diagram
+ * Database diagram
 
