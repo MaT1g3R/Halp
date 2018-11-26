@@ -16,17 +16,19 @@
 
 #### Roles & responsibilities
 
-- Kyle:
+- Kyle: Front End Programmer
 
-- Arjun:
+- Arjun: Front End Programmer
 
-- Xun:
+- Xun: Front End Programmer
 
-- Brandon:
+- Brandon: Front End Programmer
 
-- Mat(Peijun):
+- Mat(Peijun): Lead Back End Programmer, Planning Meeting Writer
 
-- Pablo:
+- Pablo: Front End Programmer, Planning Meeting Writer
+
+Each indicidual is responsible for coding a working version of one or more of the tasks that were created during this planning meeting. In addition, Pablo and Mat are responsible for writing up the planning meeting document, with Brandon coming in to help make decisions on the tasks to be implemented.
 
 #### Events
 
