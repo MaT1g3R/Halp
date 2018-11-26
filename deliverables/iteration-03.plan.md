@@ -80,5 +80,5 @@ List/describe the artifacts you will produce in order to present your project id
  * Live Demo
  * Code
  * Architecture diagram
- * Database diagram
+ * Database Tables
 
