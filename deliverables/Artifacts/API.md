@@ -308,12 +308,12 @@ Yes
 
 #### Reqeust Body
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| start_time | Optional\[Int\] | The start date and time for the request in Unix epoch. If the start time is null, the system will look for a worker in real time |
-| duration | Int | The duration of the reqeust, in seconds |
-| location | List\[Double\] | The Latitude and Longitude pair of the request location (the list must have 2 elements) |
-| description | String | The job description |
+| Name | Type | Required | Description |
+| ---- | ---- | --------- | ----------- |
+| start_time | Int | No | The start date and time for the request in Unix epoch. If the start time is null, the system will look for a worker in real time |
+| duration | Int | Yes | The duration of the reqeust, in seconds |
+| location | List\[Double\] | Yes | The Latitude and Longitude pair of the request location (the list must have 2 elements) |
+| description | String | Yes | The job description |
 
 #### Response
 
