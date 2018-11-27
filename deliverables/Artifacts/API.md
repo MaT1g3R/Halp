@@ -17,7 +17,7 @@ The API will return error codes listed below:
 | 404  | Not found (end point doesn't exist, etc)  |
 | 500  | Internal Server Error (server screwed up) |
 
-For error code `400`, `401`, and `404`, the server will reply back
+For error code `400`, `401`, and `403`, the server will reply back
 with a more detailed error message in the response body as JSON like so:
 
 ```json
