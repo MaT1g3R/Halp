@@ -1,0 +1,12 @@
+[tool.poetry]
+name = "halp-backend"
+version = "0.1.0"
+description = "Backend for the Halp mobile app"
+authors = ["Peijun Ma <peijun.ma@protonmail.com>"]
+license = "AGPL-3.0-or-later"
+
+[tool.poetry.dependencies]
+python = "3.7+"
+django = "^2.1"
+
+[tool.poetry.dev-dependencies]
