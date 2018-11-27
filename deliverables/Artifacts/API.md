@@ -79,7 +79,7 @@ Get the profile of a user by ID or by authentication.
 If no query string is provided, the request must be authenticated.
 
 #### Authentication
-Optional
+Yes
 
 #### Query String
 | Name | Type | Required | Description |
