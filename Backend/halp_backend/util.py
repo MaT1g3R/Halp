@@ -1,4 +1,6 @@
-from django.http import HttpRequest
+from functools import partial, wraps
+
+from django.http import HttpRequest, JsonResponse
 from option import Option
 
 
@@ -16,3 +18,16 @@ def get_http_header(reqeust: HttpRequest, header: str) -> Option[str]:
 
     """
     return Option.maybe(reqeust.META.get(f'HTTP_{header.upper()}'))
+
+
+def allow_methods(methods, view=None):
+    if not view:
+        return partial(allow_methods, methods)
+
+    @wraps(view)
+    def wrapper(request):
+        if request.method not in methods:
+            return JsonResponse({'error': f'{request.method} method is not supported'}, status=403)
+        return view(request)
+
+    return wrapper
