@@ -65,7 +65,8 @@ curl -i -H "Authorization: Basic aGFscEBoYWxwLm9yZzpoYWxwIG1l" -H "Accept: appli
 | customer_id | Int | The customer that made this request |
 | start_time | Optional\[Int\] | The start date and time for this request, in Unix epoch. If the start time is null, the request can start at any time. |
 | duration | Int | The duration of this request, in seconds |
-| location | List\[Double\] | The Latitude and Longitude pair of the request location (the list must have 2 elements) |
+| latitude | Double | The latitude of this request |
+| longitude | Double | The longitude of this request |
 | finished | Boolean | Is the request finished |
 | assigned_to | Optional\[Int\] | The user id for the worker that will work/worked on this job (can be null if no one is available) |
 | description | String | The job description |
@@ -243,7 +244,8 @@ Response:
             "customer_id": 1,
             "start_time": 1543274213,
             "duration": 10800,
-            "location": [43.6748, -79.4092],
+            "latitude": 43.6748,
+            "longitude": -79.4092,
             "finished": true,
             "assigned_to": 2,
             "description": "Please do my CSC301 homework for me",
@@ -257,7 +259,8 @@ Response:
             "customer_id": 1,
             "start_time": 1543274789,
             "duration": 7000,
-            "location": [41.837,-71.719],
+            "latitude": 41.837,
+            "longitude": -71.719,
             "finished": false,
             "assigned_to": null,
             "description": "Help me mow my lawn",
@@ -284,7 +287,8 @@ Response:
             "customer_id": 1,
             "start_time": 1543274789,
             "duration": 7000,
-            "location": [41.837,-71.719],
+            "latitude": 41.837,
+            "longitude": -71.719,
             "finished": false,
             "assigned_to": null,
             "description": "Help me mow my lawn",
@@ -312,7 +316,8 @@ Yes
 | ---- | ---- | --------- | ----------- |
 | start_time | Int | No | The start date and time for the request in Unix epoch. If the start time is null, the system will look for a worker in real time |
 | duration | Int | Yes | The duration of the reqeust, in seconds |
-| location | List\[Double\] | Yes | The Latitude and Longitude pair of the request location (the list must have 2 elements) |
+| latitude | Double | The latitude of this request |
+| longitude | Double | The longitude of this request |
 | description | String | Yes | The job description |
 
 #### Response
@@ -332,7 +337,8 @@ Request Body:
 {
     "start_time": 1543278946,
     "duration": 3600,
-    "location": [52.48, -66.71],
+    "latitude": 52.48, 
+    "longitude": -66.71,
     "description": "Help me move a fridge"
 }
 ```
@@ -344,7 +350,8 @@ Response:
     "customer_id": 22,
     "start_time": 1543278946,
     "duration": 3600,
-    "location": [52.48, -66.71],
+    "latitude": 52.48,
+    "longitude": -66.71,
     "finished": false,
     "assigned_to": null,
     "description": "Help me move a fridge",
@@ -479,7 +486,8 @@ Response:
         "customer_id": 66,
         "start_time": null,
         "duration": 3600,
-        "location": [45.44967, -75.68651],
+        "latitude": 45.44967,
+        "longitude": -75.68651,
         "finished": false,
         "assigned_to": 88,
         "description": "Walk my dog",
