@@ -1,7 +1,7 @@
 from functools import partial, wraps
 
 from django.http import HttpRequest, JsonResponse
-from option import Option
+from option import NONE, Option, Some
 
 
 def get_http_header(reqeust: HttpRequest, header: str) -> Option[str]:
@@ -38,3 +38,14 @@ def allow_methods(methods, view=None):
         return view(request)
 
     return wrapper
+
+
+def validate_int(x) -> Option[int]:
+    if isinstance(x, (str, int)):
+        try:
+            parsed_int = int(x)
+        except (TypeError, ValueError):
+            return NONE
+        else:
+            return Some(parsed_int)
+    return NONE
