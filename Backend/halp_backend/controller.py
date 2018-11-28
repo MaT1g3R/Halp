@@ -6,6 +6,7 @@ from option import Err, Ok, Result
 from halp_backend import user_converter
 from halp_backend.models import User
 from halp_backend.typedefs import HttpError
+from halp_backend.util import validate_int
 
 
 def json_resposne(success_callback, func=None):
@@ -31,14 +32,14 @@ def json_resposne(success_callback, func=None):
 
 @json_resposne(user_converter.to_dict)
 def get_profile(user_id) -> Result[User, HttpError]:
-    try:
-        user_id = int(user_id)
-    except (TypeError, ValueError):
+    parsed_id = validate_int(user_id)
+    if not parsed_id:
         return Err(HttpError(400, f'{user_id} is not a valid user ID'))
+    user_id = parsed_id.value
 
     try:
         found_user = User.objects.get(id=user_id)
-    except User.DoesNotExist:
+    except (User.DoesNotExist, OverflowError):
         return Err(HttpError(400, f'User with ID {user_id} does not exist'))
 
     return Ok(found_user)
