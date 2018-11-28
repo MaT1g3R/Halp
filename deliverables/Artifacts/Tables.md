@@ -4,6 +4,7 @@
 | user_id | Int | The id of the user |
 | first_name | String | The first name of the user |
 | last_name | String | The last name of the user |
+| email | String | The email of the user |
 | bio  | String | The bio of the user |
 
 ### Response
