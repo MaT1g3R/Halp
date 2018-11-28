@@ -10,9 +10,8 @@ from halp_backend.models import User
 pytestmark = pytest.mark.django_db
 
 
-def test_found():
-    user = User.objects.create_user('email@email.org', '12', '23', '34')
-    user.save()
+def test_found(create_full_user):
+    user = create_full_user[0]
     assert loads(get_profile(user.id).content.decode()) == user_converter.to_dict(user)
 
 
@@ -27,8 +26,8 @@ def test_bad_id(user_id):
     assert resp.status_code == 400
 
 
-@given(strategies.integers())
-def test_not_found(user_id):
+@given(user_id=strategies.integers())
+def test_not_found(user_id, create_full_user):
     assume(user_id not in User.objects.values_list('id'))
     resp = get_profile(user_id)
     assert 'does not exist' in resp.content.decode()
