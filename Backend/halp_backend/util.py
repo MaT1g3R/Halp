@@ -21,6 +21,13 @@ def get_http_header(reqeust: HttpRequest, header: str) -> Option[str]:
 
 
 def allow_methods(methods, view=None):
+    """
+    Decorator to allow a list of methods for a view
+
+    Args:
+        methods: The list of methods to allow
+        view:    The view
+    """
     if not view:
         return partial(allow_methods, methods)
 
