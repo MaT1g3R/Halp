@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from halp_backend import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/v1/profile', views.profile)
 ]
