@@ -10,6 +10,7 @@ omit =
     halp_backend/apps.py
     halp_backend/admin.py
     halp_backend/models.py
+    halp_backend/user_manager.py
 
 [report]
 # Regexes for lines to exclude from consideration

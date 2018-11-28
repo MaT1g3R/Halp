@@ -38,3 +38,9 @@ def test_empty(request_factory):
     wrapped = allow_methods(methods, mock_view)
     request = request_factory.generic(method, '/')
     assert wrapped(request).status_code == 403
+
+
+@pytest.mark.parametrize('methods', [('GET', 'POST')])
+def test_partial(methods, request_factory):
+    request = request_factory.get('/')
+    assert allow_methods(methods)(mock_view)(request) == allow_methods(methods, mock_view)(request)
