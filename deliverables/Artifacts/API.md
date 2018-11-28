@@ -315,9 +315,9 @@ Yes
 | Name | Type | Required | Description |
 | ---- | ---- | --------- | ----------- |
 | start_time | Int | No | The start date and time for the request in Unix epoch. If the start time is null, the system will look for a worker in real time |
-| duration | Int | Yes | The duration of the reqeust, in seconds |
-| latitude | Double | The latitude of this request |
-| longitude | Double | The longitude of this request |
+| duration | Int | Yes | The duration of the request, in seconds |
+| latitude | Double | Yes | The latitude of this request |
+| longitude | Double | Yes | The longitude of this request |
 | description | String | Yes | The job description |
 
 #### Response
