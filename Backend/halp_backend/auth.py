@@ -1,8 +1,10 @@
 import binascii
 from base64 import b64decode
+from functools import wraps
+from typing import Callable
 
 from django.contrib.auth import authenticate
-from django.http import HttpRequest
+from django.http import HttpRequest, HttpResponse, JsonResponse
 from option import NONE, Option, maybe
 
 from halp_backend.models import User
@@ -34,3 +36,21 @@ def authenticate_user(reqeust: HttpRequest) -> Option[User]:
     email, _, password = auth_string.partition(':')
     user = authenticate(username=email, password=password)
     return maybe(user)
+
+
+def require_auth(view: Callable[[User, HttpRequest], HttpResponse]):
+    """
+    Decorator to authenticate a view
+
+    Args:
+        view: The original view function
+    """
+
+    @wraps(view)
+    def wrapper(request: HttpRequest):
+        user = authenticate_user(request)
+        if user:
+            return view(user.value, request)
+        return JsonResponse({'error': 'User is not authenticated'}, status=401)
+
+    return wrapper
