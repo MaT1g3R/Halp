@@ -15,7 +15,7 @@ def mock_view(user, request):
     ('foo@bar.baz', '123456789'),
 ])
 def test_success(email, password, request_factory):
-    user = User.objects.create_user(email, password)
+    user = User.objects.create_user(email, password, '', '')
     user.save()
     wrapped = require_auth(mock_view)
     request = request_factory.get('/')
@@ -27,7 +27,7 @@ def test_success(email, password, request_factory):
     ('foo@bar.baz', '123456789'),
 ])
 def test_success(email, password, request_factory):
-    user = User.objects.create_user(email, password)
+    user = User.objects.create_user(email, password, '', '')
     user.save()
     wrapped = require_auth(mock_view)
     request = request_factory.get('/')
