@@ -13,7 +13,7 @@ pytestmark = pytest.mark.django_db
     ('email@halp.com', 'hunter2')
 ])
 def test_success(email, password, request_factory):
-    user = User.objects.create_user(email, password)
+    user = User.objects.create_user(email, password, '', '')
     user.save()
     request = request_factory.get('/')
     request.META['HTTP_AUTHORIZATION'] = encode_auth(email, password)
@@ -24,7 +24,7 @@ def test_success(email, password, request_factory):
     ('email@halp.com', 'hunter2')
 ])
 def test_bad_header(email, password, request_factory):
-    user = User.objects.create_user(email, password)
+    user = User.objects.create_user(email, password, '', '')
     user.save()
     request = request_factory.get('/')
     request.META['AUTHORIZATION'] = encode_auth(email, password)
@@ -35,7 +35,7 @@ def test_bad_header(email, password, request_factory):
     ('email@halp.com', 'hunter2')
 ])
 def test_bad_password(email, password, request_factory):
-    user = User.objects.create_user(email, password)
+    user = User.objects.create_user(email, password, '', '')
     user.save()
     request = request_factory.get('/')
     request.META['HTTP_AUTHORIZATION'] = encode_auth(email, password + 'a')
@@ -46,7 +46,7 @@ def test_bad_password(email, password, request_factory):
     ('email@halp.com', 'hunter2')
 ])
 def test_bad_email(email, password, request_factory):
-    user = User.objects.create_user(email, password)
+    user = User.objects.create_user(email, password, '', '')
     user.save()
     request = request_factory.get('/')
     request.META['HTTP_AUTHORIZATION'] = encode_auth(email + 'c', password)
@@ -57,7 +57,7 @@ def test_bad_email(email, password, request_factory):
     ('email@halp.com', 'hunter2')
 ])
 def test_bad_format(email, password, request_factory):
-    user = User.objects.create_user(email, password)
+    user = User.objects.create_user(email, password, '', '')
     user.save()
     request = request_factory.get('/')
     request.META['HTTP_AUTHORIZATION'] = b64encode(f'Basi {email}:{password}'.encode()).decode()
@@ -72,7 +72,7 @@ def test_bad_format(email, password, request_factory):
     ('email@halp.com', 'hunter2')
 ])
 def test_bad_encode(email, password, request_factory):
-    user = User.objects.create_user(email, password)
+    user = User.objects.create_user(email, password, '', '')
     user.save()
     request = request_factory.get('/')
     request.META['HTTP_AUTHORIZATION'] = encode_auth(email, password)[1:]
