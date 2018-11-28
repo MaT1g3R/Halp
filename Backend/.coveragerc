@@ -6,6 +6,10 @@ omit =
     */__version__.py
     */__init__.py
     */test*
+    halp_backend/migrations
+    halp_backend/apps.py
+    halp_backend/admin.py
+    halp_backend/models.py
 
 [report]
 # Regexes for lines to exclude from consideration
