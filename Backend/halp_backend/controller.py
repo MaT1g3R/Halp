@@ -114,7 +114,7 @@ def update_bio(valid_data: Dict, user: User) -> Result[Dict, HttpError]:
     return Ok({'bio': user.bio})
 
 
-@json_resposne(request_converter.to_dict)
+@json_resposne(dict)
 @require_json_validation({
     'type': 'object',
     'properties': {
@@ -136,7 +136,9 @@ def get_reqeusts(valid_data: Dict, user: User):
     return Ok(None)
 
 
-def create_request():
+@json_resposne(request_converter.to_dict)
+@require_json_string_validation({})
+def create_request(valid_data: Dict, user: User):
     pass
 
 
