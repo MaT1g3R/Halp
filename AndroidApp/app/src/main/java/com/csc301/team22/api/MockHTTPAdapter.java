@@ -70,7 +70,7 @@ public class MockHTTPAdapter implements IHTTPAdapter {
     public void deleteRequest(int requestId) {
 
         for(Request req : requests){
-            if(req.getRequestID() == requestId){
+            if(req.getRequest_id() == requestId){
                 requests.remove(req);
             }
 
