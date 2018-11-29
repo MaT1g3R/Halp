@@ -4,6 +4,7 @@
 | user_id | Int | The id of the user |
 | first_name | String | The first name of the user |
 | last_name | String | The last name of the user |
+| email | String | The email of the user |
 | bio  | String | The bio of the user |
 
 ### Response
@@ -16,7 +17,7 @@
 ### Request
 | Name | Type | Description |
 | ---  | ---  | ----------- |
-| reqeust_id | Int | The id of the request |
+| request_id | Int | The id of the request |
 | customer_id | Int | The customer that made this request |
 | start_time | Optional\[Int\] | The start date and time for this request, in Unix epoch. If the start time is null, the request can start at any time. |
 | duration | Int | The duration of this request, in seconds |
