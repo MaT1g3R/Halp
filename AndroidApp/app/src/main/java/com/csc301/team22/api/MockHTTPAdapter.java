@@ -69,6 +69,13 @@ public class MockHTTPAdapter implements IHTTPAdapter {
     @Override
     public void deleteRequest(int requestId) {
 
+        for(Request req : requests){
+            if(req.getRequestID() == requestId){
+                requests.remove(req);
+            }
+
+        }
+
     }
 
     @Override
