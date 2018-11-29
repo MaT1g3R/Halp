@@ -3,15 +3,21 @@ package com.csc301.team22.api;
 
 public class CreateRequest {
     private Integer start_time = null;
-    private int duration =0;
-    private double latitude =0 , longitude=0;
-    private  String description=null;
+    private int duration = 0;
+    private double latitude = 0, longitude = 0;
+    private String description = null;
 
+
+    CreateRequest() {
+    }
 
     public class Builder {
-        private Integer start_time=null, duration=null;
-        private Double latitude=null, longitude=null;
-        private  String description=null;
+        private Integer start_time = null, duration = null;
+        private Double latitude = null, longitude = null;
+        private String description = null;
+
+        public Builder() {
+        }
 
         public void setStart_time(int start_time) {
             this.start_time = start_time;
@@ -50,10 +56,6 @@ public class CreateRequest {
 
             return request;
         }
-
-        public Builder (){}
     }
-
-    CreateRequest (){}
 
 }
