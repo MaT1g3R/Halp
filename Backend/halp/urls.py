@@ -20,5 +20,6 @@ from halp_backend import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/profile', views.profile)
+    path('api/v1/profile', views.profile),
+    path('api/v1/create_user', views.create_user)
 ]

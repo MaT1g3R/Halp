@@ -13,3 +13,8 @@ def profile(user: User, request: HttpRequest):
     if user_id is None:
         return JsonResponse(user_converter.to_dict(user))
     return controller.get_profile(user_id)
+
+
+@allow_methods(methods=['POST'])
+def create_user(reqeust: HttpRequest):
+    return controller.create_user(reqeust.body)
