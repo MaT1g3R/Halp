@@ -7,9 +7,9 @@ pytestmark = pytest.mark.django_db
 
 
 def test_delete():
+    Request.objects.pending_requests.clear()
     fake_request = fake_request_creation(False)
     req = Request.objects.create_request(**fake_request)
-    req.save()
     req_id = req.id
     assert req in Request.objects.pending_requests
     Request.objects.delete_request(req)
@@ -18,11 +18,10 @@ def test_delete():
 
 
 def test_delete_not_in_queue():
+    Request.objects.pending_requests.clear()
     orig_queue = Request.objects.pending_requests
-
     fake_request = fake_request_creation(True)
     req = Request.objects.create_request(**fake_request)
-    req.save()
     req_id = req.id
     assert req not in Request.objects.pending_requests
     Request.objects.delete_request(req)
