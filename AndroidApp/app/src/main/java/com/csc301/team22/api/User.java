@@ -2,12 +2,13 @@ package com.csc301.team22.api;
 
 public class User {
     private int user_id;
-    private String first_name, last_name, bio="";
+    private String first_name, last_name, email, bio="";
 
     private User(Builder builder) {
         this.user_id = builder.user_id;
         this.first_name = builder.first_name;
         this.last_name = builder.last_name;
+        this.email = builder.email;
         this.bio = builder.bio;
     }
 
@@ -27,6 +28,10 @@ public class User {
         return last_name;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
     public String getBio() {
         return bio;
     }
@@ -37,7 +42,7 @@ public class User {
 
     public static class Builder {
         private Integer user_id = null;
-        private String first_name = null, last_name = null, bio = null;
+        private String first_name = null, last_name = null, email = null, bio = null;
 
         public Builder user_id(int user_id) {
             this.user_id = user_id;
@@ -54,13 +59,18 @@ public class User {
             return this;
         }
 
+        public Builder email(String email) {
+            this.email = email;
+            return this;
+        }
+
         public Builder bio(String bio) {
             this.bio = bio;
             return this;
         }
 
         public User build() {
-            if (user_id == null || first_name == null || last_name == null) {
+            if (user_id == null || first_name == null || last_name == null || email == null) {
                 throw new IllegalArgumentException("First and last name cannot be null");
             }
 

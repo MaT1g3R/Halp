@@ -41,7 +41,7 @@ public class MockHTTPAdapter implements IHTTPAdapter {
 
 
         User newUser = new User.Builder().user_id(id_counter).first_name(user.getFirst_name())
-                .last_name(user.getLast_name()).build();
+                .last_name(user.getLast_name()).email(user.getEmail()).build();
 
         id_counter++;
 
@@ -82,9 +82,17 @@ public class MockHTTPAdapter implements IHTTPAdapter {
     }
 
     @Override
-    public void authenticate(String email, String password) {
-        if (!passwords.get(email).equals(password)) {
-            throw new IllegalArgumentException("Wrong email or password");
+    public int authenticate(String email, String password) {
+        if (passwords.containsKey(email)) {
+            if (passwords.get(email).equals(password)) {
+                for(User user: users) {
+                    if (user.getEmail().equals(email)) {
+                        return user.getUser_id();
+                    }
+                }
+            }
         }
+
+        return -1;
     }
 }

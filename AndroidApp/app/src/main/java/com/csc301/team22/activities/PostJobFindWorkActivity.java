@@ -11,6 +11,7 @@ public class PostJobFindWorkActivity extends AppCompatActivity {
     private Button postJob;
     private Button findWork;
     private Button buttonProfile;
+    private Button signOut;
 
 
     @Override
@@ -26,5 +27,8 @@ public class PostJobFindWorkActivity extends AppCompatActivity {
 
         buttonProfile = findViewById(R.id.FindWorkProfileButton);
         buttonProfile.setOnClickListener(v -> Util.openActivity(this, ProfileActivity.class));
+
+        buttonProfile = findViewById(R.id.signOutButton);
+        buttonProfile.setOnClickListener(v -> Util.openActivity(this, LoginActivity.class));
     }
 }
