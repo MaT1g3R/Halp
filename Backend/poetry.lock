@@ -70,6 +70,14 @@ pyflakes = ">=2.0.0,<2.1.0"
 setuptools = ">=30"
 
 [[package]]
+category = "main"
+description = "WSGI HTTP Server for UNIX"
+name = "gunicorn"
+optional = false
+python-versions = ">=2.6, !=3.0.*, !=3.1.*"
+version = "19.9.0"
+
+[[package]]
 category = "dev"
 description = "A library for property based testing"
 name = "hypothesis"
@@ -216,7 +224,7 @@ python-versions = "*"
 version = "1.2"
 
 [metadata]
-content-hash = "f0c39922c151e7334d39337bd3d53b48d0913193c51e9ea8564ae25582099abb"
+content-hash = "290035ff3125b6c206ae6cfd5daa5ed5a0ad50db4a44f03ea4dc0bb74c5b4cf4"
 python-versions = "~3.7"
 
 [metadata.hashes]
@@ -227,6 +235,7 @@ coverage = ["06123b58a1410873e22134ca2d88bd36680479fe354955b3579fb8ff150e4d27", 
 django = ["1ffab268ada3d5684c05ba7ce776eaeedef360712358d6a6b340ae9f16486916", "dd46d87af4c1bf54f4c926c3cfa41dc2b5c15782f15e4329752ce65f5dad1c37"]
 faker = ["c61a41d0dab8865b850bd00454fb11e90f3fd2a092d8bc90120d1e1c01cff906", "f909ff9133ce0625ca388b6838190630ad7a593f87eaf058d872338a76241d5d"]
 flake8 = ["6a35f5b8761f45c5513e3405f110a86bea57982c3b75b766ce7b65217abe1670", "c01f8a3963b3571a8e6bd7a4063359aff90749e160778e03817cd9b71c9e07d2"]
+gunicorn = ["aa8e0b40b4157b36a5df5e599f45c9c76d6af43845ba3b3b0efe2c70473c2471", "fa2662097c66f920f53f70621c6c58ca4a3c4d3434205e608e121b5b3b71f4f3"]
 hypothesis = ["43cabc87f32adc90fec41cb3f36d96c2e5d564d71f2e60817cd2b23d24c7ad7a", "46eef013dafe09467bc83065ab621b51098a84712ab39399fd15477406807c13", "f33d2e50080e09dcd4e81f939b1d825c6f5b104d89ebad7f57cdd3ea11983680"]
 mccabe = ["ab8a6258860da4b6677da4bd2fe5dc2c659cff31b3ee4f7f5d64e79735b80d42", "dd8d182285a0fe56bace7f45b5e7d1a6ebcbf524e8f3bd87eb0f125271b8831f"]
 more-itertools = ["c187a73da93e7a8acc0001572aebc7e3c69daf7bf6881a2cea10650bd4420092", "c476b5d3a34e12d40130bc2f935028b5f636df8f372dc2c1c01dc19681b2039e", "fcbfeaea0be121980e15bc97b3817b5202ca73d0eae185b4550cbfce2a3ebb3d"]
