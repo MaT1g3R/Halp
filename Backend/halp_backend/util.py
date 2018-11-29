@@ -1,6 +1,6 @@
 import json
 from functools import partial, wraps
-from typing import AnyStr, Dict
+from typing import AnyStr, Callable, Dict, Optional
 
 from django.http import HttpRequest, JsonResponse
 from jsonschema import ValidationError, validate
@@ -99,3 +99,18 @@ def validate_json_string(string: AnyStr, schema: Dict, *args, **kwargs) -> Resul
     if not parsed_json:
         return Err(f'{string} is not a valid json string')
     return validate_json(parsed_json.value, schema, *args, **kwargs)
+
+
+def dict_filter(d: dict, filter_: Optional[Callable] = None) -> dict:
+    """
+    Filter a dictionary by a given filter function
+    Args:
+        d: The dict to filter
+        filter_:
+            The filter function, takes the dict key and values as arguments,
+            defaults to checking for both the key and value to be not None
+    Returns:
+        The filtered dict
+    """
+    filter_func = filter_ if filter_ else lambda key, val: key is not None and val is not None
+    return {key: val for key, val in d.items() if filter_func(key, val)}
