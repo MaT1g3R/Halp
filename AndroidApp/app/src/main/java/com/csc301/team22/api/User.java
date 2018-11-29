@@ -4,8 +4,30 @@ public class User {
     private int user_id;
     private String first_name, last_name, bio;
 
+    private User(Builder builder) {
+        this.first_name = builder.first_name;
+        this.last_name = builder.last_name;
+        this.bio = builder.bio;
+    }
+
+    // Public constructor
+    public User() {
+    }
+
+    public String getFirst_name() {
+        return first_name;
+    }
+
+    public String getLast_name() {
+        return last_name;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
     public static class Builder {
-        private String first_name=null, last_name=null, bio=null;
+        private String first_name = null, last_name = null, bio = null;
 
         public Builder first_name(String first_name) {
             this.first_name = first_name;
@@ -22,7 +44,7 @@ public class User {
             return this;
         }
 
-        public User build () {
+        public User build() {
             if (first_name == null || last_name == null) {
                 throw new IllegalArgumentException("First and last name cannot be null");
             }
@@ -30,25 +52,4 @@ public class User {
             return new User(this);
         }
     }
-
-    private User(Builder builder) {
-        this.first_name = builder.first_name;
-        this.last_name = builder.last_name;
-        this.bio = builder.bio;
-    }
-
-    public String getFirst_name() {
-        return first_name;
-    }
-
-    public String getLast_name() {
-        return last_name;
-    }
-
-    public String getBio() {
-        return bio;
-    }
-
-    // Public constructor
-    public User(){}
 }

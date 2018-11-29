@@ -5,6 +5,9 @@ public class RequestQuery {
     private int starts_after, radius;
     private double latitude, longitude;
 
+    public RequestQuery() {
+    }
+
     public boolean isFinished() {
         return finished;
     }
@@ -52,6 +55,4 @@ public class RequestQuery {
     public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
-
-    public RequestQuery (){}
 }
