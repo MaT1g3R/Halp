@@ -1,12 +1,14 @@
 from functools import partial, wraps
+from typing import AnyStr, Dict
 
+from django.db import IntegrityError
 from django.http import JsonResponse
 from option import Err, Ok, Result
 
 from halp_backend import user_converter
 from halp_backend.models import User
 from halp_backend.typedefs import HttpError
-from halp_backend.util import validate_int
+from halp_backend.util import validate_int, validate_json_string
 
 
 def json_resposne(success_callback, func=None):
@@ -30,6 +32,22 @@ def json_resposne(success_callback, func=None):
     return wrapper
 
 
+def require_json_validation(schema, func=None, *vargs, **vkwargs):
+    """Decorator to load and validate a string to JSON data"""
+    if not func:
+        return partial(require_json_validation, schema)
+
+    @wraps(func)
+    def wrapper(string: AnyStr, *args, **kwargs):
+        json_data = validate_json_string(string, schema, *vargs, **vkwargs)
+        if json_data.is_err:
+            return Err(HttpError(400, json_data.unwrap_err()))
+        dict_ = json_data.unwrap()
+        return func(dict_, *args, **kwargs)
+
+    return wrapper
+
+
 @json_resposne(user_converter.to_dict)
 def get_profile(user_id) -> Result[User, HttpError]:
     parsed_id = validate_int(user_id)
@@ -43,3 +61,26 @@ def get_profile(user_id) -> Result[User, HttpError]:
         return Err(HttpError(400, f'User with ID {user_id} does not exist'))
 
     return Ok(found_user)
+
+
+@json_resposne(user_converter.to_dict)
+@require_json_validation({
+    'type': 'object',
+    'properties': {
+        'email': {'type': 'string', 'minLength': 1},
+        'password': {'type': 'string', 'minLength': 1},
+        'first_name': {'type': 'string', 'minLength': 1},
+        'last_name': {'type': 'string', 'minLength': 1},
+    },
+    'additionalProperties': False,
+    'required': ['email', 'password', 'first_name', 'last_name']
+})
+def create_user(valid_data: Dict) -> Result[User, HttpError]:
+    try:
+        new_user = User.objects.create_user(**valid_data)
+    except IntegrityError:
+        return Err(HttpError(400, f'User with email {valid_data["email"]} alread exists'))
+    except ValueError as e:
+        return Err(HttpError(400, str(e)))
+    new_user.save()
+    return Ok(new_user)
