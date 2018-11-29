@@ -411,7 +411,7 @@ Request Body:
 {
     "start_time": 1543278946,
     "duration": 3600,
-    "latitude": 52.48, 
+    "latitude": 52.48,
     "longitude": -66.71,
     "description": "Help me move a fridge"
 }
@@ -463,8 +463,52 @@ the error code. (200 for successful deletion)
 DELETE /api/v1/reqeust?request_id=13
 ```
 
--------- 
+--------
 
+### POST /api/v1/create_response
+Create a response for a request under the authenticated user
+
+#### Authentication
+Yes
+
+#### Request Body
+| Name | Type | Required | Description |
+| ---- | ---- | --------- | --------- |
+| request_id | Int | Yes | The ID of the request to respond to |
+| comment | String | Yes | The comment of the response |
+
+#### Response
+A [Request](#request) object of the request that you responded to
+
+#### Example
+Request:
+```
+POST /api/v1/create_response
+```
+
+Request Body:
+```json
+{"request_id": 5, "comment": "Hello World!"}
+```
+
+Response:
+```json
+{
+    "request_id": 5,
+    "customer_id": 22,
+    "start_time": 1543278946,
+    "duration": 3600,
+    "latitude": 52.48,
+    "longitude": -66.71,
+    "finished": false,
+    "assigned_to": null,
+    "description": "Help me move a fridge",
+    "responses": [
+        {"response_id": 3, "worker_id": 7, "comment": "Hello World!"}
+    ]
+}
+```
+------------------------
 ### GET /api/v1/find_worker
 
 Find a worker for a reqeust in real time.
@@ -513,6 +557,7 @@ Response:
 ```
 
 -------------------------
+
 
 ### GET /api/v1/find_job
 

@@ -18,6 +18,7 @@ public class User {
 
     public int getUser_id() {
         return user_id;
+
     }
 
     public String getFirst_name() {
@@ -49,6 +50,7 @@ public class User {
             return this;
         }
 
+
         public Builder first_name(String first_name) {
             this.first_name = first_name;
             return this;
@@ -64,6 +66,7 @@ public class User {
             return this;
         }
 
+
         public Builder bio(String bio) {
             this.bio = bio;
             return this;
@@ -71,6 +74,7 @@ public class User {
 
         public User build() {
             if (user_id == null || first_name == null || last_name == null || email == null) {
+
                 throw new IllegalArgumentException("First and last name cannot be null");
             }
 
