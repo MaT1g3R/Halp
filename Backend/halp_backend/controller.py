@@ -2,12 +2,14 @@ from functools import partial, wraps
 from typing import AnyStr, Dict, List
 
 from django.http import JsonResponse
+from django.utils.datetime_safe import datetime
+from haversine import haversine
 from option import Err, Ok, Result
 
 from halp_backend import request_converter, user_converter
-from halp_backend.models import User
+from halp_backend.models import Request, User
 from halp_backend.typedefs import HttpError
-from halp_backend.util import validate_int, validate_json, validate_json_string
+from halp_backend.util import dict_filter, validate_int, validate_json, validate_json_string
 
 
 def json_resposne(success_callback, func=None):
@@ -133,7 +135,30 @@ def update_bio(valid_data: Dict, user: User) -> Result[Dict, HttpError]:
     }
 })
 def get_reqeusts(valid_data: Dict, user: User) -> Result[List[Dict], HttpError]:
-    return Ok([])
+    if not valid_data:
+        return Ok([request_converter.to_dict(r) for r in Request.objects.filter(customer=user)])
+
+    radius = valid_data.get('radius')
+    lat = valid_data.get('lat')
+    long = valid_data.get('long')
+    finished = valid_data.get('finished')
+    assigned = valid_data.get('assigned')
+    starts_after = valid_data.get('starts_after')
+    if starts_after is not None:
+        starts_after = datetime.fromtimestamp(starts_after)
+
+    filters = dict_filter({
+        'finished': finished,
+        'assigned': assigned,
+        'start_time__gte': starts_after,
+    })
+    request_query = Request.objects.filter(**filters)
+    if radius is None or lat is None or long is None:
+        return Ok([request_converter.to_dict(r) for r in request_query])
+    return Ok([
+        request_converter.to_dict(r) for r in request_query if
+        haversine((lat, long), (r.latitude, r.longitude)) <= radius
+    ])
 
 
 @json_resposne(request_converter.to_dict)
