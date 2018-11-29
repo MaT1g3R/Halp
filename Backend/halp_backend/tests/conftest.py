@@ -9,6 +9,26 @@ from halp_backend.tests import fake
 
 
 @pytest.fixture()
+def fake_email():
+    return fake.email()
+
+
+@pytest.fixture()
+def fake_password():
+    return fake.password()
+
+
+@pytest.fixture()
+def fake_first_name():
+    return fake.first_name()
+
+
+@pytest.fixture()
+def fake_last_name():
+    return fake.last_name()
+
+
+@pytest.fixture()
 def request_factory():
     return RequestFactory()
 

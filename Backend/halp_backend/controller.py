@@ -1,7 +1,6 @@
 from functools import partial, wraps
 from typing import AnyStr, Dict
 
-from django.db import IntegrityError
 from django.http import JsonResponse
 from option import Err, Ok, Result
 
@@ -76,11 +75,8 @@ def get_profile(user_id) -> Result[User, HttpError]:
     'required': ['email', 'password', 'first_name', 'last_name']
 })
 def create_user(valid_data: Dict) -> Result[User, HttpError]:
-    try:
-        new_user = User.objects.create_user(**valid_data)
-    except IntegrityError:
-        return Err(HttpError(400, f'User with email {valid_data["email"]} alread exists'))
-    except ValueError as e:
-        return Err(HttpError(400, str(e)))
+    if User.objects.filter(email=valid_data['email']).exists():
+        return Err(HttpError(400, f'User with email {valid_data["email"]} already exists'))
+    new_user = User.objects.create_user(**valid_data)
     new_user.save()
     return Ok(new_user)
