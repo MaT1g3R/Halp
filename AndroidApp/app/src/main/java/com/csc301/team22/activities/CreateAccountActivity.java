@@ -1,15 +1,23 @@
 package com.csc301.team22.activities;
 
+import com.csc301.team22.api.*;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.csc301.team22.R;
 
+import java.util.Iterator;
+
 public class CreateAccountActivity extends AppCompatActivity {
+
+    String first_name, last_name, email, pass, re_pass;
+    String error = "Passwords must match";
+    MockHTTPAdapter mock = new MockHTTPAdapter();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +27,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         Button create = (Button) findViewById(R.id.button3);
 
         create.setOnClickListener(new View.OnClickListener(){
+            @Override
             public void onClick(View v) {
                 create_account();
             }
@@ -27,15 +36,33 @@ public class CreateAccountActivity extends AppCompatActivity {
     }
 
     public void create_account(){
-        boolean flag = true;
-        EditText username = findViewById(R.id.editText3);
-        EditText password = findViewById(R.id.editText6);
-        EditText re_password = findViewById(R.id.editText7);
-        // check condition
-        // will implement in part3
 
-        if(flag){
-            Intent intent = new Intent(this, LoginActivity.class);
+        EditText first = findViewById(R.id.createFirst);
+        EditText last = findViewById(R.id.createLast);
+        EditText mail = findViewById(R.id.createEmail);
+        EditText password = findViewById(R.id.createPassword);
+        EditText re_password = findViewById(R.id.createRepassword);
+        TextView wrong = findViewById(R.id.wrongCreate);
+
+        //D3 storing values
+        first_name = first.getText().toString();
+        last_name = last.getText().toString();
+        email = mail.getText().toString();
+        pass = password.getText().toString();
+        re_pass = re_password.getText().toString();
+
+        if (!pass.equals(re_pass)) {
+            wrong.setText(error);
+        } else {
+
+            CreateUser newUser = new CreateUser.Builder().first_name(first_name)
+                    .last_name(last_name).email(email).password(pass).build();
+
+            User nUser = mock.createUser(newUser);
+
+
+
+            Intent intent = new Intent(this, ProfileActivity.class);
             startActivity(intent);
         }
     }

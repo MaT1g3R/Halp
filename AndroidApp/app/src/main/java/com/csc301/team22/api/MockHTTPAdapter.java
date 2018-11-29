@@ -6,7 +6,7 @@ import java.util.List;
 
 public class MockHTTPAdapter implements IHTTPAdapter {
     // We want a mock database inside this class
-    List<User> users = new ArrayList<>();
+    public List<User> users = new ArrayList<>();
     List<Request> requests = new ArrayList<>();
     List<Response> respones = new ArrayList<>();
     HashMap<String, String> passwords = new HashMap<>();
@@ -18,8 +18,14 @@ public class MockHTTPAdapter implements IHTTPAdapter {
     }
 
     @Override
-    public User createUSer(CreateUser user) {
-        return null;
+    public User createUser(CreateUser user) {
+        User newUser = new User.Builder().first_name(user.getFirst_name())
+                .last_name(user.getLast_name()).build();
+
+        users.add(newUser);
+        passwords.put(user.getEmail(), user.getPassword());
+
+        return newUser;
     }
 
     @Override
@@ -54,6 +60,8 @@ public class MockHTTPAdapter implements IHTTPAdapter {
 
     @Override
     public void authenticate(String email, String password) {
-
+        if (!passwords.get(email).equals(password)) {
+            throw new IllegalArgumentException("Wrong email or password");
+        }
     }
 }

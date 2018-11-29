@@ -3,23 +3,27 @@ package com.csc301.team22.api;
 public class CreateUser {
     private String first_name="", last_name="", email="", password="";
 
-    public class Builder {
+    public static class Builder {
         private String first_name=null, last_name=null, email=null, password=null;
 
-        public void setFirst_name(String first_name) {
+        public Builder first_name(String first_name) {
             this.first_name = first_name;
+            return this;
         }
 
-        public void setLast_name(String last_name) {
+        public Builder last_name(String last_name) {
             this.last_name = last_name;
+            return this;
         }
 
-        public void setEmail(String email) {
+        public Builder email(String email) {
             this.email = email;
+            return this;
         }
 
-        public void setPassword(String password) {
+        public Builder password(String password) {
             this.password = password;
+            return this;
         }
 
         public CreateUser build () {
@@ -30,20 +34,41 @@ public class CreateUser {
                 throw new IllegalArgumentException("All CreateUser attributes must not be null");
             }
 
-            CreateUser user = new CreateUser();
+//            CreateUser user = new CreateUser();
 
-            user.first_name = first_name;
-            user.last_name = last_name;
-            user.email = email;
-            user.password = password;
+//            user.first_name = first_name;
+//            user.last_name = last_name;
+//            user.email = email;
+//            user.password = password;
 
-            return user;
+//            return user;
+
+            return new CreateUser(this);
         }
 
-        public Builder (){}
+//        public Builder (){}
     }
 
+    private CreateUser(Builder builder){
+        this.first_name = builder.first_name;
+        this.last_name = builder.last_name;
+        this.email = builder.email;
+        this.password = builder.password;
+    }
 
+    public String getFirst_name() {
+        return first_name;
+    }
 
-    CreateUser(){}
+    public String getLast_name() {
+        return last_name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
 }

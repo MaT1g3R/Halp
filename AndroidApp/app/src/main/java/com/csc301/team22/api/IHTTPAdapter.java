@@ -10,7 +10,7 @@ public interface IHTTPAdapter {
 
     public User getProfile(int user_id);
 
-    public User createUSer(CreateUser user);
+    public User createUser(CreateUser user);
 
     public String updateBio(String bio);
 
