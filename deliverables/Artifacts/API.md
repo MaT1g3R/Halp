@@ -55,20 +55,20 @@ curl -i -H "Authorization: Basic aGFscEBoYWxwLm9yZzpoYWxwIG1l" -H "Accept: appli
 | Name | Type | Description |
 | ---  | ---  | ----------- |
 | response_id | Int | The id of the response |
-| worker_id   | Int | The user id of the worker that created this response |
+| worker   | [User](#user) | The worker that created this response |
 | comment | String | The response comment |
 
 ### Request
 | Name | Type | Description |
 | ---  | ---  | ----------- |
 | request_id | Int | The id of the request |
-| customer_id | Int | The customer that made this request |
+| customer | [User](#user) | The customer that made this request |
 | start_time | Optional\[Int\] | The start date and time for this request, in Unix epoch. If the start time is null, the request can start at any time. |
 | duration | Int | The duration of this request, in seconds |
 | latitude | Double | The latitude of this request |
 | longitude | Double | The longitude of this request |
 | finished | Boolean | Is the request finished |
-| assigned_to | Optional\[Int\] | The user id for the worker that will work/worked on this job (can be null if no one is available) |
+| assigned_to | Optional\[[User](#user)\] | The worker that will work/worked on this job (can be null if no one is available) |
 | description | String | The job description |
 | responses | List\[[Response](#response)\] | The list of responses for this request |
 
@@ -241,22 +241,55 @@ Response:
     "requests": [
         {
             "request_id": 1,
-            "customer_id": 1,
+            "customer": {
+                "user_id": 1,
+                "firt_name": "Dennis",
+                "last_name": "Ritchie",
+                "bio": "I created the C progamming language"
+            },
             "start_time": 1543274213,
             "duration": 10800,
             "latitude": 43.6748,
             "longitude": -79.4092,
             "finished": true,
-            "assigned_to": 2,
+            "assigned_to": {
+                "user_id": 2,
+                "first_name": "Ken",
+                "last_name": "Thompson",
+                "bio": ""
+            },
             "description": "Please do my CSC301 homework for me",
             "responses": [
-                {"response_id": 1, "worker_id": 2, "comment": "Ok"},
-                {"response_id": 2, "worker_id": 3, "comment": "I'm good with Java"}
+                {
+                    "response_id": 1,
+                    "worker": {
+                        "user_id": 2,
+                        "first_name": "Ken",
+                        "last_name": "Thompson",
+                        "bio": ""
+                    },
+                    "comment": "Ok"
+                },
+                {
+                    "response_id": 2, 
+                    "worker": {
+                        "user_id": 102,
+                        "first_name": "Linus",
+                        "last_name": "Torvalds",
+                        "bio": "I created Linux"
+                    }, 
+                    "comment": "I'm good with C"
+                }
             ]
         },
         {
             "request_id": 2,
-            "customer_id": 1,
+            "customer": {
+                "user_id": 27,
+                "firt_name": "Boss",
+                "last_name": "Person",
+                "bio": "I pay well"
+            },
             "start_time": 1543274789,
             "duration": 7000,
             "latitude": 41.837,
@@ -265,8 +298,26 @@ Response:
             "assigned_to": null,
             "description": "Help me mow my lawn",
             "responses": [
-                {"response_id": 3, "worker_id": 7, "comment": "I like grass"},
-                {"response_id": 4, "worker_id": 11, "comment": "I have an advanced lawn mower"}
+                {
+                    "response_id": 3,
+                    "worker": {
+                        "user_id": 7,
+                        "first_name": "Grass",
+                        "last_name": "Lover",
+                        "bio": "Grasssss"
+                    },
+                    "comment": "I like grass"
+                },
+                {
+                    "response_id": 4,
+                    "worker": {
+                        "user_id": 11,
+                        "first_name": "Rich",
+                        "last_name": "Money",
+                        "bio": "I'm rich"
+                    }, 
+                    "comment": "I have an advanced lawn mower"
+                }
             ]
         }
     ]
@@ -284,7 +335,12 @@ Response:
     "requests": [
         {
             "request_id": 2,
-            "customer_id": 1,
+            "customer": {
+                "user_id": 27,
+                "firt_name": "Boss",
+                "last_name": "Person",
+                "bio": "I pay well"
+            },
             "start_time": 1543274789,
             "duration": 7000,
             "latitude": 41.837,
@@ -293,8 +349,26 @@ Response:
             "assigned_to": null,
             "description": "Help me mow my lawn",
             "responses": [
-                {"response_id": 3, "worker_id": 7, "comment": "I like grass"},
-                {"response_id": 4, "worker_id": 11, "comment": "I have an advanced lawn mower"}
+                {
+                    "response_id": 3,
+                    "worker": {
+                        "user_id": 7,
+                        "first_name": "Grass",
+                        "last_name": "Lover",
+                        "bio": "Grasssss"
+                    },
+                    "comment": "I like grass"
+                },
+                {
+                    "response_id": 4,
+                    "worker": {
+                        "user_id": 11,
+                        "first_name": "Rich",
+                        "last_name": "Money",
+                        "bio": "I'm rich"
+                    }, 
+                    "comment": "I have an advanced lawn mower"
+                }
             ]
         }
     ]
@@ -347,7 +421,12 @@ Response:
 ```json
 {
     "request_id": 5,
-    "customer_id": 22,
+    "customer": {
+        "user_id": 22,
+        "first_name": "Tired",
+        "last_name": "Student",
+        "bio": "I'm tired"
+    },
     "start_time": 1543278946,
     "duration": 3600,
     "latitude": 52.48,
@@ -483,13 +562,23 @@ Response:
 {
     "request": {
         "request_id": 9,
-        "customer_id": 66,
+        "customer": {
+            "user_id": 66,
+            "first_name": "Tom",
+            "last_name": "Ben",
+            "bio": "I have two first names"
+        },
         "start_time": null,
         "duration": 3600,
         "latitude": 45.44967,
         "longitude": -75.68651,
         "finished": false,
-        "assigned_to": 88,
+        "assigned_to": {
+            "user_id": 88,
+            "first_name": "Kevin",
+            "last_name": "Kevin",
+            "bio": "My first name and last name are the same"
+        },
         "description": "Walk my dog",
         "responses": []
     }
