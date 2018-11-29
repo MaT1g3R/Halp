@@ -65,4 +65,18 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="283dp" />
 
+    <Button
+        android:id="@+id/signOutButton"
+        android:layout_width="138dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginBottom="37dp"
+        android:text="Sign Out"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/FindWorkProfileButton"
+        app:layout_constraintVertical_bias="0.974" />
+
 </android.support.constraint.ConstraintLayout>
