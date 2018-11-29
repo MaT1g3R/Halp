@@ -2,6 +2,7 @@ package com.csc301.team22.activities;
 
 import com.csc301.team22.api.*;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -17,7 +18,11 @@ public class CreateAccountActivity extends AppCompatActivity {
 
     String first_name, last_name, email, pass, re_pass;
     String error = "Passwords must match";
-    MockHTTPAdapter mock = new MockHTTPAdapter();
+    MockHTTPAdapter mock = MockHTTPAdapter.getInstance();
+
+    public static final String SHARED_PREFS = "sharedPrefs";
+    public static final String TEXT = "text";
+    private String text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +38,8 @@ public class CreateAccountActivity extends AppCompatActivity {
             }
         });
 
+//        loadData();
+//        updateViews();
     }
 
     public void create_account(){
@@ -60,11 +67,12 @@ public class CreateAccountActivity extends AppCompatActivity {
 
             User nUser = mock.createUser(newUser);
 
-
-
             Intent intent = new Intent(this, ProfileActivity.class);
+
+            // Test
+            intent.putExtra("CREATEID", nUser.getUser_id());
+
             startActivity(intent);
         }
     }
-
 }

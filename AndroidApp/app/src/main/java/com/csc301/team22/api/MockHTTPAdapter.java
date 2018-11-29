@@ -11,16 +11,39 @@ public class MockHTTPAdapter implements IHTTPAdapter {
     List<Response> respones = new ArrayList<>();
     HashMap<String, String> passwords = new HashMap<>();
 
+    public int id_counter = 0;
+
+    // Singleton
+    private static MockHTTPAdapter instance = null;
+
+    public static MockHTTPAdapter getInstance() {
+        if(instance == null) {
+            instance = new MockHTTPAdapter();
+        }
+
+        return instance;
+    }
+
 
     @Override
     public User getProfile(int user_id) {
+        for(User user: users) {
+            if (user.getUser_id() == user_id) {
+                return user;
+            }
+        }
+
         return null;
     }
 
     @Override
     public User createUser(CreateUser user) {
-        User newUser = new User.Builder().first_name(user.getFirst_name())
+
+
+        User newUser = new User.Builder().user_id(id_counter).first_name(user.getFirst_name())
                 .last_name(user.getLast_name()).build();
+
+        id_counter++;
 
         users.add(newUser);
         passwords.put(user.getEmail(), user.getPassword());
