@@ -25,9 +25,9 @@ class User(AbstractUser):
 
 
 class Request(models.Model):
-    start_time = models.DateTimeField(null=True)
+    start_time = models.DateTimeField(null=True, default=None)
     customer = models.ForeignKey(User, models.CASCADE, related_name='reqeust_customer')
-    assigned_to = models.ForeignKey(User, models.SET_NULL, null=True,
+    assigned_to = models.ForeignKey(User, models.SET_NULL, null=True, default=None,
                                     related_name='reqeust_worker')
     duration = models.DurationField()
     latitude = models.DecimalField(max_digits=10, decimal_places=8)
@@ -40,11 +40,6 @@ class Request(models.Model):
     def clean(self):
         if self.customer == self.assigned_to:
             raise ValidationError(_('Customer cannot be assigned to their own request.'))
-
-    def delete(self, using=None, keep_parents=False):
-        super().delete(using, keep_parents)
-        if self.start_time is None:
-            self.objects.delete_request(self)
 
 
 class Response(models.Model):

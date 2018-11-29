@@ -1,7 +1,9 @@
 import threading
 from collections import deque
+from datetime import timedelta
 
 from django.db import models
+from django.utils.datetime_safe import datetime
 
 
 class RequestManager(models.Manager):
@@ -13,11 +15,11 @@ class RequestManager(models.Manager):
     def create_request(
             self,
             customer,
-            duration: int,
-            latitude: float,
-            longitude: float,
+            duration: timedelta,
+            latitude,
+            longitude,
             description: str,
-            start_time: int = None,
+            start_time: datetime = None,
     ):
         request = self.model(
             customer=customer,
@@ -34,8 +36,10 @@ class RequestManager(models.Manager):
                 self.pending_requests.append(request)
         return request
 
-    def delete_request(self, request):
-        with self.request_mutex:
-            self.pending_requests = deque(
-                filter(lambda r: r.id != request.id, self.pending_requests)
-            )
+    def delete_request(self, request, using=None, keep_parents=False):
+        request.delete(using, keep_parents)
+        if request.start_time is None:
+            with self.request_mutex:
+                self.pending_requests = deque(
+                    filter(lambda r: r.id != request.id, self.pending_requests)
+                )

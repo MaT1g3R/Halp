@@ -64,5 +64,20 @@ def generate_users(amount):
         yield _generate_user()
 
 
+def fake_request_creation(has_start_time):
+    user, password = _generate_user()
+    user.save()
+    d = {
+        'customer': user,
+        'duration': fake.time_delta(),
+        'latitude': fake.latitude(),
+        'longitude': fake.longitude(),
+        'description': fake.text(),
+    }
+    if has_start_time:
+        d['start_time'] = fake.date_time()
+    return d
+
+
 def encode_auth(email, password):
     return b64encode(f'Basic {email}:{password}'.encode()).decode()
