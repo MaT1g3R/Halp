@@ -4,7 +4,7 @@ from typing import AnyStr, Dict
 from django.http import JsonResponse
 from option import Err, Ok, Result
 
-from halp_backend import user_converter
+from halp_backend import request_converter, user_converter
 from halp_backend.models import User
 from halp_backend.typedefs import HttpError
 from halp_backend.util import validate_int, validate_json, validate_json_string
@@ -114,8 +114,26 @@ def update_bio(valid_data: Dict, user: User) -> Result[Dict, HttpError]:
     return Ok({'bio': user.bio})
 
 
-def get_reqeusts():
-    pass
+@json_resposne(request_converter.to_dict)
+@require_json_validation({
+    'type': 'object',
+    'properties': {
+        'finished': {'type': 'boolean'},
+        'assigned': {'type': 'boolean'},
+        'starts_after': {'type': 'integer'},
+        'radius': {'type': 'integer'},
+        'lat': {'type': 'number', 'minimum': -90, 'maximum': 90},
+        'long': {'type': 'number', 'minimum': -180, 'maximum': 180}
+    },
+    'additionalProperties': False,
+    'dependencies': {
+        'radius': ['lat', 'long'],
+        'lat': ['long', 'radius'],
+        'long': ['lat', 'radius']
+    }
+})
+def get_reqeusts(valid_data: Dict, user: User):
+    return Ok(None)
 
 
 def create_request():
