@@ -78,6 +78,14 @@ public class MockHTTPAdapter implements IHTTPAdapter {
 
     @Override
     public Request findJob(Integer duration, Integer radius, Double latitude, Double longitude) {
+
+        for(Request req: requests){
+            if(req.getDuration() == duration && req.getRadius() == radius
+                    && req.getLatitude() == latitude && req.getLongitude() == longitude){
+                return req;
+            }
+        }
+
         return null;
     }
 
