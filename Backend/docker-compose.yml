@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  halp:
+    container_name: 'halp'
+    build: .
+    command: bash prod.sh
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    environment:
+      DJANGO_SECRET_KEY: ''
+      DJANGO_HOST_URL: ''
+      DJANGO_DB_NAME: ''
+      DJANGO_DB_USER: ''
+      DJANGO_DB_PASS: ''
+      DJANGO_DB_HOST: ''
+      DJANGO_DB_PORT: ''
