@@ -23,4 +23,5 @@ urlpatterns = [
     path('api/v1/profile', views.profile),
     path('api/v1/create_user', views.create_user),
     path('api/v1/update_bio', views.update_bio),
+    path('api/v1/request', views.request_view),
 ]

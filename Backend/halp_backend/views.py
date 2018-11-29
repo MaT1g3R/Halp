@@ -24,3 +24,14 @@ def create_user(reqeust: HttpRequest):
 @require_auth
 def update_bio(user: User, request: HttpRequest):
     return controller.update_bio(request.body, user)
+
+
+@allow_methods(methods=['GET', 'POST', 'DELETE'])
+@require_auth
+def request_view(user: User, request: HttpRequest):
+    if request.method == 'GET':
+        pass
+    elif request.method == 'POST':
+        pass
+    else:
+        pass
