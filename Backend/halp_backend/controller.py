@@ -80,3 +80,18 @@ def create_user(valid_data: Dict) -> Result[User, HttpError]:
     new_user = User.objects.create_user(**valid_data)
     new_user.save()
     return Ok(new_user)
+
+
+@json_resposne(dict)
+@require_json_validation({
+    'type': 'object',
+    'properties': {
+        'bio': {'type': 'string'},
+    },
+    'additionalProperties': False,
+    'required': ['bio']
+})
+def update_bio(valid_data: Dict, user: User) -> Result[Dict, HttpError]:
+    user.bio = valid_data['bio']
+    user.save()
+    return Ok({'bio': user.bio})

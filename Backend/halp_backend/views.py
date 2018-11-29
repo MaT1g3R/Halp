@@ -18,3 +18,9 @@ def profile(user: User, request: HttpRequest):
 @allow_methods(methods=['POST'])
 def create_user(reqeust: HttpRequest):
     return controller.create_user(reqeust.body)
+
+
+@allow_methods(methods=['POST'])
+@require_auth
+def update_bio(user: User, request: HttpRequest):
+    return controller.update_bio(request.body, user)
