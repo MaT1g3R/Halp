@@ -41,6 +41,11 @@ class Request(models.Model):
         if self.customer == self.assigned_to:
             raise ValidationError(_('Customer cannot be assigned to their own request.'))
 
+    def delete(self, using=None, keep_parents=False):
+        super().delete(using, keep_parents)
+        if self.start_time is None:
+            self.objects.delete_request(self)
+
 
 class Response(models.Model):
     worker = models.ForeignKey(User, models.CASCADE)
