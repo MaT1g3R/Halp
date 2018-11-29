@@ -1,8 +1,10 @@
+from typing import Dict
+
 from halp_backend import response_converter, user_converter
 from halp_backend.models import Request
 
 
-def to_dict(request: Request):
+def to_dict(request: Request) -> Dict:
     start_time = request.start_time
     assigned_to = request.assigned_to
     return {

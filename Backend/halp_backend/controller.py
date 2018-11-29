@@ -1,5 +1,5 @@
 from functools import partial, wraps
-from typing import AnyStr, Dict
+from typing import AnyStr, Dict, List
 
 from django.http import JsonResponse
 from option import Err, Ok, Result
@@ -114,7 +114,7 @@ def update_bio(valid_data: Dict, user: User) -> Result[Dict, HttpError]:
     return Ok({'bio': user.bio})
 
 
-@json_resposne(dict)
+@json_resposne(lambda lst: {'requests': lst})
 @require_json_validation({
     'type': 'object',
     'properties': {
@@ -132,8 +132,8 @@ def update_bio(valid_data: Dict, user: User) -> Result[Dict, HttpError]:
         'long': ['lat', 'radius']
     }
 })
-def get_reqeusts(valid_data: Dict, user: User):
-    return Ok(None)
+def get_reqeusts(valid_data: Dict, user: User) -> Result[List[Dict], HttpError]:
+    return Ok([])
 
 
 @json_resposne(request_converter.to_dict)
