@@ -7,7 +7,7 @@ from option import Err, Ok, Result
 from halp_backend import user_converter
 from halp_backend.models import User
 from halp_backend.typedefs import HttpError
-from halp_backend.util import validate_int, validate_json_string
+from halp_backend.util import validate_int, validate_json, validate_json_string
 
 
 def json_resposne(success_callback, func=None):
@@ -31,18 +31,35 @@ def json_resposne(success_callback, func=None):
     return wrapper
 
 
+def _help_validate(func, json_data, *args, **kwargs):
+    if json_data.is_err:
+        return Err(HttpError(400, json_data.unwrap_err()))
+    dict_ = json_data.unwrap()
+    return func(dict_, *args, **kwargs)
+
+
 def require_json_validation(schema, func=None, *vargs, **vkwargs):
-    """Decorator to load and validate a string to JSON data"""
+    """Decorator to validate JSON data"""
     if not func:
         return partial(require_json_validation, schema)
 
     @wraps(func)
+    def wrapper(raw_json_data: Dict, *args, **kwargs):
+        json_data = validate_json(raw_json_data, schema, *vargs, **vkwargs)
+        return _help_validate(func, json_data, *args, **kwargs)
+
+    return wrapper
+
+
+def require_json_string_validation(schema, func=None, *vargs, **vkwargs):
+    """Decorator to load and validate a string to JSON data"""
+    if not func:
+        return partial(require_json_string_validation, schema)
+
+    @wraps(func)
     def wrapper(string: AnyStr, *args, **kwargs):
         json_data = validate_json_string(string, schema, *vargs, **vkwargs)
-        if json_data.is_err:
-            return Err(HttpError(400, json_data.unwrap_err()))
-        dict_ = json_data.unwrap()
-        return func(dict_, *args, **kwargs)
+        return _help_validate(func, json_data, *args, **kwargs)
 
     return wrapper
 
@@ -63,7 +80,7 @@ def get_profile(user_id) -> Result[User, HttpError]:
 
 
 @json_resposne(user_converter.to_dict)
-@require_json_validation({
+@require_json_string_validation({
     'type': 'object',
     'properties': {
         'email': {'type': 'string', 'minLength': 1},
@@ -83,7 +100,7 @@ def create_user(valid_data: Dict) -> Result[User, HttpError]:
 
 
 @json_resposne(dict)
-@require_json_validation({
+@require_json_string_validation({
     'type': 'object',
     'properties': {
         'bio': {'type': 'string'},
