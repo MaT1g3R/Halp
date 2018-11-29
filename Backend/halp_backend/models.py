@@ -3,6 +3,7 @@ from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 
+from halp_backend.request_manager import RequestManager
 from halp_backend.user_manager import EmailUserManager
 
 
@@ -12,7 +13,7 @@ class User(AbstractUser):
     bio = models.TextField(default="")
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ['first_name', 'last_name']
     objects = EmailUserManager()
 
     def __str__(self):
@@ -33,6 +34,8 @@ class Request(models.Model):
     longitude = models.DecimalField(max_digits=11, decimal_places=8)
     finished = models.BooleanField(default=False)
     description = models.TextField()
+
+    objects = RequestManager()
 
     def clean(self):
         if self.customer == self.assigned_to:
