@@ -10,7 +10,8 @@ python = "~3.7"
 django = "^2.1"
 option = "^0.2.5"
 gunicorn = "^19.9"
-jsonschema = "^2.6"
+jsonschema = "^3.0a3"
+haversine = "^2.0"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^3.6"
