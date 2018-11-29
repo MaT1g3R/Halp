@@ -12,7 +12,6 @@ def to_dict(user: User) -> Dict:
 
     Returns:
         The user as a python dict
-
     """
     return {
         'user_id': user.id,
