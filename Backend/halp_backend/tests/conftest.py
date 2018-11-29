@@ -4,7 +4,7 @@ from random import choice
 import pytest
 from django.test.client import RequestFactory
 
-from halp_backend.models import User
+from halp_backend.models import Request, Response, User
 from halp_backend.tests import fake
 
 
@@ -77,6 +77,19 @@ def fake_request_creation(has_start_time):
     if has_start_time:
         d['start_time'] = fake.date_time()
     return d
+
+
+def fake_request(has_start_time):
+    req_dict = fake_request_creation(has_start_time)
+    req = Request.objects.create_request(**req_dict)
+    return req
+
+
+def fake_response(request):
+    user, _ = _generate_user()
+    response = Response(worker=user, comment=fake.text(), request=request)
+    response.save()
+    return response
 
 
 def encode_auth(email, password):

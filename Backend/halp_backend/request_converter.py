@@ -9,7 +9,7 @@ def to_dict(request: Request):
         'request_id': request.id,
         'customer': user_converter.to_dict(request.customer),
         'start_time': None if start_time is None else int(start_time.timestamp()),
-        'duration': request.duration.total_seconds(),
+        'duration': int(request.duration.total_seconds()),
         'latitude': float(request.latitude),
         'longitude': float(request.longitude),
         'finished': request.finished,
