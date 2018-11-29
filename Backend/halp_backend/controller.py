@@ -95,3 +95,15 @@ def update_bio(valid_data: Dict, user: User) -> Result[Dict, HttpError]:
     user.bio = valid_data['bio']
     user.save()
     return Ok({'bio': user.bio})
+
+
+def get_reqeusts():
+    pass
+
+
+def create_request():
+    pass
+
+
+def delete_request():
+    pass
