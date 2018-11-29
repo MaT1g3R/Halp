@@ -1,10 +1,12 @@
 import json
 from functools import partial, wraps
-from typing import AnyStr, Dict, List, Union
+from typing import AnyStr, Dict
 
 from django.http import HttpRequest, JsonResponse
 from jsonschema import ValidationError, validate
 from option import Err, NONE, Ok, Option, Result, Some
+
+from halp_backend.typedefs import Json
 
 
 def get_http_header(reqeust: HttpRequest, header: str) -> Option[str]:
@@ -64,7 +66,7 @@ def validate_int(x) -> Option[int]:
     return NONE
 
 
-def load_json(string: AnyStr) -> Union[Option[Dict], Option[List]]:
+def load_json(string: AnyStr) -> Option[Json]:
     """
     Try to load a JSON string
 
@@ -82,16 +84,16 @@ def load_json(string: AnyStr) -> Union[Option[Dict], Option[List]]:
     return Some(js)
 
 
-def validate_json(json_data, schema: Dict, *args, **kwargs) -> Result[None, str]:
+def validate_json(json_data: Json, schema: Dict, *args, **kwargs) -> Result[Json, str]:
     """Validate a JSON value"""
     try:
         validate(json_data, schema, *args, **kwargs)
     except ValidationError as e:
         return Err(e.message)
-    return Ok(None)
+    return Ok(json_data)
 
 
-def validate_json_string(string: AnyStr, schema: Dict, *args, **kwargs) -> Result[None, str]:
+def validate_json_string(string: AnyStr, schema: Dict, *args, **kwargs) -> Result[Json, str]:
     """Parse a JSON string and validate it"""
     parsed_json = load_json(string)
     if not parsed_json:
