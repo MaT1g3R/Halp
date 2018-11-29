@@ -7,6 +7,7 @@ pytestmark = pytest.mark.django_db
 
 
 def test_success():
+    Request.objects.pending_requests.clear()
     fake_request = fake_request_creation(True)
     req = Request.objects.create_request(**fake_request)
     assert req
@@ -14,6 +15,7 @@ def test_success():
 
 
 def test_success_time_null():
+    Request.objects.pending_requests.clear()
     fake_request = fake_request_creation(False)
     req = Request.objects.create_request(**fake_request)
     assert req
