@@ -10,7 +10,7 @@ public interface IHTTPAdapter {
 
     public User getProfile(int user_id);
 
-    public User createUSer(CreateUser user);
+    public User createUser(CreateUser user);
 
     public String updateBio(String bio);
 
@@ -24,5 +24,5 @@ public interface IHTTPAdapter {
 
     public Request findJob(Integer duration, Integer radius, Double latitude, Double longitude);
 
-    public void authenticate(String email, String password);
+    public int authenticate(String email, String password);
 }

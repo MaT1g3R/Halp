@@ -1,84 +1,98 @@
 package com.csc301.team22.activities;
 
-import android.app.TimePickerDialog;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TimePicker;
+import android.widget.TextView;
 
 import com.csc301.team22.R;
 import com.csc301.team22.Util;
+import com.csc301.team22.api.*;
 
-import java.util.Calendar;
+import android.content.SharedPreferences;
 
 public class ProfileActivity extends AppCompatActivity {
+
     private Button buttonHome;
-    EditText chooseTime, pickTime;
-    TimePickerDialog timePickerDialog;
-    Calendar calendar;
-    int currentHour;
-    int currentMinute;
-    String amPm;
+
+    MockHTTPAdapter mock = MockHTTPAdapter.getInstance();
+    private int user_id;
+    private String first = "", last = "", bio = "";
+
+    public static final String SHARED_PREFS = "sharedPrefs";
+
+    TextView first_name;
+    TextView last_name;
+    EditText bi_o;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        first_name = findViewById(R.id.textView32);
+        last_name = findViewById(R.id.textView34);
+        bi_o = findViewById(R.id.editText14);
+
         buttonHome = findViewById(R.id.buttonHome);
-        buttonHome.setOnClickListener(v -> Util.openActivity(this, PostJobFindWorkActivity.class));
+        buttonHome.setOnClickListener(v -> goHome());
 
-        chooseTime = findViewById(R.id.editText8);
-        chooseTime.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                calendar = Calendar.getInstance();
-                currentHour = calendar.get(Calendar.HOUR_OF_DAY);
-                currentMinute = calendar.get(Calendar.MINUTE);
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            user_id = extras.getInt("CREATEID");
+            User user = mock.getProfile(user_id);
 
-                timePickerDialog = new TimePickerDialog(ProfileActivity.this, new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker timePicker, int hourOfDay, int minutes) {
-                        if (hourOfDay >= 12) {
-                            hourOfDay -= 12;
-                            amPm = "PM";
-                        } else {
-                            amPm = "AM";
-                        }
-                        chooseTime.setText(String.format("%02d:%02d", hourOfDay, minutes) + amPm);
-                    }
-                }, currentHour, currentMinute, false);
+            first = user.getFirst_name();
+            last = user.getLast_name();
+            bio = user.getBio();
 
-                timePickerDialog.show();
-            }
-        });
+            first_name.setText(first);
+            last_name.setText(last);
+            bi_o.setText(bio);
+            saveData();
+        } else {
+            loadData();
+            updateViews();
+        }
 
-        pickTime = findViewById(R.id.editText9);
-        pickTime.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                calendar = Calendar.getInstance();
-                currentHour = calendar.get(Calendar.HOUR_OF_DAY);
-                currentMinute = calendar.get(Calendar.MINUTE);
-
-                timePickerDialog = new TimePickerDialog(ProfileActivity.this, new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker timePicker, int hourOfDay, int minutes) {
-                        if (hourOfDay >= 12) {
-                            hourOfDay -= 12;
-                            amPm = "PM";
-                        } else {
-                            amPm = "AM";
-                        }
-                        pickTime.setText(String.format("%02d:%02d", hourOfDay, minutes) + amPm);
-                    }
-                }, currentHour, currentMinute, false);
-
-                timePickerDialog.show();
-            }
-        });
     }
 
+        public void saveData() {
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+        editor.putInt("ID", user_id);
+        editor.putString("FIRST", first);
+        editor.putString("LAST", last);
+        editor.putString("BIO", bio);
+        editor.apply();
+    }
+
+    public void loadData() {
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        user_id = sharedPreferences.getInt("ID", mock.id_counter);
+        first = sharedPreferences.getString("FIRST", "");
+        last = sharedPreferences.getString("LAST", "");
+        bio = sharedPreferences.getString("BIO", "");
+
+    }
+
+    public void updateViews() {
+        first_name.setText(first);
+        last_name.setText(last);
+        bi_o.setText(bio);
+    }
+
+    public void goHome () {
+        User user = mock.getProfile(user_id);
+        bio = bi_o.getText().toString();
+        user.setBio(bio);
+        saveData();
+
+        Util.openActivity(this, PostJobFindWorkActivity.class);
+    }
 }
