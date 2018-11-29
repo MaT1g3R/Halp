@@ -12,10 +12,12 @@ import android.widget.LinearLayout.LayoutParams;
 
 import com.csc301.team22.EButtonState;
 import com.csc301.team22.R;
-import com.csc301.team22.Request;
+//import com.csc301.team22.Request;
 import com.csc301.team22.RequestManager;
 import com.csc301.team22.Util;
 import com.csc301.team22.activities.JobDescriptionActivity;
+import com.csc301.team22.api.MockHTTPAdapter;
+import com.csc301.team22.api.Request;
 import com.csc301.team22.views.RequestCardObservable;
 import com.csc301.team22.views.RequestCardView;
 
@@ -28,6 +30,7 @@ public class RequestListFragment extends Fragment implements Observer {
     private LinearLayout linearLayoutRequestList;
     private List<RequestCardObservable> observableList = new ArrayList<>();
     private AppCompatActivity activity;
+    MockHTTPAdapter mock = MockHTTPAdapter.getInstance();
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -40,8 +43,9 @@ public class RequestListFragment extends Fragment implements Observer {
     }
 
     public void addToLinearLayout(Context context, LinearLayout layout) {
-        for (Request request : RequestManager.getInstance().getRequests()) {
-            RequestCardView cardView = request.toCardView(context);
+//        for (Request request : RequestManager.getInstance().getRequests()) {
+        for (Request request: mock.requests) {
+            RequestCardView cardView = toCardView(context, request.getDescription(), request.getDescription());
             LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
             layout.addView(cardView.getLayout(), lp);
             cardView.getObservable().addObserver(this);
@@ -72,5 +76,9 @@ public class RequestListFragment extends Fragment implements Observer {
         } else {
             Util.openActivity(activity, JobDescriptionActivity.class);
         }
+    }
+
+    public RequestCardView toCardView(Context context,String name, String description) {
+        return new RequestCardView(context, name, description);
     }
 }

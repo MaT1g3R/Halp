@@ -7,6 +7,7 @@ import android.widget.EditText;
 
 import com.csc301.team22.R;
 import com.csc301.team22.Util;
+import com.csc301.team22.api.*;
 
 public class RequestSubmissionActivity extends AppCompatActivity {
 
@@ -14,6 +15,8 @@ public class RequestSubmissionActivity extends AppCompatActivity {
     private Button buttonHelpLater;
     private EditText editTextTitle;
     private EditText editTextDescription;
+    private String description, title;
+    MockHTTPAdapter mock = MockHTTPAdapter.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +27,14 @@ public class RequestSubmissionActivity extends AppCompatActivity {
         buttonHelpLater = findViewById(R.id.buttonHelpLater);
         editTextTitle = findViewById(R.id.editTextTitle);
         editTextDescription = findViewById(R.id.editTextDescription);
+
+        // D3
+        description = editTextDescription.getText().toString();
+        title = editTextTitle.getText().toString();
+
+        Request newr = new Request.Builder().request_id();
+
+        mock.requests.add();
 
         //TODO: Make help now go to found worker page
         buttonHelpNow.setOnClickListener(v ->{

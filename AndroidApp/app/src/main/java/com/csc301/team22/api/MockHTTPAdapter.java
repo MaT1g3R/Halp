@@ -7,7 +7,7 @@ import java.util.List;
 public class MockHTTPAdapter implements IHTTPAdapter {
     // We want a mock database inside this class
     public List<User> users = new ArrayList<>();
-    List<Request> requests = new ArrayList<>();
+    public List<Request> requests = new ArrayList<>();
     List<Response> respones = new ArrayList<>();
     HashMap<String, String> passwords = new HashMap<>();
 
