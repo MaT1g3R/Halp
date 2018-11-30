@@ -4,6 +4,7 @@ package com.csc301.team22.api;
 
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class HTTPAdapter implements IHTTPAdapter{
         String email_password = user.getEmail() + ':' + user.getPassword();
         byte[] encodedBytes = Base64.getEncoder().encode(email_password.getBytes());
         String header = new String(encodedBytes);
-        final User[] respObj = new User[1];
+        final ArrayList<User> respObj = new ArrayList<>();
 
         Thread thread = new Thread(new Runnable() {
 
@@ -56,14 +57,16 @@ public class HTTPAdapter implements IHTTPAdapter{
                     RequestBody body = RequestBody.create(JSON, json);
 
                     Request request = new Request.Builder()
-                            .url("localhost:8000/api/v1/create_user")
-                            .header("Basic ",header)
+                            .url("http://10.0.2.2:8000/api/v1/create_user")
+                            .header("Authorization","Basic " + header)
                             .post(body)
                             .build();
                     Response response = client.newCall(request).execute();
                     assert response.body() != null;
+                    System.out.println("Response created");
                     String resp_json = response.body().string();
-                    respObj[0] = new Gson().fromJson(resp_json, User.class);
+                    respObj.add(new Gson().fromJson(resp_json, User.class));
+                    System.out.println(response.body());
 
 
                 } catch (Exception e) {
@@ -73,7 +76,13 @@ public class HTTPAdapter implements IHTTPAdapter{
         });
 
         thread.start();
-        return respObj[0];
+        try{
+            thread.join();
+        }
+        catch (InterruptedException e){
+            e.printStackTrace();
+        }
+        return respObj.get(0);
     }
 
 
