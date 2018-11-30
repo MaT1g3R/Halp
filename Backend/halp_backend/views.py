@@ -50,3 +50,9 @@ def request_view(user: User, request: HttpRequest):
         if request_id is None:
             return JsonResponse(status=400, data={'error': 'you must provide a request_id'})
         return controller.delete_request(request_id, user)
+
+
+@allow_methods(methods=['POST'])
+@require_auth
+def create_response(user: User, request: HttpRequest):
+    pass
