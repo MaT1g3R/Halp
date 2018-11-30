@@ -36,9 +36,9 @@ public class RequestManager {
 
     public void createRequest(String title, String description, Date date) {
         if (date == null) {
-            System.out.println("Creating Request now: " + title + " - " + description);
+            System.out.println("Creating JobRequest now: " + title + " - " + description);
         } else {
-            System.out.println("Creating Request later: " + title + " - " + description + " at " + date);
+            System.out.println("Creating JobRequest later: " + title + " - " + description + " at " + date);
         }
     }
 }

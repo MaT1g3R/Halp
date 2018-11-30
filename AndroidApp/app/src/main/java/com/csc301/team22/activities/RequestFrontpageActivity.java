@@ -30,7 +30,7 @@ public class RequestFrontpageActivity extends AppCompatActivity {
         buttonCurrentRequests = findViewById(R.id.buttonCurrentRequests);
         buttonCurrentRequests.setOnClickListener(v -> Util.openActivity(this, DetailedRequestListActivity.class));
 
-//        Request request = new Request.Builder().request_id(2).build();
+//        JobRequest request = new JobRequest.Builder().request_id(2).build();
 //
 //        ScrollView scroll = findViewById(R.id.frontScroll);
 //        LinearLayout ll = new LinearLayout(this);

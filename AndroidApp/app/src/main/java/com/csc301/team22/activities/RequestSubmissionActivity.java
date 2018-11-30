@@ -37,11 +37,11 @@ public class RequestSubmissionActivity extends AppCompatActivity {
 //
 //        User user = mock.createUser(newUser);
 //
-//        Request newr = new Request.Builder().request_id(2).start_time(17)
+//        JobRequest newr = new JobRequest.Builder().request_id(2).start_time(17)
 //                .duration(2).customer(user).latitude(30).longitude(50)
 //                .description("jebjebjeb jeb").build();
 
-//        mock.requests.add(newr);
+//        mock.jobRequests.add(newr);
 
         //TODO: Make help now go to found worker page
         buttonHelpNow.setOnClickListener(v ->{

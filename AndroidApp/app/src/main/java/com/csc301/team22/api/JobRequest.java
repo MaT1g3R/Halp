@@ -2,7 +2,7 @@ package com.csc301.team22.api;
 
 import java.util.List;
 
-public class Request {
+public class JobRequest {
     private int request_id, start_time, duration;
     private User customer;
     private User assigned_to;
@@ -10,8 +10,9 @@ public class Request {
     private boolean finished;
     private String description;
     private List<Response> responses;
+    private String url;
 
-    private Request(Builder builder) {
+    private JobRequest(Builder builder) {
         this.request_id = builder.request_id;
         this.start_time = builder.start_time;
         this.duration = builder.duration;
@@ -24,7 +25,7 @@ public class Request {
         this.responses = builder.responses;
     }
 
-    public Request() {}
+    public JobRequest() {}
 
     public int getRequest_id() {
         return request_id;
@@ -74,9 +75,14 @@ public class Request {
         private boolean finished = false;
         private String description = null;
         private List<Response> responses = null;
+        private  String url = null;
 
         public Builder request_id(int request_id) {
             this.request_id = request_id;
+            return this;
+        }
+        public Builder url(String url) {
+            this.url = url;
             return this;
         }
 
@@ -120,13 +126,13 @@ public class Request {
             return this;
         }
 
-        public Request build() {
+        public JobRequest build() {
             if (request_id == null || start_time == null || duration == null || customer == null
                     || latitude == null || longitude == null || description == null) {
-                throw new IllegalArgumentException("Fill all necessary Request fields");
+                throw new IllegalArgumentException("Fill all necessary JobRequest fields");
             }
 
-            return new Request(this);
+            return new JobRequest(this);
         }
     }
 }

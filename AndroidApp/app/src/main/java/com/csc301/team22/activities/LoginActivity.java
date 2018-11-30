@@ -120,7 +120,7 @@ public class LoginActivity extends AppCompatActivity {
 //                    OkHttpClient client = new OkHttpClient();
 //
 //                    RequestBody body = RequestBody.create(JSON, json);
-//                    Request request = new Request.Builder()
+//                    JobRequest request = new JobRequest.Builder()
 //                            .url("https://httpbin.org/post")
 //                            .post(body)
 //                            .build();

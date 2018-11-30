@@ -7,7 +7,7 @@ import java.util.List;
 public class MockHTTPAdapter implements IHTTPAdapter {
     // We want a mock database inside this class
     public List<User> users = new ArrayList<>();
-    public List<Request> requests = new ArrayList<>();
+    public List<JobRequest> jobRequests = new ArrayList<>();
     List<Response> respones = new ArrayList<>();
     HashMap<String, String> passwords = new HashMap<>();
 
@@ -61,13 +61,13 @@ public class MockHTTPAdapter implements IHTTPAdapter {
     }
 
     @Override
-    public List<Request> getRequests(RequestQuery query) {
+    public List<JobRequest> getRequests(RequestQuery query) {
         return null;
     }
 
     @Override
-    public Request createRequest(CreateRequest createrequest) {
-        Request request = new Request.Builder().request_id(r_id_counter)
+    public JobRequest createRequest(CreateRequest createrequest) {
+        JobRequest jobRequest = new JobRequest.Builder().request_id(r_id_counter)
                 .start_time(createrequest.getStart_time()).duration(createrequest.getDuration())
                 .customer(createrequest.getCustomer()).latitude(createrequest.getLatitude())
                 .longitude(createrequest.getLongitude())
@@ -75,8 +75,8 @@ public class MockHTTPAdapter implements IHTTPAdapter {
                 .build();
 
         r_id_counter++;
-        requests.add(request);
-        return request;
+        jobRequests.add(jobRequest);
+        return jobRequest;
     }
 
     @Override
@@ -92,7 +92,7 @@ public class MockHTTPAdapter implements IHTTPAdapter {
     }
 
     @Override
-    public Request findJob(Integer duration, Integer radius, Double latitude, Double longitude) {
+    public JobRequest findJob(Integer duration, Integer radius, Double latitude, Double longitude) {
         return null;
     }
 

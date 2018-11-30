@@ -12,12 +12,11 @@ import android.widget.LinearLayout.LayoutParams;
 
 import com.csc301.team22.EButtonState;
 import com.csc301.team22.R;
-//import com.csc301.team22.Request;
-import com.csc301.team22.RequestManager;
+//import com.csc301.team22.JobRequest;
 import com.csc301.team22.Util;
 import com.csc301.team22.activities.JobDescriptionActivity;
+import com.csc301.team22.api.JobRequest;
 import com.csc301.team22.api.MockHTTPAdapter;
-import com.csc301.team22.api.Request;
 import com.csc301.team22.views.RequestCardObservable;
 import com.csc301.team22.views.RequestCardView;
 
@@ -43,9 +42,9 @@ public class RequestListFragment extends Fragment implements Observer {
     }
 
     public void addToLinearLayout(Context context, LinearLayout layout) {
-//        for (Request request : RequestManager.getInstance().getRequests()) {
-        for (Request request: mock.requests) {
-            RequestCardView cardView = toCardView(context, request.getDescription(), request.getDescription());
+//        for (JobRequest request : RequestManager.getInstance().getRequests()) {
+        for (JobRequest jobRequest : mock.jobRequests) {
+            RequestCardView cardView = toCardView(context, jobRequest.getDescription(), jobRequest.getDescription());
             LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
             layout.addView(cardView.getLayout(), lp);
             cardView.getObservable().addObserver(this);
