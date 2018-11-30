@@ -79,8 +79,10 @@ def fake_request_creation(has_start_time):
     return d
 
 
-def fake_request(has_start_time):
+def fake_request(has_start_time, user=None):
     req_dict = fake_request_creation(has_start_time)
+    if user:
+        req_dict['customer'] = user
     req = Request.objects.create_request(**req_dict)
     return req
 
