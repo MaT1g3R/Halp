@@ -14,9 +14,18 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class HTTPAdapter {
+public class HTTPAdapter implements IHTTPAdapter{
 
+    // Singleton
+    private static HTTPAdapter instance = null;
 
+    public static HTTPAdapter getInstance() {
+        if(instance == null) {
+            instance = new HTTPAdapter();
+        }
+
+        return instance;
+    }
 
     
     public User getProfile(int user_id) {

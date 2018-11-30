@@ -16,7 +16,7 @@ public class CreateAccountActivity extends AppCompatActivity {
     String first_name, last_name, email, pass, re_pass;
     String error = "Passwords must match";
     String emptyError = "All fields must be filled";
-    MockHTTPAdapter mock = MockHTTPAdapter.getInstance();
+    HTTPAdapter http = HTTPAdapter.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +55,7 @@ public class CreateAccountActivity extends AppCompatActivity {
             CreateUser newUser = new CreateUser.Builder().first_name(first_name)
                     .last_name(last_name).email(email).password(pass).build();
 
-            User nUser = mock.createUser(newUser);
+            User nUser = http.createUser(newUser);
 
             Intent intent = new Intent(this, ProfileActivity.class);
 
