@@ -13,7 +13,7 @@ exclude =
     .idea,
     halp/,
     halp_backend/migrations/,
-    halp_backend/tests/test_settings.py,
+    halp_backend/tests,
     /**/__init__.py,
 
 max-line-length = 99
