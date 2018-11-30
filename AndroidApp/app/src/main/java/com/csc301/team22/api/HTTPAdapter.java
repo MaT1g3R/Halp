@@ -25,9 +25,9 @@ public class HTTPAdapter {
     }
 
 
-    public User createUser(String email, String password) {
+    public User createUser(CreateUser user) {
 
-        String email_password = email + ':' + password;
+        String email_password = user.getEmail() + ':' + user.getPassword();
         byte[] encodedBytes = Base64.getEncoder().encode(email_password.getBytes());
         String header = new String(encodedBytes);
         final User[] respObj = new User[1];
@@ -40,12 +40,16 @@ public class HTTPAdapter {
                     MediaType JSON
                             = MediaType.parse("application/json; charset=utf-8");
 
-
+                    String json = new Gson().toJson(user);
+                    assert json != null;
                     OkHttpClient client = new OkHttpClient();
+
+                    RequestBody body = RequestBody.create(JSON, json);
 
                     Request request = new Request.Builder()
                             .url("localhost:8000/api/v1/create_user")
                             .header("Basic ",header)
+                            .post(body)
                             .build();
                     Response response = client.newCall(request).execute();
                     assert response.body() != null;
