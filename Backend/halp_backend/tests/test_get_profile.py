@@ -31,4 +31,4 @@ def test_not_found(user_id, create_full_user):
     assume(user_id not in User.objects.values_list('id', flat=True))
     resp = get_profile(user_id)
     assert 'does not exist' in resp.content.decode()
-    assert resp.status_code == 400
+    assert resp.status_code == 404

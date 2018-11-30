@@ -77,7 +77,7 @@ def get_profile(user_id) -> Result[User, HttpError]:
     try:
         found_user = User.objects.get(id=user_id)
     except (User.DoesNotExist, OverflowError):
-        return Err(HttpError(400, f'User with ID {user_id} does not exist'))
+        return Err(HttpError(404, f'User with ID {user_id} does not exist'))
 
     return Ok(found_user)
 
@@ -186,5 +186,16 @@ def create_request(valid_data: Dict, user: User):
         return Ok(request)
 
 
-def delete_request():
-    pass
+@json_resposne(dict)
+def delete_request(request_id, user):
+    parsed_id = validate_int(request_id)
+    if not parsed_id:
+        return Err(HttpError(400, f'{parsed_id} is not a valid request ID'))
+    try:
+        request_to_del = Request.objects.get(id=parsed_id.unwrap())
+    except (Request.DoesNotExist, OverflowError):
+        return Err(HttpError(404, f'Request with ID {request_id} does not exist'))
+    if request_to_del.customer != user:
+        return Err(HttpError(403, 'Cannot delete someone else\'s request'))
+    Request.objects.delete_request(request_to_del)
+    return Ok({})

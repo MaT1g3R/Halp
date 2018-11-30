@@ -31,5 +31,5 @@ def test_fail_not_found(create_full_user, client):
     user, password = create_full_user
     resp = client.get(f'/api/v1/profile?user_id={user.id + 1}',
                       HTTP_AUTHORIZATION=encode_auth(user.email, password))
-    assert resp.status_code == 400
+    assert resp.status_code == 404
     assert 'does not exist' in resp.content.decode()

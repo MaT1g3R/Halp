@@ -46,4 +46,7 @@ def request_view(user: User, request: HttpRequest):
     elif request.method == 'POST':
         return controller.create_request(request.body, user)
     else:
-        pass
+        request_id = request.GET.get('request_id')
+        if request_id is None:
+            return JsonResponse(status=400, data={'error': 'you must provide a request_id'})
+        return controller.delete_request(request_id, user)
