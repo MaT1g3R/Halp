@@ -3,7 +3,9 @@ from django.http import HttpRequest, JsonResponse
 from halp_backend import controller, user_converter
 from halp_backend.auth import require_auth
 from halp_backend.models import User
-from halp_backend.util import allow_methods
+from halp_backend.util import (
+    allow_methods, convert_dict_types, validate_bool, validate_float, validate_int,
+)
 
 
 @allow_methods(methods={'GET'})
@@ -30,7 +32,17 @@ def update_bio(user: User, request: HttpRequest):
 @require_auth
 def request_view(user: User, request: HttpRequest):
     if request.method == 'GET':
-        pass
+        get_data = convert_dict_types(request.GET, {
+            'finished': validate_bool,
+            'assigned': validate_bool,
+            'starts_after': validate_int,
+            'radius': validate_int,
+            'lat': validate_float,
+            'long': validate_float
+        })
+        if get_data:
+            return controller.get_reqeusts(get_data.unwrap(), user)
+        return JsonResponse(status=400, data={'error': get_data.unwrap_err()})
     elif request.method == 'POST':
         pass
     else:

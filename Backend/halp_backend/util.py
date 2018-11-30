@@ -45,27 +45,6 @@ def allow_methods(methods, view=None):
     return wrapper
 
 
-def validate_int(x) -> Option[int]:
-    """
-    Try to convert some value to a int
-
-    Args:
-        x: The value
-
-    Returns:
-        Some(int) if the conversion is successful
-        NONE      otherwise
-    """
-    if isinstance(x, (str, int)):
-        try:
-            parsed_int = int(x)
-        except (TypeError, ValueError):
-            return NONE
-        else:
-            return Some(parsed_int)
-    return NONE
-
-
 def load_json(string: AnyStr) -> Option[Json]:
     """
     Try to load a JSON string
@@ -114,3 +93,54 @@ def dict_filter(d: dict, filter_: Optional[Callable] = None) -> dict:
     """
     filter_func = filter_ if filter_ else lambda key, val: key is not None and val is not None
     return {key: val for key, val in d.items() if filter_func(key, val)}
+
+
+def validate_int(x) -> Option[int]:
+    """
+    Try to convert some value to a int
+
+    Args:
+        x: The value
+
+    Returns:
+        Some(int) if the conversion is successful
+        NONE      otherwise
+    """
+    if isinstance(x, (str, int)):
+        try:
+            parsed_int = int(x)
+        except (TypeError, ValueError):
+            return NONE
+        else:
+            return Some(parsed_int)
+    return NONE
+
+
+def validate_float(x) -> Option[float]:
+    try:
+        f = float(x)
+    except (TypeError, ValueError):
+        return NONE
+    return Some(f)
+
+
+def validate_bool(x) -> Option[bool]:
+    if str(x).lower() == 'true':
+        return Some(True)
+    elif str(x).lower() == 'false':
+        return Some(False)
+    return NONE
+
+
+def convert_dict_types(dict_, types) -> Result[Dict, str]:
+    res = {}
+    for key, val in dict_.items():
+        if key in types:
+            converted = types[key](val)
+            if not converted:
+                return Err(f'`{val}` is not a valid value for `{key}`')
+            else:
+                res[key] = converted.unwrap()
+        else:
+            res[key] = val
+    return Ok(res)
