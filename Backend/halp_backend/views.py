@@ -7,7 +7,10 @@ from halp_backend.util import (
     allow_methods, convert_dict_types, validate_bool, validate_float, validate_int,
 )
 
+from django.views.decorators.csrf import csrf_exempt
 
+
+@csrf_exempt
 @allow_methods(methods={'GET'})
 @require_auth
 def profile(user: User, request: HttpRequest):
@@ -17,17 +20,20 @@ def profile(user: User, request: HttpRequest):
     return controller.get_profile(user_id)
 
 
+@csrf_exempt
 @allow_methods(methods=['POST'])
 def create_user(reqeust: HttpRequest):
     return controller.create_user(reqeust.body)
 
 
+@csrf_exempt
 @allow_methods(methods=['POST'])
 @require_auth
 def update_bio(user: User, request: HttpRequest):
     return controller.update_bio(request.body, user)
 
 
+@csrf_exempt
 @allow_methods(methods=['GET', 'POST', 'DELETE'])
 @require_auth
 def request_view(user: User, request: HttpRequest):
@@ -52,18 +58,21 @@ def request_view(user: User, request: HttpRequest):
         return controller.delete_request(request_id, user)
 
 
+@csrf_exempt
 @allow_methods(methods=['POST'])
 @require_auth
 def create_response(user: User, request: HttpRequest):
     return controller.create_response(request.body, user)
 
 
+@csrf_exempt
 @allow_methods(methods=['GET'])
 @require_auth
 def find_worker(user: User, request: HttpRequest):
     return controller.find_worker(request.GET.get('request_id'), user)
 
 
+@csrf_exempt
 @allow_methods(methods=['GET'])
 @require_auth
 def find_job(user: User, request: HttpRequest):
