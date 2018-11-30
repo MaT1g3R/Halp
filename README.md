@@ -21,6 +21,10 @@ For pages #2, 10, and 15, code for the clock taken from:
 
 Android Timepicker - Use EditText to Show TimePickerDialog - Coding Demos. (2018). Retrieved from https://www.codingdemos.com/android-timepicker-edittext/
 
+For the date picker, we use the code from:
+
+DatePickerDialog, from Mitch Tabian, https://github.com/mitchtabian/DatePickerDialog
+
 Female avatar:
 
 The Femalecodercat, by James Kang
