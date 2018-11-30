@@ -71,44 +71,53 @@ public class Request {
         private User customer = null;
         private User assigned_to = null;
         private Double latitude = null, longitude = null;
-        private boolean finished;
+        private boolean finished = false;
         private String description = null;
         private List<Response> responses = null;
 
-        public void request_id(int request_id) {
+        public Builder request_id(int request_id) {
             this.request_id = request_id;
+            return this;
         }
 
-        public void start_time(int start_time) {
+        public Builder start_time(int start_time) {
             this.start_time = start_time;
+            return this;
         }
 
-        public void duration(int duration) {
+        public Builder duration(int duration) {
             this.duration = duration;
+            return this;
         }
 
-        public void customer(User customer) {
+        public Builder customer(User customer) {
             this.customer = customer;
+            return this;
         }
 
-        public void assigned_to(User assigned_to) {
+        public Builder assigned_to(User assigned_to) {
             this.assigned_to = assigned_to;
+            return this;
         }
 
-        public void latitude(double latitude) {
+        public Builder latitude(double latitude) {
             this.latitude = latitude;
+            return this;
         }
 
-        public void longitude(double longitude) {
+        public Builder longitude(double longitude) {
             this.longitude = longitude;
+            return this;
         }
 
-        public void finished(boolean finished) {
+        public Builder finished(boolean finished) {
             this.finished = finished;
+            return this;
         }
 
-        public void description(String description) {
+        public Builder description(String description) {
             this.description = description;
+            return this;
         }
 
         public Request build() {

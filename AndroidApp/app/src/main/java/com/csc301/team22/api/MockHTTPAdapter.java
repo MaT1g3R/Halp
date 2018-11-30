@@ -11,7 +11,11 @@ public class MockHTTPAdapter implements IHTTPAdapter {
     List<Response> respones = new ArrayList<>();
     HashMap<String, String> passwords = new HashMap<>();
 
+    // Counter for user_id
     public int id_counter = 0;
+
+    // Counter for request_id;
+    public int r_id_counter = 0;
 
     // Singleton
     private static MockHTTPAdapter instance = null;
@@ -63,7 +67,16 @@ public class MockHTTPAdapter implements IHTTPAdapter {
 
     @Override
     public Request createRequest(CreateRequest createrequest) {
-        return null;
+        Request request = new Request.Builder().request_id(r_id_counter)
+                .start_time(createrequest.getStart_time()).duration(createrequest.getDuration())
+                .customer(createrequest.getCustomer()).latitude(createrequest.getLatitude())
+                .longitude(createrequest.getLongitude())
+                .description(createrequest.getDescription())
+                .build();
+
+        r_id_counter++;
+        requests.add(request);
+        return request;
     }
 
     @Override

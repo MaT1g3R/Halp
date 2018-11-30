@@ -3,12 +3,14 @@ package com.csc301.team22.api;
 
 public class CreateRequest {
     private Integer start_time = null;
+    private User customer;
     private int duration = 0;
     private double latitude = 0, longitude = 0;
     private String description = null;
 
     public CreateRequest(Builder builder) {
         this.start_time = builder.start_time;
+        this.customer = builder.customer;
         this.duration = builder.duration;
         this.latitude = builder.latitude;
         this.longitude = builder.longitude;
@@ -22,8 +24,16 @@ public class CreateRequest {
         return start_time;
     }
 
+    public User getUser() {
+        return customer;
+    }
+
     public int getDuration() {
         return duration;
+    }
+
+    public User getCustomer() {
+        return customer;
     }
 
     public double getLatitude() {
@@ -40,6 +50,7 @@ public class CreateRequest {
 
     public static class Builder {
         private Integer start_time = null, duration = null;
+        private User customer = null;
         private Double latitude = null, longitude = null;
         private String description = null;
 
@@ -53,6 +64,11 @@ public class CreateRequest {
 
         public Builder duration(int duration) {
             this.duration = duration;
+            return this;
+        }
+
+        public Builder customer(User customer) {
+            this.customer = customer;
             return this;
         }
 
@@ -73,7 +89,8 @@ public class CreateRequest {
 
         public CreateRequest build() {
 
-            if (duration == null || latitude == null ||
+            if (start_time == null|| customer == null
+            || duration == null || latitude == null ||
                     longitude == null || description == null) {
                 throw new IllegalArgumentException("Only start_time in CreateRequest can be null");
             }
