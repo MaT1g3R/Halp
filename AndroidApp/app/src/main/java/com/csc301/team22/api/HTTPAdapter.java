@@ -14,6 +14,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
 
 public class HTTPAdapter implements IHTTPAdapter{
 
@@ -61,10 +62,13 @@ public class HTTPAdapter implements IHTTPAdapter{
                             .header("Authorization","Basic " + header)
                             .post(body)
                             .build();
+
                     Response response = client.newCall(request).execute();
-                    assert response.body() != null;
+                    ResponseBody respbody =  response.body();
+                    String resp_json = respbody.string();
+                    System.out.println(resp_json);
+
                     System.out.println("Response created");
-                    String resp_json = response.body().string();
                     respObj.add(new Gson().fromJson(resp_json, User.class));
                     System.out.println(response.body());
 
