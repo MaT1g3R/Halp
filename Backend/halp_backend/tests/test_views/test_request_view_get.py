@@ -4,6 +4,7 @@ from itertools import chain
 
 import pytest
 from django.utils.datetime_safe import datetime
+from django.utils.http import urlencode
 
 from halp_backend import request_converter
 from halp_backend.models import Request
@@ -112,5 +113,36 @@ def test_query_radius(lat, long, radius, expected, client, create_full_user):
     )
 
 
-def test_missing_query_radius():
-    pass
+@pytest.mark.parametrize('missing', [
+    ['lat'],
+    ['long'],
+    ['radius'],
+    ['radius', 'lat'],
+    ['radius', 'long'],
+    ['lat', 'long'],
+])
+def test_missing_query_radius(missing, client, create_full_user):
+    user, password = create_full_user
+    d = {'lat': 0, 'long': 0, 'radius': 10}
+    for miss in missing:
+        del d[miss]
+    query_string = urlencode(d)
+    resp = client.get(f'/api/v1/request?{query_string}',
+                      HTTP_AUTHORIZATION=encode_auth(user.email, password))
+    assert resp.status_code == 400
+    assert 'dependency' in resp.content.decode()
+
+
+@pytest.mark.parametrize('query', [
+    'lat=foo',
+    'assigned=fals',
+    'starts_after=0.1',
+    'hi=hi',
+    'lat=300'
+])
+def test_bad_query(query, client, create_full_user):
+    user, password = create_full_user
+    resp = client.get(f'/api/v1/request?{query}',
+                      HTTP_AUTHORIZATION=encode_auth(user.email, password))
+    assert resp.status_code == 400
+    assert '"error":' in resp.content.decode()
