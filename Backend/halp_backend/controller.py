@@ -1,6 +1,7 @@
 from functools import partial, wraps
 from typing import AnyStr, Dict, List
 
+from django.core.exceptions import ValidationError
 from django.http import JsonResponse
 from django.utils.datetime_safe import datetime
 from haversine import haversine
@@ -164,9 +165,25 @@ def get_reqeusts(valid_data: Dict, user: User) -> Result[List[Dict], HttpError]:
 
 
 @json_resposne(request_converter.to_dict)
-@require_json_string_validation({})
+@require_json_string_validation({
+    'type': 'object',
+    'properties': {
+        'start_time': {'type': 'integer'},
+        'duration': {'type': 'integer'},
+        'latitude': {'type': 'number', 'minimum': -90, 'maximum': 90},
+        'longitude': {'type': 'number', 'minimum': -180, 'maximum': 180},
+        'description': {'type': 'string'}
+    },
+    'additionalProperties': False,
+    'required': ['duration', 'latitude', 'longitude', 'description']
+})
 def create_request(valid_data: Dict, user: User):
-    pass
+    try:
+        request = Request.objects.create_request(user, **valid_data)
+    except ValidationError as e:
+        return Err(HttpError(400, '\n'.join(e.messages)))
+    else:
+        return Ok(request)
 
 
 def delete_request():

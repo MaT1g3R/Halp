@@ -44,6 +44,6 @@ def request_view(user: User, request: HttpRequest):
             return controller.get_reqeusts(get_data.unwrap(), user)
         return JsonResponse(status=400, data={'error': get_data.unwrap_err()})
     elif request.method == 'POST':
-        pass
+        return controller.create_request(request.body, user)
     else:
         pass

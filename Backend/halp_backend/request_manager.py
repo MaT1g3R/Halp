@@ -21,6 +21,10 @@ class RequestManager(models.Manager):
             description: str,
             start_time: datetime = None,
     ):
+        if isinstance(start_time, int):
+            start_time = datetime.fromtimestamp(start_time)
+        if isinstance(duration, int):
+            duration = timedelta(seconds=duration)
         request = self.model(
             customer=customer,
             duration=duration,
