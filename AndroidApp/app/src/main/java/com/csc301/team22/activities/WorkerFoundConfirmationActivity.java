@@ -2,6 +2,8 @@ package com.csc301.team22.activities;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
@@ -16,6 +18,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -44,7 +47,12 @@ public class WorkerFoundConfirmationActivity extends AppCompatActivity implement
             ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
         }
-        mMap.addMarker(new MarkerOptions().position(worker).title("Marker for Worker"));
+        int height = 80;
+        int width = 80;
+        BitmapDrawable bitmapdraw=(BitmapDrawable)getResources().getDrawable(R.drawable.worker);
+        Bitmap b=bitmapdraw.getBitmap();
+        Bitmap smallworker = Bitmap.createScaledBitmap(b, width, height, false);
+        mMap.addMarker(new MarkerOptions().position(worker).title("Marker for Worker").icon(BitmapDescriptorFactory.fromBitmap(smallworker)));
         mMap.moveCamera(CameraUpdateFactory.zoomTo(16));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(worker));
     }
