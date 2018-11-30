@@ -55,4 +55,4 @@ def request_view(user: User, request: HttpRequest):
 @allow_methods(methods=['POST'])
 @require_auth
 def create_response(user: User, request: HttpRequest):
-    pass
+    return controller.create_response(request.body, user)

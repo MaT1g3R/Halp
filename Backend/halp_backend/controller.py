@@ -8,7 +8,7 @@ from haversine import haversine
 from option import Err, Ok, Result
 
 from halp_backend import request_converter, user_converter
-from halp_backend.models import Request, User
+from halp_backend.models import Request, Response, User
 from halp_backend.typedefs import HttpError
 from halp_backend.util import dict_filter, validate_int, validate_json, validate_json_string
 
@@ -199,3 +199,28 @@ def delete_request(request_id, user):
         return Err(HttpError(403, 'Cannot delete someone else\'s request'))
     Request.objects.delete_request(request_to_del)
     return Ok({})
+
+
+@json_resposne(request_converter.to_dict)
+@require_json_string_validation({
+    'type': 'object',
+    'properties': {
+        'request_id': {'type': 'integer'},
+        'comment': {'type': 'string'}
+    },
+    'additionalProperties': False,
+    'required': ['request_id', 'comment']
+})
+def create_response(valid_data: Dict, user: User):
+    request_id = valid_data['request_id']
+    try:
+        request = Request.objects.get(id=request_id)
+    except (Request.DoesNotExist, OverflowError):
+        return Err(HttpError(404, f'Request with ID {request_id} does not exist'))
+    if user == request.customer:
+        return Err(HttpError(400, 'You cannot respond to your own request'))
+    if request.response_set.filter(worker=user).exists():
+        return Err(HttpError(400, f'You already responded to request with ID {request_id}'))
+    response = Response(request=request, worker=user, comment=valid_data['comment'])
+    response.save()
+    return Ok(request)

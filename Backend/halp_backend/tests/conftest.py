@@ -87,8 +87,9 @@ def fake_request(has_start_time, user=None):
     return req
 
 
-def fake_response(request):
-    user, _ = _generate_user()
+def fake_response(request, user=None):
+    if not user:
+        user, _ = _generate_user()
     response = Response(worker=user, comment=fake.text(), request=request)
     response.save()
     return response
