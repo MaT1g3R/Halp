@@ -56,3 +56,15 @@ def request_view(user: User, request: HttpRequest):
 @require_auth
 def create_response(user: User, request: HttpRequest):
     return controller.create_response(request.body, user)
+
+
+@allow_methods(methods=['GET'])
+@require_auth
+def find_worker(user: User, request: HttpRequest):
+    pass
+
+
+@allow_methods(methods=['GET'])
+@require_auth
+def find_job(user: User, request: HttpRequest):
+    pass

@@ -25,4 +25,6 @@ urlpatterns = [
     path('api/v1/update_bio', views.update_bio),
     path('api/v1/request', views.request_view),
     path('api/v1/create_response', views.create_response),
+    path('api/v1/find_job', views.find_job),
+    path('api/v1/find_worker', views.find_worker),
 ]
