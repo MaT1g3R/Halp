@@ -76,7 +76,7 @@ class RequestManager(models.Manager):
                 if duration is not None and candidate.duration.total_seconds() > duration:
                     continue
                 if has_radius and haversine(
-                        (candidate.latitude, candidate.longgitude),
+                        (candidate.latitude, candidate.longitude),
                         (latitude, longitude)) > radius:
                     continue
                 found = candidate
