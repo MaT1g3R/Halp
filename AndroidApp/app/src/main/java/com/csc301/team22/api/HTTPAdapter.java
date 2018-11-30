@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class MockHTTPAdapter implements IHTTPAdapter {
+public class HTTPAdapter implements IHTTPAdapter {
     // We want a mock database inside this class
     public List<User> users = new ArrayList<>();
     List<Request> requests = new ArrayList<>();
@@ -73,9 +73,7 @@ public class MockHTTPAdapter implements IHTTPAdapter {
 
     @Override
     public User findWorker(int userId) {
-
-        return getProfile(userId);
-
+        return null;
     }
 
     @Override
@@ -98,3 +96,42 @@ public class MockHTTPAdapter implements IHTTPAdapter {
         return -1;
     }
 }
+
+//        Thread thread = new Thread(new Runnable() {
+//
+//            @Override
+//            public void run() {
+//                try {
+//                    MediaType JSON
+//                            = MediaType.parse("application/json; charset=utf-8");
+//
+//
+//                    BagOfPrimitives obj = new BagOfPrimitives();
+//
+//                    String json = new Gson().toJson(obj);
+//                    assert json != null;
+//
+//
+//                    OkHttpClient client = new OkHttpClient();
+//
+//                    RequestBody body = RequestBody.create(JSON, json);
+//                    Request request = new Request.Builder()
+//                            .url("https://httpbin.org/post")
+//                            .post(body)
+//                            .build();
+//                    Response response = client.newCall(request).execute();
+//                    String resp_json = response.body().string();
+//                    JSONObject Jobject = new JSONObject(resp_json);
+//                    JSONObject hi = Jobject.getJSONObject("json");
+//                    BagOfPrimitives respObj = new Gson().fromJson(hi.toString(), BagOfPrimitives.class);
+//                    System.out.println(respObj.value1);
+//                    System.out.println(respObj.value2);
+//
+//
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
+//
+//        thread.start();
