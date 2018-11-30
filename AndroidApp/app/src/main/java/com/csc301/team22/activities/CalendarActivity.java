@@ -2,6 +2,8 @@ package com.csc301.team22.activities;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -19,6 +21,7 @@ import android.widget.TimePicker;
 
 import com.csc301.team22.R;
 import com.csc301.team22.Util;
+import com.csc301.team22.api.*;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -29,6 +32,7 @@ import java.util.Date;
 import java.util.List;
 
 public class CalendarActivity extends AppCompatActivity {
+    MockHTTPAdapter mock = MockHTTPAdapter.getInstance();
     TextView chooseTime, pickTime;
     TimePickerDialog timePickerDialog;
     Calendar cal, calendar;
@@ -42,7 +46,8 @@ public class CalendarActivity extends AppCompatActivity {
     private Spinner spinnerDuration;
 
     // D3 storing values
-    private int saveDate, start_time, duration;
+    private long saveDate, start_time;
+    private int duration;
 
 
     @Override
@@ -60,8 +65,25 @@ public class CalendarActivity extends AppCompatActivity {
         submit = findViewById(R.id.submitButton);
         submit.setOnClickListener(v -> {
 
-            start_time = Integer.parseInt(chooseTime.getText().toString());
-            // Submit job
+            // Add the date and time together to make them a single varirable
+            start_time += saveDate;
+
+            // Use this block on every page to get user_id and User
+            SharedPreferences id = getSharedPreferences(ProfileActivity.SHARED_PREFS,
+                    Context.MODE_PRIVATE);
+
+            int user_id = id.getInt(ProfileActivity.SHARED_PREFS, -1);
+
+            User customer = mock.getProfile(user_id);
+            // End of block
+
+
+
+
+
+//            Request newr = new Request.Builder().request_id().start_time(17)
+//                .duration(2).customer(customer).latitude(30).longitude(50)
+//                .description("jebjebjeb jeb").build();
 
             Util.openActivity(this, JobDescriptionActivity.class);
         });
@@ -123,7 +145,9 @@ public class CalendarActivity extends AppCompatActivity {
 
                 try {
                     Date test = sdf.parse(date);
-                    saveDate = (int) test.getTime()/1000;
+                    System.out.println(test.getTime()/1000);
+                    saveDate = test.getTime()/1000;
+                    System.out.println(saveDate);
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
@@ -142,6 +166,7 @@ public class CalendarActivity extends AppCompatActivity {
             timePickerDialog = new TimePickerDialog(CalendarActivity.this, new TimePickerDialog.OnTimeSetListener() {
                 @Override
                 public void onTimeSet(TimePicker timePicker, int hourOfDay, int minutes) {
+                    int unsetHour = hourOfDay;
                     if (hourOfDay >= 12) {
                         amPm = "PM";
                         hourOfDay -= 12;
@@ -149,6 +174,15 @@ public class CalendarActivity extends AppCompatActivity {
                         amPm = "AM";
                     }
                     chooseTime.setText(String.format("%d:%02d ", hourOfDay, minutes) + amPm);
+
+                    SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm");
+
+                    try {
+                        Date time = timeFormat.parse(String.format("%d:%02d ", unsetHour, minutes));
+                        start_time = time.getTime()/1000;
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
                 }
             }, currentHour, currentMinute, false);
 

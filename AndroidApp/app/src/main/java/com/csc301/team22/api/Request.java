@@ -3,7 +3,8 @@ package com.csc301.team22.api;
 import java.util.List;
 
 public class Request {
-    private int request_id, start_time, duration;
+    private int request_id, duration;
+    private long start_time;
     private User customer;
     private User assigned_to;
     private double latitude, longitude;
@@ -30,7 +31,7 @@ public class Request {
         return request_id;
     }
 
-    public int getStart_time() {
+    public long getStart_time() {
         return start_time;
     }
 
@@ -67,7 +68,8 @@ public class Request {
     }
 
     public static class Builder {
-        private Integer request_id = null, start_time = null, duration = null;
+        private Integer request_id = null, duration = null;
+        private Long start_time = null;
         private User customer = null;
         private User assigned_to = null;
         private Double latitude = null, longitude = null;
@@ -80,7 +82,7 @@ public class Request {
             return this;
         }
 
-        public Builder start_time(int start_time) {
+        public Builder start_time(long start_time) {
             this.start_time = start_time;
             return this;
         }
