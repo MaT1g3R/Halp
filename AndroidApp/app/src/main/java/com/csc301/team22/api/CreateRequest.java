@@ -7,11 +7,38 @@ public class CreateRequest {
     private double latitude = 0, longitude = 0;
     private String description = null;
 
-
-    CreateRequest() {
+    public CreateRequest(Builder builder) {
+        this.start_time = builder.start_time;
+        this.duration = builder.duration;
+        this.latitude = builder.latitude;
+        this.longitude = builder.longitude;
+        this.description = builder.description;
     }
 
-    public class Builder {
+    public CreateRequest() {
+    }
+
+    public Integer getStart_time() {
+        return start_time;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public static class Builder {
         private Integer start_time = null, duration = null;
         private Double latitude = null, longitude = null;
         private String description = null;
@@ -19,24 +46,29 @@ public class CreateRequest {
         public Builder() {
         }
 
-        public void setStart_time(int start_time) {
+        public Builder start_time(int start_time) {
             this.start_time = start_time;
+            return this;
         }
 
-        public void setDuration(int duration) {
+        public Builder duration(int duration) {
             this.duration = duration;
+            return this;
         }
 
-        public void setLatitude(double latitude) {
+        public Builder latitude(double latitude) {
             this.latitude = latitude;
+            return this;
         }
 
-        public void setLongitude(double longitude) {
+        public Builder longitude(double longitude) {
             this.longitude = longitude;
+            return this;
         }
 
-        public void setDescription(String description) {
+        public Builder description(String description) {
             this.description = description;
+            return this;
         }
 
         public CreateRequest build() {
@@ -46,15 +78,7 @@ public class CreateRequest {
                 throw new IllegalArgumentException("Only start_time in CreateRequest can be null");
             }
 
-            CreateRequest request = new CreateRequest();
-
-            request.start_time = start_time;
-            request.duration = duration;
-            request.latitude = latitude;
-            request.longitude = longitude;
-            request.description = description;
-
-            return request;
+            return new CreateRequest(this);
         }
     }
 
