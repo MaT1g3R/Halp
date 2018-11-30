@@ -149,9 +149,11 @@ def get_reqeusts(valid_data: Dict, user: User) -> Result[List[Dict], HttpError]:
 
     filters = dict_filter({
         'finished': finished,
-        'assigned': assigned,
         'start_time__gte': starts_after,
     })
+    if assigned is not None:
+        filters['assigned_to__isnull'] = not assigned
+
     request_query = Request.objects.filter(**filters)
     if radius is None or lat is None or long is None:
         return Ok([request_converter.to_dict(r) for r in request_query])
