@@ -52,7 +52,7 @@ public class WorkerFoundConfirmationActivity extends AppCompatActivity implement
         BitmapDrawable bitmapdraw=(BitmapDrawable)getResources().getDrawable(R.drawable.worker);
         Bitmap b=bitmapdraw.getBitmap();
         Bitmap smallworker = Bitmap.createScaledBitmap(b, width, height, false);
-        mMap.addMarker(new MarkerOptions().position(worker).title("Marker for Worker").icon(BitmapDescriptorFactory.fromBitmap(smallworker)));
+        mMap.addMarker(new MarkerOptions().position(worker).title("Worker").icon(BitmapDescriptorFactory.fromBitmap(smallworker)));
         mMap.moveCamera(CameraUpdateFactory.zoomTo(16));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(worker));
     }
