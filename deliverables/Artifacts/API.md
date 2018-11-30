@@ -271,13 +271,13 @@ Response:
                     "comment": "Ok"
                 },
                 {
-                    "response_id": 2, 
+                    "response_id": 2,
                     "worker": {
                         "user_id": 102,
                         "first_name": "Linus",
                         "last_name": "Torvalds",
                         "bio": "I created Linux"
-                    }, 
+                    },
                     "comment": "I'm good with C"
                 }
             ]
@@ -315,7 +315,7 @@ Response:
                         "first_name": "Rich",
                         "last_name": "Money",
                         "bio": "I'm rich"
-                    }, 
+                    },
                     "comment": "I have an advanced lawn mower"
                 }
             ]
@@ -366,7 +366,7 @@ Response:
                         "first_name": "Rich",
                         "last_name": "Money",
                         "bio": "I'm rich"
-                    }, 
+                    },
                     "comment": "I have an advanced lawn mower"
                 }
             ]
@@ -504,7 +504,16 @@ Response:
     "assigned_to": null,
     "description": "Help me move a fridge",
     "responses": [
-        {"response_id": 3, "worker_id": 7, "comment": "Hello World!"}
+        {
+            "response_id": 3,
+             "worker": {
+                "user_id": 7,
+                "first_name": "Tom",
+                "last_name": "Sam",
+                "bio": "hi"
+             },
+             "comment": "Hello World!"
+        }
     ]
 }
 ```
