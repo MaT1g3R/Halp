@@ -14,6 +14,7 @@ def test_found():
     assert Request.objects.find_job(worker).unwrap() == request
     assert request not in Request.objects.pending_requests
     assert Request.objects.paired_requests[request.id] == worker
+    assert request.assigned_to == worker
 
 
 def test_found_within_radius():
@@ -35,6 +36,7 @@ def test_found_within_radius():
 
     assert Request.objects.paired_requests[requests[1].id] == worker
     assert Request.objects.paired_requests.get(requests[0].id) is None
+    assert requests[1].assigned_to == worker
 
 
 def test_found_within_duration():
@@ -56,6 +58,7 @@ def test_found_within_duration():
 
     assert Request.objects.paired_requests[requests[1].id] == worker
     assert Request.objects.paired_requests.get(requests[0].id) is None
+    assert requests[1].assigned_to == worker
 
 
 def test_not_found():
@@ -102,6 +105,25 @@ def test_not_found_too_long():
 
     worker = MagicMock(User)
     assert Request.objects.find_job(worker, duration=300).is_none
+    assert requests[1] in Request.objects.pending_requests
+    assert requests[0] in Request.objects.pending_requests
+
+    assert Request.objects.paired_requests.get(requests[1].id) is None
+    assert Request.objects.paired_requests.get(requests[0].id) is None
+
+
+def test_not_found_self():
+    Request.objects.paired_requests = {}
+    Request.objects.pending_requests.clear()
+    worker = MagicMock(User)
+    requests = [
+        MagicMock(Request, customer=worker, id=1),
+        MagicMock(Request, customer=worker, id=2)
+    ]
+    for request in requests:
+        Request.objects.pending_requests.append(request)
+
+    assert Request.objects.find_job(worker).is_none
     assert requests[1] in Request.objects.pending_requests
     assert requests[0] in Request.objects.pending_requests
 

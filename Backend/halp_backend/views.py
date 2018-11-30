@@ -61,10 +61,18 @@ def create_response(user: User, request: HttpRequest):
 @allow_methods(methods=['GET'])
 @require_auth
 def find_worker(user: User, request: HttpRequest):
-    pass
+    return controller.find_worker(request.GET.get('request_id'), user)
 
 
 @allow_methods(methods=['GET'])
 @require_auth
 def find_job(user: User, request: HttpRequest):
-    pass
+    get_data = convert_dict_types(request.GET, {
+        'duration': validate_int,
+        'radius': validate_int,
+        'lat': validate_float,
+        'long': validate_float
+    })
+    if get_data:
+        return controller.find_job(get_data.unwrap(), user)
+    return JsonResponse(data={'error': get_data.unwrap_err()}, status=400)

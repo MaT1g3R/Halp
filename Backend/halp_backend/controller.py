@@ -124,7 +124,7 @@ def update_bio(valid_data: Dict, user: User) -> Result[Dict, HttpError]:
         'finished': {'type': 'boolean'},
         'assigned': {'type': 'boolean'},
         'starts_after': {'type': 'integer'},
-        'radius': {'type': 'integer'},
+        'radius': {'type': 'integer', 'minimum': 0},
         'lat': {'type': 'number', 'minimum': -90, 'maximum': 90},
         'long': {'type': 'number', 'minimum': -180, 'maximum': 180}
     },
@@ -224,3 +224,47 @@ def create_response(valid_data: Dict, user: User):
     response = Response(request=request, worker=user, comment=valid_data['comment'])
     response.save()
     return Ok(request)
+
+
+@json_resposne(lambda worker: {'worker': worker})
+def find_worker(request_id, user: User):
+    parsed_id = validate_int(request_id)
+    if not parsed_id:
+        return Err(HttpError(400, f'{request_id} is not a valid request ID'))
+    request_id = parsed_id.value
+    try:
+        request = Request.objects.get(id=request_id)
+    except (OverflowError, Request.DoesNotExist):
+        return Err(HttpError(404, f'Request with {request_id} does not exist'))
+
+    if request.customer != user:
+        return Err(HttpError(403, 'You cannot find a worker for another customer\'s request'))
+    worker = Request.objects.find_worker(request)
+    if worker:
+        return Ok(user_converter.to_dict(worker.value))
+    return Ok(None)
+
+
+@json_resposne(lambda request: {'request': request})
+@require_json_validation({
+    'type': 'object',
+    'properties': {
+        'duration': {'type': 'integer', 'minimum': 0},
+        'radius': {'type': 'integer', 'minimum': 0},
+        'lat': {'type': 'number', 'minimum': -90, 'maximum': 90},
+        'long': {'type': 'number', 'minimum': -180, 'maximum': 180}
+    },
+    'additionalProperties': False,
+    'dependencies': {
+        'radius': ['lat', 'long'],
+        'lat': ['long', 'radius'],
+        'long': ['lat', 'radius']
+    }
+})
+def find_job(valid_data: Dict, user: User):
+    data = {key + 'itude' if key in ('lat', 'long') else key: val for key, val in
+            valid_data.items()}
+    job = Request.objects.find_job(user, **data)
+    if job:
+        return Ok(request_converter.to_dict(job.value))
+    return Ok(None)

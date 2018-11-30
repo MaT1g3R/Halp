@@ -57,8 +57,6 @@ class RequestManager(models.Manager):
             with self.pair_mutex:
                 worker = self.paired_requests[request.id]
                 del self.paired_requests[request.id]
-            request.assigned_to = worker
-            request.save()
             return Some(worker)
         return NONE
 
@@ -79,6 +77,8 @@ class RequestManager(models.Manager):
                         (candidate.latitude, candidate.longitude),
                         (latitude, longitude)) > radius:
                     continue
+                if candidate.customer == worker:
+                    continue
                 found = candidate
                 self.pending_requests = deque(
                     filter(lambda r: r.id != found.id, self.pending_requests)
@@ -89,4 +89,6 @@ class RequestManager(models.Manager):
         with self.pair_mutex:
             self.paired_requests[found.id] = worker
         assert found is not None
+        found.assigned_to = worker
+        found.save()
         return Some(found)

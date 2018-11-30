@@ -12,7 +12,6 @@ def test_found():
     Request.objects.paired_requests[request.id] = worker
     assert Request.objects.find_worker(request).unwrap() == worker
     assert request.id not in Request.objects.paired_requests
-    assert request.assigned_to == worker
 
 
 def test_not_found():
