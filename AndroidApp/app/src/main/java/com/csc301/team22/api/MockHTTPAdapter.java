@@ -86,7 +86,9 @@ public class MockHTTPAdapter implements IHTTPAdapter {
 
     @Override
     public User findWorker(int userId) {
-        return null;
+
+        return getProfile(userId);
+
     }
 
     @Override
