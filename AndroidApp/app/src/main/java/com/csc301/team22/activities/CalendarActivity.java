@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -19,9 +20,12 @@ import android.widget.TimePicker;
 import com.csc301.team22.R;
 import com.csc301.team22.Util;
 
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class CalendarActivity extends AppCompatActivity {
@@ -38,8 +42,7 @@ public class CalendarActivity extends AppCompatActivity {
     private Spinner spinnerDuration;
 
     // D3 storing values
-    private String saveDate;
-    private int start_time, duration;
+    private int saveDate, start_time, duration;
 
 
     @Override
@@ -57,8 +60,8 @@ public class CalendarActivity extends AppCompatActivity {
         submit = findViewById(R.id.submitButton);
         submit.setOnClickListener(v -> {
 
-            saveDate = mDisplayDate.getText().toString();
             start_time = Integer.parseInt(chooseTime.getText().toString());
+            // Submit job
 
             Util.openActivity(this, JobDescriptionActivity.class);
         });
@@ -74,6 +77,17 @@ public class CalendarActivity extends AppCompatActivity {
 
         spinnerDuration.setAdapter(adapter);
 
+        spinnerDuration.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                duration = Integer.parseInt(parent.getItemAtPosition(position).toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
         // Display the date
         mDisplayDate = (TextView) findViewById(R.id.calendartv);
@@ -100,16 +114,21 @@ public class CalendarActivity extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 month = month + 1;
-                Log.d("CalendarActivity", "onDateSet: dd/mm/yyy: " + day + "/" + month + "/" + year);
+//                Log.d("CalendarActivity", "onDateSet: dd/mm/yyy: " + day + "/" + month + "/" + year);
 
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-                mDisplayDate.setText(sdf.format(cal.getTime()));
-//                mDisplayDate.setText((cal.getTime()).toString());
+                SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
+                String date = month + "-" + day + "-" + year;
+                mDisplayDate.setText(date);
+//                mDisplayDate.setText((cal.getTi   me()).toString());
+
+                try {
+                    Date test = sdf.parse(date);
+                    saveDate = (int) test.getTime()/1000;
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
 
 
-                // dd/mm/yyyy format
-                String date = day + "/" + month + "/" + year;
-//                mDisplayDate.setText(date);
             }
         };
 
