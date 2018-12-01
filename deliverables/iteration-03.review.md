@@ -34,9 +34,12 @@ Review meeting will occur on November 30, in person in Myhal's Atrium.
 
 #### Goals and/or tasks that were met/completed:
  
- The back end service is completed, well tested and deployable on AWS:
-      Handling Requests
-      Database and Serialization
+The back end service is completed, well tested and deployable on AWS:
+   - Handling Requests
+   - Database and Serialization
+   - API documentation: https://github.com/csc301-fall-2018/project-team-22/blob/master/deliverables/Artifacts/API.md
+   - Test coverage: https://github.com/csc301-fall-2018/project-team-22/blob/master/deliverables/Artifacts/coverage.png
+
  
  Google Maps API is completed.
  
