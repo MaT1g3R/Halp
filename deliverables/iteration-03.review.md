@@ -9,15 +9,11 @@
 
 #### Decisions that turned out well
 
- * Decided to create an API to store persisted data as JSON objects
- * Implemented an adapter to be able to receive JSON requests for certain information and then output requested data
- * Implemented a google maps like feature to enhance user experience by showing the location of the requesters to prospective workers.
-
+ 
 #### Decisions that did not turn out as well as we hoped
 
 List process-related (i.e. team organization) decisions that, in retrospect, were not as successful as you thought they would be.
 
- * Attempting to implement a fully functional adapter that outputs more than just mock data, which we simply did not have time to implement
  * Splitting attention to both the mock adapter and the fully functional adapter, thus resulting in less time to complete either one, where if the team had focused on one in the beginning, there would not have been as much of a time crunch
 
 
@@ -33,15 +29,14 @@ List any process-related changes you are planning to make (if there are any)
 
 #### Goals and/or tasks that were met/completed:
 
- * From most to least important.
- * Refer/link to artifact(s) that show that a goal/task was met/completed.
- * If a goal/task was not part of the original iteration plan, please mention it.
+ * Decided to create an API to store persisted data as JSON objects
+ * Implemented an adapter to be able to receive JSON requests for certain information and then output requested data
+ * Implemented a google maps like feature to enhance user experience by showing the location of the requesters to prospective workers.
+
 
 #### Goals and/or tasks that were planned but not met/completed:
 
- * From most to least important.
- * For each goal/task, explain why it was not met/completed.      
-   e.g. Did you change your mind, or did you just not get to it yet?
+ * Attempting to implement a fully functional adapter that outputs more than just mock data, which we simply did not have time to implement, and it was too complex to complete in the amount of time we had.
 
 ## Meeting Highlights
 
