@@ -12,7 +12,7 @@
 
  * Have a scrum master
  * We will have a more detailed board
- * Due to the heavy workload out core tasks create and the limited time the team has due to our other classes, we have decided to get rid of the decline job option and the schedule, so we can focus on our core features.
+ * Due to the heavy workload out core tasks create and the limited time the team has due to our other classes having closer deadlines, we have decided to get rid of the decline job option and the schedule, so we can focus on our core features.
 
 #### Roles & responsibilities
 
