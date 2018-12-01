@@ -1,7 +1,7 @@
 # Halp
 ## Iteration 3 - Review & Retrospect
 
-Review meeting will occur on November 2, in person in Myhal's Atrium.
+Review meeting will occur on November 30, in person in Myhal's Atrium.
 
 #### Decisions that turned out well
 
