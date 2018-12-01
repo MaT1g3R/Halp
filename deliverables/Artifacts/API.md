@@ -524,6 +524,66 @@ Response:
     ]
 }
 ```
+
+-------------------------
+
+### POST /api/v1/assign_worker
+
+Assign a worker to a job
+
+#### Authentication
+Yes
+
+#### Request Body
+| Name | Type | Required | Description |
+| --- | --- | ------ | -------- |
+| request_id | Int | Yes | The ID of the request to assign the worker to |
+| worker_id | Int | No | The ID of the worker to assign, if not provided, defulats to the authenticated user |
+
+#### Response
+The [request](#request) object that the worker got assigned to
+
+#### Examples
+
+Request:
+```
+POST /api/v1/assign_worker
+```
+
+Request Body:
+```json
+{"request_id": 9}
+```
+
+Response:
+```json
+{
+    "request_id": 9,
+    "title": "title 9",
+    "customer": {
+        "user_id": 66,
+        "first_name": "Tom",
+        "last_name": "Ben",
+        "bio": "I have two first names"
+    },
+    "start_time": null,
+    "duration": 3600,
+    "latitude": 45.44967,
+    "longitude": -75.68651,
+    "finished": false,
+    "assigned_to": {
+        "user_id": 88,
+        "first_name": "Kevin",
+        "last_name": "Kevin",
+        "bio": "My first name and last name are the same"
+    },
+    "description": "Walk my dog",
+    "responses": []
+}
+```
+
+
+
 ------------------------
 ### GET /api/v1/find_worker
 
