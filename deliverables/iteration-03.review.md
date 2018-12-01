@@ -17,9 +17,8 @@
 
 List process-related (i.e. team organization) decisions that, in retrospect, were not as successful as you thought they would be.
 
- * 2 - 4 decisions.
- * Ordered from most to least important.
- * Feel free to refer/link to process artifact(s).
+ * Attempting to implement a fully functional adapter that outputs more than just mock data, which we simply did not have time to implement
+ * Splitting attention to both the mock adapter and the fully functional adapter, thus resulting in less time to complete either one, where if the team had focused on one in the beginning, there would not have been as much of a time crunch
 
 
 #### Planned changes
