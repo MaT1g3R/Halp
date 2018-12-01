@@ -5,23 +5,20 @@ import java.util.HashMap;
 import java.util.List;
 
 public class MockHTTPAdapter implements IHTTPAdapter {
+    // Singleton
+    private static MockHTTPAdapter instance = null;
     // We want a mock database inside this class
     public List<User> users = new ArrayList<>();
     public List<JobRequest> jobRequests = new ArrayList<>();
+    // Counter for user_id
+    public int id_counter = 0;
+    // Counter for request_id;
+    public int r_id_counter = 0;
     List<Response> respones = new ArrayList<>();
     HashMap<String, String> passwords = new HashMap<>();
 
-    // Counter for user_id
-    public int id_counter = 0;
-
-    // Counter for request_id;
-    public int r_id_counter = 0;
-
-    // Singleton
-    private static MockHTTPAdapter instance = null;
-
     public static MockHTTPAdapter getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             instance = new MockHTTPAdapter();
         }
 
@@ -31,7 +28,7 @@ public class MockHTTPAdapter implements IHTTPAdapter {
 
     @Override
     public User getProfile(int user_id) {
-        for(User user: users) {
+        for (User user : users) {
             if (user.getUser_id() == user_id) {
                 return user;
             }
@@ -56,8 +53,8 @@ public class MockHTTPAdapter implements IHTTPAdapter {
     }
 
     @Override
-    public String updateBio(String bio) {
-        return null;
+    public void updateBio(String bio) {
+        return;
     }
 
     @Override
@@ -97,17 +94,14 @@ public class MockHTTPAdapter implements IHTTPAdapter {
     }
 
     @Override
-    public int authenticate(String email, String password) {
+    public User authenticate(String email, String password) {
         if (passwords.containsKey(email)) {
             if (passwords.get(email).equals(password)) {
-                for(User user: users) {
-                    if (user.getEmail().equals(email)) {
-                        return user.getUser_id();
-                    }
+                for (User user : users) {
                 }
             }
         }
 
-        return -1;
+        return null;
     }
 }

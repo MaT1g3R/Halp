@@ -13,26 +13,13 @@ import android.widget.TextView;
 
 import com.csc301.team22.R;
 import com.csc301.team22.Util;
-import com.google.gson.Gson;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.io.IOException;
-
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-
-import com.csc301.team22.api.*;
-
+import com.csc301.team22.api.HTTPAdapter;
+import com.csc301.team22.api.User;
 
 
 public class LoginActivity extends AppCompatActivity {
 
-    MockHTTPAdapter mock = MockHTTPAdapter.getInstance();
+    HTTPAdapter http = HTTPAdapter.getInstance();
     EditText TEmail, TPass;
     TextView errorBox;
     private String email = "", password = "", emptyError = "All fields must be filled";
@@ -60,17 +47,17 @@ public class LoginActivity extends AppCompatActivity {
         Button CreateAccount = findViewById(R.id.loginCreateButton);
         CreateAccount.setOnClickListener(v -> Util.openActivity(this, CreateAccountActivity.class));
         if (!(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
-                == PackageManager.PERMISSION_GRANTED)){
+                == PackageManager.PERMISSION_GRANTED)) {
             ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
         }
 
     }
 
-    private void login () {
+    private void login() {
         TEmail = findViewById(R.id.loginEmail);
         TPass = findViewById(R.id.loginPassword);
-        errorBox = findViewById(R.id. textView2);
+        errorBox = findViewById(R.id.textView2);
 
         email = TEmail.getText().toString();
         password = TPass.getText().toString();
@@ -79,20 +66,18 @@ public class LoginActivity extends AppCompatActivity {
             errorBox.setText(emptyError);
         }
 
-        int user_id = mock.authenticate(email, password);
-        if (user_id == -1) {
-            errorBox.setText(error);
-        } else {
-
-            Intent intent = new Intent(this, ProfileActivity.class);
-
-            // Passing user_id to next activity
-            intent.putExtra("CREATEID", user_id);
-
+        try {
+            User user = http.authenticate(email, password);
+            if (user == null) {
+                throw new IllegalAccessException();
+            }
+            Intent intent = new Intent(this, WorkNowWorkLaterActivity.class);
             startActivity(intent);
+        } catch (Exception e) {
+            errorBox.setText("Invalid login info");
         }
     }
-
+}
 
 
 //    private void login() {
@@ -145,4 +130,3 @@ public class LoginActivity extends AppCompatActivity {
 //        Intent intent = new Intent(this, PostJobFindWorkActivity.class);
 //        startActivity(intent);
 //    }
-}

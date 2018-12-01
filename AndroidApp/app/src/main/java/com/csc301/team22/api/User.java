@@ -2,13 +2,12 @@ package com.csc301.team22.api;
 
 public class User {
     private int user_id;
-    private String first_name, last_name, email, bio="";
+    private String first_name, last_name, bio = "";
 
     private User(Builder builder) {
         this.user_id = builder.user_id;
         this.first_name = builder.first_name;
         this.last_name = builder.last_name;
-        this.email = builder.email;
         this.bio = builder.bio;
     }
 
@@ -27,10 +26,6 @@ public class User {
 
     public String getLast_name() {
         return last_name;
-    }
-
-    public String getEmail() {
-        return email;
     }
 
     public String getBio() {
