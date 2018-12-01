@@ -73,6 +73,7 @@ def fake_request_creation(has_start_time):
         'latitude': fake.latitude(),
         'longitude': fake.longitude(),
         'description': fake.text(),
+        'title': fake.text(),
     }
     if has_start_time:
         d['start_time'] = fake.date_time()
