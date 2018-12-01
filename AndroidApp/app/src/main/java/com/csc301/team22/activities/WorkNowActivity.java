@@ -14,15 +14,5 @@ public class WorkNowActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_work_now);
-
-        loc = new LatLng(43.58, -79.41);
-
-        SharedPreferences sharedPreferences = getSharedPreferences("loc", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-
-        String lati = ((Double) loc.latitude).toString();
-        String longi = ((Double) loc.longitude).toString();
-        editor.putString("lati", lati);
-        editor.putString("longi", longi);
     }
 }

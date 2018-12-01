@@ -17,6 +17,7 @@ import com.csc301.team22.R;
 //import com.csc301.team22.Request;
 import com.csc301.team22.RequestManager;
 import com.csc301.team22.Util;
+import com.csc301.team22.activities.JobConfirmationActivity;
 import com.csc301.team22.activities.JobDescriptionActivity;
 import com.csc301.team22.api.MockHTTPAdapter;
 import com.csc301.team22.api.Request;
@@ -39,7 +40,9 @@ public class SearchFragment extends Fragment implements Observer {
     MockHTTPAdapter mock = MockHTTPAdapter.getInstance();
 
     double radius;
+    int distance;
     String lati, longi;
+    double dlati, dlongi;
 
     LatLng L1, L2;
 
@@ -50,12 +53,14 @@ public class SearchFragment extends Fragment implements Observer {
         assert activity != null;
 
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("loc", MODE_PRIVATE);
+        SharedPreferences sP = getActivity().getSharedPreferences("distance", MODE_PRIVATE);
 
         lati = sharedPreferences.getString("lati", "");
         longi = sharedPreferences.getString("longi", "");
+        distance = sP.getInt("dist", 0);
 
-        double dlati = Double.parseDouble(lati);
-        double dlongi = Double.parseDouble(longi);
+        dlati = (double) Double.parseDouble(lati);
+        dlongi = (double) Double.parseDouble(longi);
 
         L1 = new LatLng(dlati, dlongi);
 
@@ -68,7 +73,7 @@ public class SearchFragment extends Fragment implements Observer {
         for (Request request: mock.requests) {
             L2 = new LatLng(request.getLatitude(), request.getLongitude());
             radius = CalculationByDistance(L1, L2);
-            if (radius < 100) {
+            if (radius <= distance) {
                 RequestCardView cardView = toCardView(context, request.getTitle(), request.getDescription());
                 LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
                 layout.addView(cardView.getLayout(), lp);
@@ -99,7 +104,7 @@ public class SearchFragment extends Fragment implements Observer {
                 }
             }
         } else {
-            Util.openActivity(activity, JobDescriptionActivity.class);
+            Util.openActivity(activity, JobConfirmationActivity.class);
         }
     }
 
