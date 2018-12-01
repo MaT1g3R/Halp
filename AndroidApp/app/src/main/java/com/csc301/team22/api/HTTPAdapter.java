@@ -141,8 +141,12 @@ public class HTTPAdapter implements IHTTPAdapter {
         return null;
     }
 
-    public JobRequest createRequest(CreateRequest createrequest) {
-        return null;
+    public JobRequest createRequest(CreateRequest createrequest){
+        String json = new Gson().toJson(createrequest);
+        String endpoint = "request";
+        assert json != null;
+        String respJson = httpPost(endpoint, json);
+        return new Gson().fromJson(respJson, JobRequest.class);
     }
 
 

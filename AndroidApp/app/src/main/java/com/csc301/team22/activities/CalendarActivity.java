@@ -2,12 +2,16 @@ package com.csc301.team22.activities;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -18,13 +22,24 @@ import android.widget.TimePicker;
 
 import com.csc301.team22.R;
 import com.csc301.team22.Util;
+import com.csc301.team22.api.*;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
-public class CalendarActivity extends AppCompatActivity {
+public class CalendarActivity extends AppCompatActivity implements OnMapReadyCallback {
+    HTTPAdapter http = HTTPAdapter.getInstance();
     TextView chooseTime, pickTime;
     TimePickerDialog timePickerDialog;
     Calendar cal, calendar;
@@ -35,12 +50,18 @@ public class CalendarActivity extends AppCompatActivity {
     private TextView mDisplayDate;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
+    public static final String SHARED_PREFS = "sharedPrefs";
+
     private Spinner spinnerDuration;
 
     // D3 storing values
-    private String saveDate;
-    private int start_time, duration;
+    private long saveDate, start_time;
+    private int duration;
 
+    private String title, description;
+
+    private GoogleMap mMap;
+    private LatLng sydney;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,18 +70,40 @@ public class CalendarActivity extends AppCompatActivity {
 
 //        Bundle extras = getIntent().getExtras();
 //        assert extras != null;
-//        String title = extras.getString("title");
-//        String description = extras.getString("description");
+//        title = extras.getString("title");
+//        description = extras.getString("description");
 //        assert title != null;
 //        assert description != null;
 
         submit = findViewById(R.id.submitButton);
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map2);
+        mapFragment.getMapAsync(this);
         submit.setOnClickListener(v -> {
 
-            saveDate = mDisplayDate.getText().toString();
-            start_time = Integer.parseInt(chooseTime.getText().toString());
+            // Add the date and time together to make them a single varirable
+            start_time += saveDate;
 
-            Util.openActivity(this, JobDescriptionActivity.class);
+
+            // Use this block on every page to get user_id and User
+            SharedPreferences id = getSharedPreferences(SHARED_PREFS,
+                    MODE_PRIVATE);
+
+
+            SharedPreferences sharedPreferences = getSharedPreferences("calendar", MODE_PRIVATE);
+
+            title = sharedPreferences.getString("title", "default");
+            description = sharedPreferences.getString("desc", "default");
+
+            CreateRequest newr = new CreateRequest.Builder().start_time(start_time)
+                    .duration(duration).latitude(sydney.latitude)
+                    .longitude(sydney.longitude).description(description).title(title).build();
+
+            JobRequest req = http.createRequest(newr);
+
+
+
+            Util.openActivity(this, PostJobFindWorkActivity.class);
         });
 
         spinnerDuration = findViewById(R.id.spinnerDud);
@@ -74,6 +117,17 @@ public class CalendarActivity extends AppCompatActivity {
 
         spinnerDuration.setAdapter(adapter);
 
+        spinnerDuration.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                duration = Integer.parseInt(parent.getItemAtPosition(position).toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                duration = 1;
+            }
+        });
 
         // Display the date
         mDisplayDate = (TextView) findViewById(R.id.calendartv);
@@ -100,16 +154,23 @@ public class CalendarActivity extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 month = month + 1;
-                Log.d("CalendarActivity", "onDateSet: dd/mm/yyy: " + day + "/" + month + "/" + year);
+//                Log.d("CalendarActivity", "onDateSet: dd/mm/yyy: " + day + "/" + month + "/" + year);
 
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-                mDisplayDate.setText(sdf.format(cal.getTime()));
-//                mDisplayDate.setText((cal.getTime()).toString());
+                SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
+                String date = month + "-" + day + "-" + year;
+                mDisplayDate.setText(date);
+//                mDisplayDate.setText((cal.getTi   me()).toString());
+
+                try {
+                    Date test = sdf.parse(date);
+                    System.out.println(test.getTime()/1000);
+                    saveDate = test.getTime()/1000;
+                    System.out.println(saveDate);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
 
 
-                // dd/mm/yyyy format
-                String date = day + "/" + month + "/" + year;
-//                mDisplayDate.setText(date);
             }
         };
 
@@ -123,6 +184,7 @@ public class CalendarActivity extends AppCompatActivity {
             timePickerDialog = new TimePickerDialog(CalendarActivity.this, new TimePickerDialog.OnTimeSetListener() {
                 @Override
                 public void onTimeSet(TimePicker timePicker, int hourOfDay, int minutes) {
+                    int unsetHour = hourOfDay;
                     if (hourOfDay >= 12) {
                         amPm = "PM";
                         hourOfDay -= 12;
@@ -130,33 +192,29 @@ public class CalendarActivity extends AppCompatActivity {
                         amPm = "AM";
                     }
                     chooseTime.setText(String.format("%d:%02d ", hourOfDay, minutes) + amPm);
+
+                    SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm");
+
+                    try {
+                        Date time = timeFormat.parse(String.format("%d:%02d ", unsetHour, minutes));
+                        start_time = time.getTime()/1000;
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
                 }
             }, currentHour, currentMinute, false);
 
             timePickerDialog.show();
         });
+    }
 
-//        // "To" time
-//        pickTime = findViewById(R.id.calendarTo);
-//        pickTime.setOnClickListener(view -> {
-//            calendar = Calendar.getInstance();
-//            currentHour = calendar.get(Calendar.HOUR_OF_DAY);
-//            currentMinute = calendar.get(Calendar.MINUTE);
-//
-//            timePickerDialog = new TimePickerDialog(CalendarActivity.this, new TimePickerDialog.OnTimeSetListener() {
-//                @Override
-//                public void onTimeSet(TimePicker timePicker, int hourOfDay, int minutes) {
-//                    if (hourOfDay >= 12) {
-//                        amPm = "PM";
-//                        hourOfDay -= 12;
-//                    } else {
-//                        amPm = "AM";
-//                    }
-//                    pickTime.setText(String.format("%d:%d ", hourOfDay, minutes) + amPm);
-//                }
-//            }, currentHour, currentMinute, false);
-//
-//            timePickerDialog.show();
-//        });
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+
+        // Add a marker in Sydney and move the camera
+        sydney = new LatLng(43.6, -79.4);
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Spadina"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 }
