@@ -19,6 +19,8 @@ Review meeting will occur on November 30, in person in Myhal's Atrium.
  Work organization, division of work and order of task completion. We didn't properly set expectations and we didn't complete tasks in order of priority, resulting in us having non-important tasks completed while some of our core/important features could not be implemented due to the time constraints.
  
  Because we were unable to estimate how much work we could get done, we decided to additionally work on a less complicated version of the app at the same time. This ended up splitting our resources, and the version we thought was less complicated(using mock data) ended up taking more of our time than we initially thought. This resulted in neither implementation being fully complete, with large portions of each being functional. If we had instead dedicated all of our time to one implementation, we may have been able to complete more work and would have wasted less time and effort. 
+ 
+ Scrum master decision was not applied. Due to the few active members in our group, having a scrum master would have been useless, so we decided to discard the scrum master position, having group coding sessions with the active members to make up for it.
 
 
 #### Planned changes
