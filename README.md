@@ -25,6 +25,10 @@ For the date picker, we use the code from:
 
 DatePickerDialog, from Mitch Tabian, https://github.com/mitchtabian/DatePickerDialog
 
+To calculate distance between job and worker, we use the code from:
+
+https://stackoverflow.com/questions/14394366/find-distance-between-two-points-on-map-using-google-map-api-v2
+
 Female avatar:
 
 The Femalecodercat, by James Kang
