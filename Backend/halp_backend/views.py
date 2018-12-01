@@ -84,3 +84,10 @@ def find_job(user: User, request: HttpRequest):
     if get_data:
         return controller.find_job(get_data.unwrap(), user)
     return JsonResponse(data={'error': get_data.unwrap_err()}, status=400)
+
+
+@csrf_exempt
+@allow_methods(methods=['POST'])
+@require_auth
+def assign_worker(user: User, request: HttpRequest):
+    pass
