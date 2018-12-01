@@ -22,11 +22,11 @@
 
 - Xun: Front End Programmer
 
-- Brandon: Front End Programmer
+- Brandon: Front End Programmer, Back End Programmer and Review Meeting Writer
 
 - Mat(Peijun): Lead Back End Programmer, Planning Meeting Writer
 
-- Pablo: Front End Programmer, Planning Meeting Writer
+- Pablo: Front End Programmer, Mockup Programmer, Planning Meeting Writer and Review Meeting Writer
 
 Each indicidual is responsible for coding a working version of one or more of the tasks that were created during this planning meeting. In addition, Pablo and Mat are responsible for writing up the planning meeting document along with deciding the database, architecture and their diagrams, with Brandon coming in to help so the three make decisions on the tasks to be implemented.
 
@@ -67,8 +67,8 @@ List/describe the artifacts you will produce in order to organize your team.
    * Implement a Temporary State to keep track of temporal data (e.g searching for worker, etc.)
  
  * Front End:
-   * Implement a Controller for front end to get data from the HTML adapter and push it to the GUI.
-   * Implement the HTML adapter to fetch data from back end and to the controller.
+   * Implement a Controller for front end to get data from the HTTP adapter and push it to the GUI.
+   * Implement the HTTP adapter to fetch data from back end and to the controller.
    * Implement a Session Storage to store temporary data for the current user session.
  
  * Flesh out the front end of our application, make it look better
