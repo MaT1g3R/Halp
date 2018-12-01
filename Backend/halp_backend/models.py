@@ -34,6 +34,7 @@ class Request(models.Model):
     longitude = models.DecimalField(max_digits=11, decimal_places=8)
     finished = models.BooleanField(default=False)
     description = models.TextField()
+    title = models.TextField()
 
     objects = RequestManager()
 

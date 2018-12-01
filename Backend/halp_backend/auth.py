@@ -25,15 +25,15 @@ def authenticate_user(reqeust: HttpRequest) -> Option[User]:
     auth_header = get_http_header(reqeust, 'AUTHORIZATION').unwrap_or('')
     if not auth_header:
         return NONE
+    if not auth_header.startswith('Basic '):
+        return NONE
+    auth_string = auth_header[6:]
     try:
-        auth_string = b64decode(auth_header, validate=True).decode()
+        email_pass = b64decode(auth_string, validate=True).decode()
     except (binascii.Error, UnicodeDecodeError):
         return NONE
 
-    if not auth_string.startswith('Basic '):
-        return NONE
-    auth_string = auth_string[6:]
-    email, _, password = auth_string.partition(':')
+    email, _, password = email_pass.partition(':')
     user = authenticate(username=email, password=password)
     return maybe(user)
 

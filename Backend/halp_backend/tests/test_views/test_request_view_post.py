@@ -18,6 +18,7 @@ def test_success(has_start_time, create_full_user, client):
         'latitude': float(fake.latitude()),
         'longitude': float(fake.longitude()),
         'description': fake.text(),
+        'title': fake.text(),
     }
     if has_start_time:
         d['start_time'] = int(fake.date_time().timestamp())

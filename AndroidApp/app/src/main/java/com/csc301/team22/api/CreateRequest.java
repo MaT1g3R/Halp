@@ -2,10 +2,11 @@ package com.csc301.team22.api;
 
 
 public class CreateRequest {
-    private Integer start_time = null;
+    private Long start_time = null;
     private int duration = 0;
     private double latitude = 0, longitude = 0;
     private String description = null;
+    private String title = null;
 
     public CreateRequest(Builder builder) {
         this.start_time = builder.start_time;
@@ -13,18 +14,21 @@ public class CreateRequest {
         this.latitude = builder.latitude;
         this.longitude = builder.longitude;
         this.description = builder.description;
+        this.title = builder.title;
     }
 
     public CreateRequest() {
     }
 
-    public Integer getStart_time() {
+    public Long getStart_time() {
         return start_time;
     }
+
 
     public int getDuration() {
         return duration;
     }
+
 
     public double getLatitude() {
         return latitude;
@@ -39,20 +43,33 @@ public class CreateRequest {
     }
 
     public static class Builder {
-        private Integer start_time = null, duration = null;
+        private Long start_time = null;
+        private Integer duration = null;
+        private User customer = null;
         private Double latitude = null, longitude = null;
         private String description = null;
+        private String title = null;
 
         public Builder() {
         }
 
-        public Builder start_time(int start_time) {
+        public Builder title(String title) {
+            this.title = title;
+            return this;
+        }
+
+        public Builder start_time(Long start_time) {
             this.start_time = start_time;
             return this;
         }
 
         public Builder duration(int duration) {
             this.duration = duration;
+            return this;
+        }
+
+        public Builder customer(User customer) {
+            this.customer = customer;
             return this;
         }
 
@@ -73,7 +90,8 @@ public class CreateRequest {
 
         public CreateRequest build() {
 
-            if (duration == null || latitude == null ||
+            if (start_time == null || title == null
+                    || duration == null || latitude == null ||
                     longitude == null || description == null) {
                 throw new IllegalArgumentException("Only start_time in CreateRequest can be null");
             }
