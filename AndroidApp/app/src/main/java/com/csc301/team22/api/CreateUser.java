@@ -57,19 +57,9 @@ public class CreateUser {
                 throw new IllegalArgumentException("All CreateUser attributes must not be null");
             }
 
-//            CreateUser user = new CreateUser();
-
-//            user.first_name = first_name;
-//            user.last_name = last_name;
-//            user.email = email;
-//            user.password = password;
-
-//            return user;
-
             return new CreateUser(this);
         }
 
-//        public Builder (){}
     }
 
 }

@@ -23,6 +23,7 @@ class RequestManager(models.Manager):
             latitude,
             longitude,
             description: str,
+            title: str,
             start_time: datetime = None,
     ):
         if isinstance(start_time, int):
@@ -35,7 +36,8 @@ class RequestManager(models.Manager):
             latitude=latitude,
             longitude=longitude,
             description=description,
-            start_time=start_time
+            title=title,
+            start_time=start_time,
         )
         request.clean()
         request.save()

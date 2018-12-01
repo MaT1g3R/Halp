@@ -4,12 +4,15 @@ import android.content.Context;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 
+import com.csc301.team22.api.*;
 import com.csc301.team22.views.RequestCardView;
 
 import java.util.Arrays;
 import java.util.Date;
 
 public class RequestManager {
+
+    MockHTTPAdapter mock = MockHTTPAdapter.getInstance();
     private static final RequestManager ourInstance = new RequestManager();
 
     private RequestManager() {
@@ -26,14 +29,16 @@ public class RequestManager {
                 new Request("3-Day Manual Labor", ""),
                 new Request("Garbage Disposal", "")
         );
+
+
     }
 
 
     public void createRequest(String title, String description, Date date) {
         if (date == null) {
-            System.out.println("Creating Request now: " + title + " - " + description);
+            System.out.println("Creating JobRequest now: " + title + " - " + description);
         } else {
-            System.out.println("Creating Request later: " + title + " - " + description + " at " + date);
+            System.out.println("Creating JobRequest later: " + title + " - " + description + " at " + date);
         }
     }
 }

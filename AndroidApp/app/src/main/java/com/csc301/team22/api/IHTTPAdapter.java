@@ -12,17 +12,17 @@ public interface IHTTPAdapter {
 
     public User createUser(CreateUser user);
 
-    public String updateBio(String bio);
+    public void updateBio(String bio);
 
-    public List<Request> getRequests(RequestQuery query);
+    public List<JobRequest> getRequests(RequestQuery query) throws InterruptedException;
 
-    public Request createRequest(CreateRequest createrequest);
+    public JobRequest createRequest(CreateRequest createrequest);
 
     public void deleteRequest(int requestId);
 
     public User findWorker(int userId);
 
-    public Request findJob(Integer duration, Integer radius, Double latitude, Double longitude);
+    public JobRequest findJob(Integer duration, Integer radius, Double latitude, Double longitude);
 
-    public int authenticate(String email, String password);
+    public User authenticate(String email, String password) throws InterruptedException;
 }

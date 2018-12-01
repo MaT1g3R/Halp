@@ -5,19 +5,20 @@ import java.util.HashMap;
 import java.util.List;
 
 public class MockHTTPAdapter implements IHTTPAdapter {
+    // Singleton
+    private static MockHTTPAdapter instance = null;
     // We want a mock database inside this class
     public List<User> users = new ArrayList<>();
-    List<Request> requests = new ArrayList<>();
+    public List<JobRequest> jobRequests = new ArrayList<>();
+    // Counter for user_id
+    public int id_counter = 0;
+    // Counter for request_id;
+    public int r_id_counter = 0;
     List<Response> respones = new ArrayList<>();
     HashMap<String, String> passwords = new HashMap<>();
 
-    public int id_counter = 0;
-
-    // Singleton
-    private static MockHTTPAdapter instance = null;
-
     public static MockHTTPAdapter getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             instance = new MockHTTPAdapter();
         }
 
@@ -27,7 +28,7 @@ public class MockHTTPAdapter implements IHTTPAdapter {
 
     @Override
     public User getProfile(int user_id) {
-        for(User user: users) {
+        for (User user : users) {
             if (user.getUser_id() == user_id) {
                 return user;
             }
@@ -52,18 +53,27 @@ public class MockHTTPAdapter implements IHTTPAdapter {
     }
 
     @Override
-    public String updateBio(String bio) {
+    public void updateBio(String bio) {
+        return;
+    }
+
+    @Override
+    public List<JobRequest> getRequests(RequestQuery query) {
         return null;
     }
 
     @Override
-    public List<Request> getRequests(RequestQuery query) {
-        return null;
-    }
+    public JobRequest createRequest(CreateRequest createrequest) {
+        JobRequest jobRequest = new JobRequest.Builder().request_id(r_id_counter)
+                .start_time(createrequest.getStart_time()).duration(createrequest.getDuration()).
+                        latitude(createrequest.getLatitude())
+                .longitude(createrequest.getLongitude())
+                .description(createrequest.getDescription())
+                .build();
 
-    @Override
-    public Request createRequest(CreateRequest createrequest) {
-        return null;
+        r_id_counter++;
+        jobRequests.add(jobRequest);
+        return jobRequest;
     }
 
     @Override
@@ -79,22 +89,19 @@ public class MockHTTPAdapter implements IHTTPAdapter {
     }
 
     @Override
-    public Request findJob(Integer duration, Integer radius, Double latitude, Double longitude) {
+    public JobRequest findJob(Integer duration, Integer radius, Double latitude, Double longitude) {
         return null;
     }
 
     @Override
-    public int authenticate(String email, String password) {
+    public User authenticate(String email, String password) {
         if (passwords.containsKey(email)) {
             if (passwords.get(email).equals(password)) {
-                for(User user: users) {
-                    if (user.getEmail().equals(email)) {
-                        return user.getUser_id();
-                    }
+                for (User user : users) {
                 }
             }
         }
 
-        return -1;
+        return null;
     }
 }

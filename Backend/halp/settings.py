@@ -24,7 +24,7 @@ SECRET_KEY = '83e9tq^it04ce=@l*nhjhgb))-l9(*zdo@=l-d(yhpq&eor87k'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -115,3 +115,5 @@ USE_TZ = False
 STATIC_URL = '/static/'
 
 AUTH_USER_MODEL = 'halp_backend.User'
+
+

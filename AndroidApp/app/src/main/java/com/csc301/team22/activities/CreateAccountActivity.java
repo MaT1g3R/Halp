@@ -1,6 +1,5 @@
 package com.csc301.team22.activities;
 
-import com.csc301.team22.api.*;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +8,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.csc301.team22.R;
+import com.csc301.team22.api.CreateUser;
+import com.csc301.team22.api.HTTPAdapter;
+import com.csc301.team22.api.User;
 
 
 public class CreateAccountActivity extends AppCompatActivity {
@@ -16,19 +18,19 @@ public class CreateAccountActivity extends AppCompatActivity {
     String first_name, last_name, email, pass, re_pass;
     String error = "Passwords must match";
     String emptyError = "All fields must be filled";
-    MockHTTPAdapter mock = MockHTTPAdapter.getInstance();
+    HTTPAdapter http = HTTPAdapter.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_account);
-        
+
         Button create = findViewById(R.id.button3);
 
         create.setOnClickListener(v -> create_account());
     }
 
-    public void create_account(){
+    public void create_account() {
 
         EditText first = findViewById(R.id.createFirst);
         EditText last = findViewById(R.id.createLast);
@@ -55,9 +57,9 @@ public class CreateAccountActivity extends AppCompatActivity {
             CreateUser newUser = new CreateUser.Builder().first_name(first_name)
                     .last_name(last_name).email(email).password(pass).build();
 
-            User nUser = mock.createUser(newUser);
+            User nUser = http.createUser(newUser);
 
-            Intent intent = new Intent(this, ProfileActivity.class);
+            Intent intent = new Intent(this, LoginActivity.class);
 
             // Passing user_id to next activity
             intent.putExtra("CREATEID", nUser.getUser_id());

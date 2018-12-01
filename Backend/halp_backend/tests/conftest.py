@@ -73,6 +73,7 @@ def fake_request_creation(has_start_time):
         'latitude': fake.latitude(),
         'longitude': fake.longitude(),
         'description': fake.text(),
+        'title': fake.text(),
     }
     if has_start_time:
         d['start_time'] = fake.date_time()
@@ -96,4 +97,4 @@ def fake_response(request, user=None):
 
 
 def encode_auth(email, password):
-    return b64encode(f'Basic {email}:{password}'.encode()).decode()
+    return 'Basic ' + b64encode(f'{email}:{password}'.encode()).decode()

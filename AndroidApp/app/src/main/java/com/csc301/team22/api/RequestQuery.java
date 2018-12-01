@@ -1,14 +1,39 @@
 package com.csc301.team22.api;
 
+import java.util.HashMap;
+
 public class RequestQuery {
-    private boolean finished, assigned;
-    private int starts_after, radius;
-    private double latitude, longitude;
+    private Boolean finished = null, assigned = null;
+    private Integer starts_after = null, radius = null;
+    private Double latitude = null, longitude = null;
 
     public RequestQuery() {
     }
 
-    public boolean isFinished() {
+    public HashMap<String, String> toMap() {
+        HashMap<String, String> result = new HashMap<>();
+        if (finished != null) {
+            result.put("finished", finished.toString());
+        }
+        if (assigned != null) {
+            result.put("assigned", assigned.toString());
+        }
+        if (starts_after != null) {
+            result.put("starts_after", starts_after.toString());
+        }
+        if (radius != null) {
+            result.put("radius", radius.toString());
+        }
+        if (latitude != null) {
+            result.put("lat", latitude.toString());
+        }
+        if (longitude != null)  {
+            result.put("long", longitude.toString());
+        }
+        return result;
+    }
+
+    public Boolean isFinished() {
         return finished;
     }
 
@@ -16,7 +41,7 @@ public class RequestQuery {
         this.finished = finished;
     }
 
-    public boolean isAssigned() {
+    public Boolean isAssigned() {
         return assigned;
     }
 
@@ -24,7 +49,7 @@ public class RequestQuery {
         this.assigned = assigned;
     }
 
-    public int getStarts_after() {
+    public Integer getStarts_after() {
         return starts_after;
     }
 
@@ -32,7 +57,7 @@ public class RequestQuery {
         this.starts_after = starts_after;
     }
 
-    public int getRadius() {
+    public Integer getRadius() {
         return radius;
     }
 
@@ -40,7 +65,7 @@ public class RequestQuery {
         this.radius = radius;
     }
 
-    public double getLatitude() {
+    public Double getLatitude() {
         return latitude;
     }
 
@@ -48,7 +73,7 @@ public class RequestQuery {
         this.latitude = latitude;
     }
 
-    public double getLongitude() {
+    public Double getLongitude() {
         return longitude;
     }
 

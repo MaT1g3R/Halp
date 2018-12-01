@@ -2,16 +2,19 @@ package com.csc301.team22.api;
 
 import java.util.List;
 
-public class Request {
-    private int request_id, start_time, duration;
+public class JobRequest {
+    private int request_id,  duration;
+    private Long start_time;
     private User customer;
     private User assigned_to;
     private double latitude, longitude;
     private boolean finished;
     private String description;
     private List<Response> responses;
+    private String title;
+    private String url;
 
-    private Request(Builder builder) {
+    private JobRequest(Builder builder) {
         this.request_id = builder.request_id;
         this.start_time = builder.start_time;
         this.duration = builder.duration;
@@ -22,15 +25,21 @@ public class Request {
         this.finished = builder.finished;
         this.description = builder.description;
         this.responses = builder.responses;
+        this.title = builder.title;
     }
 
-    public Request() {}
+    public JobRequest() {
+    }
+
+    public String getTitle() {
+        return title;
+    }
 
     public int getRequest_id() {
         return request_id;
     }
 
-    public int getStart_time() {
+    public Long getStart_time() {
         return start_time;
     }
 
@@ -67,57 +76,79 @@ public class Request {
     }
 
     public static class Builder {
-        private Integer request_id = null, start_time = null, duration = null;
+        private Integer request_id = null,  duration = null;
+        private Long start_time = null;
         private User customer = null;
         private User assigned_to = null;
         private Double latitude = null, longitude = null;
-        private boolean finished;
+        private boolean finished = false;
         private String description = null;
+        private String title = null;
         private List<Response> responses = null;
+        private String url = null;
 
-        public void request_id(int request_id) {
+        public Builder request_id(int request_id) {
             this.request_id = request_id;
+            return this;
         }
 
-        public void start_time(int start_time) {
+        public Builder url(String url) {
+            this.url = url;
+            return this;
+        }
+
+        public Builder start_time(Long start_time) {
             this.start_time = start_time;
+            return this;
         }
 
-        public void duration(int duration) {
+        public Builder duration(int duration) {
             this.duration = duration;
+            return this;
         }
 
-        public void customer(User customer) {
+        public Builder customer(User customer) {
             this.customer = customer;
+            return this;
         }
 
-        public void assigned_to(User assigned_to) {
+        public Builder assigned_to(User assigned_to) {
             this.assigned_to = assigned_to;
+            return this;
         }
 
-        public void latitude(double latitude) {
+        public Builder latitude(double latitude) {
             this.latitude = latitude;
+            return this;
         }
 
-        public void longitude(double longitude) {
+        public Builder longitude(double longitude) {
             this.longitude = longitude;
+            return this;
         }
 
-        public void finished(boolean finished) {
+        public Builder finished(boolean finished) {
             this.finished = finished;
+            return this;
         }
 
-        public void description(String description) {
+        public Builder title(String title) {
+            this.title = title;
+            return this;
+        }
+
+        public Builder description(String description) {
             this.description = description;
+            return this;
         }
 
-        public Request build() {
+        public JobRequest build() {
             if (request_id == null || start_time == null || duration == null || customer == null
-                    || latitude == null || longitude == null || description == null) {
-                throw new IllegalArgumentException("Fill all necessary Request fields");
+                    || latitude == null || longitude == null || description == null || title == null) {
+                throw new IllegalArgumentException("Fill all necessary JobRequest fields");
             }
 
-            return new Request(this);
+            return new JobRequest(this);
         }
     }
 }
