@@ -12,11 +12,11 @@ import android.widget.LinearLayout.LayoutParams;
 
 import com.csc301.team22.EButtonState;
 import com.csc301.team22.R;
-//import com.csc301.team22.JobRequest;
 import com.csc301.team22.Util;
 import com.csc301.team22.activities.JobDescriptionActivity;
+import com.csc301.team22.api.HTTPAdapter;
 import com.csc301.team22.api.JobRequest;
-import com.csc301.team22.api.MockHTTPAdapter;
+import com.csc301.team22.api.RequestQuery;
 import com.csc301.team22.views.RequestCardObservable;
 import com.csc301.team22.views.RequestCardView;
 
@@ -25,11 +25,13 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
+//import com.csc301.team22.JobRequest;
+
 public class RequestListFragment extends Fragment implements Observer {
+    HTTPAdapter http = HTTPAdapter.getInstance();
     private LinearLayout linearLayoutRequestList;
     private List<RequestCardObservable> observableList = new ArrayList<>();
     private AppCompatActivity activity;
-    MockHTTPAdapter mock = MockHTTPAdapter.getInstance();
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -42,9 +44,9 @@ public class RequestListFragment extends Fragment implements Observer {
     }
 
     public void addToLinearLayout(Context context, LinearLayout layout) {
-//        for (JobRequest request : RequestManager.getInstance().getRequests()) {
-        for (JobRequest jobRequest : mock.jobRequests) {
-            RequestCardView cardView = toCardView(context, jobRequest.getDescription(), jobRequest.getDescription());
+//        for (Request request : RequestManager.getInstance().getRequests()) {
+        for (JobRequest request : http.getRequests(null)) {
+            RequestCardView cardView = toCardView(context, request.getTitle(), request.getDescription());
             LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
             layout.addView(cardView.getLayout(), lp);
             cardView.getObservable().addObserver(this);
@@ -77,7 +79,7 @@ public class RequestListFragment extends Fragment implements Observer {
         }
     }
 
-    public RequestCardView toCardView(Context context,String name, String description) {
+    public RequestCardView toCardView(Context context, String name, String description) {
         return new RequestCardView(context, name, description);
     }
 }

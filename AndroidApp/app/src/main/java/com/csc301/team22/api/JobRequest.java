@@ -10,6 +10,7 @@ public class JobRequest {
     private boolean finished;
     private String description;
     private List<Response> responses;
+    private String title;
     private String url;
 
     private JobRequest(Builder builder) {
@@ -23,9 +24,15 @@ public class JobRequest {
         this.finished = builder.finished;
         this.description = builder.description;
         this.responses = builder.responses;
+        this.title = builder.title;
     }
 
-    public JobRequest() {}
+    public JobRequest() {
+    }
+
+    public String getTitle() {
+        return title;
+    }
 
     public int getRequest_id() {
         return request_id;
@@ -74,13 +81,15 @@ public class JobRequest {
         private Double latitude = null, longitude = null;
         private boolean finished = false;
         private String description = null;
+        private String title = null;
         private List<Response> responses = null;
-        private  String url = null;
+        private String url = null;
 
         public Builder request_id(int request_id) {
             this.request_id = request_id;
             return this;
         }
+
         public Builder url(String url) {
             this.url = url;
             return this;
@@ -121,6 +130,11 @@ public class JobRequest {
             return this;
         }
 
+        public Builder title(String title) {
+            this.title = title;
+            return this;
+        }
+
         public Builder description(String description) {
             this.description = description;
             return this;
@@ -128,7 +142,7 @@ public class JobRequest {
 
         public JobRequest build() {
             if (request_id == null || start_time == null || duration == null || customer == null
-                    || latitude == null || longitude == null || description == null) {
+                    || latitude == null || longitude == null || description == null || title == null) {
                 throw new IllegalArgumentException("Fill all necessary JobRequest fields");
             }
 

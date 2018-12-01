@@ -136,6 +136,9 @@ public class HTTPAdapter implements IHTTPAdapter {
     }
 
     public List<JobRequest> getRequests(RequestQuery query) {
+        HashMap<String, String> queryMap = new HashMap<>();
+        if (query != null) {
+        }
         return null;
     }
 
