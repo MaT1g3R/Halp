@@ -538,7 +538,7 @@ Yes
 | Name | Type | Required | Description |
 | --- | --- | ------ | -------- |
 | request_id | Int | Yes | The ID of the request to assign the worker to |
-| worker_id | Int | No | The ID of the worker to assign, if not provided, defulats to the authenticated user |
+| worker_id | Int | No | The ID of the worker to assign, if not provided, defaults to the authenticated user |
 
 #### Response
 The [request](#request) object that the worker got assigned to
