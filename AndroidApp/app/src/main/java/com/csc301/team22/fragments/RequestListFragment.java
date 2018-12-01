@@ -16,7 +16,6 @@ import com.csc301.team22.Util;
 import com.csc301.team22.activities.JobDescriptionActivity;
 import com.csc301.team22.api.HTTPAdapter;
 import com.csc301.team22.api.JobRequest;
-import com.csc301.team22.api.RequestQuery;
 import com.csc301.team22.views.RequestCardObservable;
 import com.csc301.team22.views.RequestCardView;
 
@@ -45,16 +44,12 @@ public class RequestListFragment extends Fragment implements Observer {
 
     public void addToLinearLayout(Context context, LinearLayout layout) {
 //        for (Request request : RequestManager.getInstance().getRequests()) {
-        try {
-            for (JobRequest request : http.getRequests(null)) {
-                RequestCardView cardView = toCardView(context, request.getTitle(), request.getDescription());
-                LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-                layout.addView(cardView.getLayout(), lp);
-                cardView.getObservable().addObserver(this);
-                observableList.add(cardView.getObservable());
-            }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        for (JobRequest request : http.getRequests(null)) {
+            RequestCardView cardView = toCardView(context, request.getTitle(), request.getDescription());
+            LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+            layout.addView(cardView.getLayout(), lp);
+            cardView.getObservable().addObserver(this);
+            observableList.add(cardView.getObservable());
         }
     }
 

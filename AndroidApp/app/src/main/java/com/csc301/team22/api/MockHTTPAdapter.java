@@ -65,8 +65,8 @@ public class MockHTTPAdapter implements IHTTPAdapter {
     @Override
     public JobRequest createRequest(CreateRequest createrequest) {
         JobRequest jobRequest = new JobRequest.Builder().request_id(r_id_counter)
-                .start_time(createrequest.getStart_time()).duration(createrequest.getDuration())
-                .customer(createrequest.getCustomer()).latitude(createrequest.getLatitude())
+                .start_time(createrequest.getStart_time()).duration(createrequest.getDuration()).
+                        latitude(createrequest.getLatitude())
                 .longitude(createrequest.getLongitude())
                 .description(createrequest.getDescription())
                 .build();

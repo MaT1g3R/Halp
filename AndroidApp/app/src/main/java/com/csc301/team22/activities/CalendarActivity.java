@@ -2,27 +2,25 @@ package com.csc301.team22.activities;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
-import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 
 import com.csc301.team22.R;
 import com.csc301.team22.Util;
-import com.csc301.team22.api.*;
+import com.csc301.team22.api.CreateRequest;
+import com.csc301.team22.api.HTTPAdapter;
+import com.csc301.team22.api.JobRequest;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -30,7 +28,6 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -39,6 +36,7 @@ import java.util.Date;
 import java.util.List;
 
 public class CalendarActivity extends AppCompatActivity implements OnMapReadyCallback {
+    public static final String SHARED_PREFS = "sharedPrefs";
     HTTPAdapter http = HTTPAdapter.getInstance();
     TextView chooseTime, pickTime;
     TimePickerDialog timePickerDialog;
@@ -49,9 +47,6 @@ public class CalendarActivity extends AppCompatActivity implements OnMapReadyCal
     private Button submit;
     private TextView mDisplayDate;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
-
-    public static final String SHARED_PREFS = "sharedPrefs";
-
     private Spinner spinnerDuration;
 
     // D3 storing values
@@ -96,11 +91,10 @@ public class CalendarActivity extends AppCompatActivity implements OnMapReadyCal
             description = sharedPreferences.getString("desc", "default");
 
             CreateRequest newr = new CreateRequest.Builder().start_time(start_time)
-                    .duration(duration).latitude(sydney.latitude)
+                    .duration(duration * 3600).latitude(sydney.latitude)
                     .longitude(sydney.longitude).description(description).title(title).build();
 
             JobRequest req = http.createRequest(newr);
-
 
 
             Util.openActivity(this, PostJobFindWorkActivity.class);
@@ -144,7 +138,7 @@ public class CalendarActivity extends AppCompatActivity implements OnMapReadyCal
                         CalendarActivity.this,
                         android.R.style.Theme_Holo_Light_Dialog_MinWidth,
                         mDateSetListener,
-                        year,month,day);
+                        year, month, day);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 dialog.show();
             }
@@ -163,8 +157,8 @@ public class CalendarActivity extends AppCompatActivity implements OnMapReadyCal
 
                 try {
                     Date test = sdf.parse(date);
-                    System.out.println(test.getTime()/1000);
-                    saveDate = test.getTime()/1000;
+                    System.out.println(test.getTime() / 1000);
+                    saveDate = test.getTime() / 1000;
                     System.out.println(saveDate);
                 } catch (ParseException e) {
                     e.printStackTrace();
@@ -197,7 +191,7 @@ public class CalendarActivity extends AppCompatActivity implements OnMapReadyCal
 
                     try {
                         Date time = timeFormat.parse(String.format("%d:%02d ", unsetHour, minutes));
-                        start_time = time.getTime()/1000;
+                        start_time = time.getTime() / 1000;
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
