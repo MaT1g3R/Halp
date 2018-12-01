@@ -269,3 +269,17 @@ def find_job(valid_data: Dict, user: User):
     if job:
         return Ok(request_converter.to_dict(job.value))
     return Ok(None)
+
+
+@json_resposne(request_converter.to_dict)
+@require_json_string_validation({
+    'type': 'object',
+    'properties': {
+        'request_id': {'type': 'integer'},
+        'worker_id': {'type': 'integer'}
+    },
+    'additionalProperties': False,
+    'required': ['request_id']
+})
+def assign_worker(valid_data: Dict, user: User):
+    pass
