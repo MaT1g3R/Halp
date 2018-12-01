@@ -14,7 +14,7 @@ public interface IHTTPAdapter {
 
     public void updateBio(String bio);
 
-    public List<JobRequest> getRequests(RequestQuery query);
+    public List<JobRequest> getRequests(RequestQuery query) throws InterruptedException;
 
     public JobRequest createRequest(CreateRequest createrequest);
 

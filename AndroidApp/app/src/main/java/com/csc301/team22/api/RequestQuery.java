@@ -12,6 +12,24 @@ public class RequestQuery {
 
     public HashMap<String, String> toMap() {
         HashMap<String, String> result = new HashMap<>();
+        if (finished != null) {
+            result.put("finished", finished.toString());
+        }
+        if (assigned != null) {
+            result.put("assigned", assigned.toString());
+        }
+        if (starts_after != null) {
+            result.put("starts_after", starts_after.toString());
+        }
+        if (radius != null) {
+            result.put("radius", radius.toString());
+        }
+        if (latitude != null) {
+            result.put("lat", latitude.toString());
+        }
+        if (longitude != null)  {
+            result.put("long", longitude.toString());
+        }
         return result;
     }
 

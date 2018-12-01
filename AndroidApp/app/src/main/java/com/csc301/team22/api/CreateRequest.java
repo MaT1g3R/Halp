@@ -7,6 +7,7 @@ public class CreateRequest {
     private int duration = 0;
     private double latitude = 0, longitude = 0;
     private String description = null;
+    private String title = null;
 
     public CreateRequest(Builder builder) {
         this.start_time = builder.start_time;
@@ -15,6 +16,7 @@ public class CreateRequest {
         this.latitude = builder.latitude;
         this.longitude = builder.longitude;
         this.description = builder.description;
+        this.title = builder.title;
     }
 
     public CreateRequest() {
@@ -53,8 +55,14 @@ public class CreateRequest {
         private User customer = null;
         private Double latitude = null, longitude = null;
         private String description = null;
+        private String title = null;
 
         public Builder() {
+        }
+
+        public Builder title(String title) {
+            this.title = title;
+            return this;
         }
 
         public Builder start_time(int start_time) {
@@ -89,8 +97,8 @@ public class CreateRequest {
 
         public CreateRequest build() {
 
-            if (start_time == null|| customer == null
-            || duration == null || latitude == null ||
+            if (start_time == null || customer == null
+                    || duration == null || latitude == null ||
                     longitude == null || description == null) {
                 throw new IllegalArgumentException("Only start_time in CreateRequest can be null");
             }

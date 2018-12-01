@@ -135,10 +135,9 @@ public class HTTPAdapter implements IHTTPAdapter {
         httpPost("update_bio", "{\"bio\": \"" + bio + "\"}");
     }
 
-    public List<JobRequest> getRequests(RequestQuery query) {
-        HashMap<String, String> queryMap = new HashMap<>();
-        if (query != null) {
-        }
+    public List<JobRequest> getRequests(RequestQuery query) throws InterruptedException {
+        HashMap<String, String> queryMap = query == null ? new HashMap<>() : query.toMap();
+        String result = httpGet("request", queryMap);
         return null;
     }
 
