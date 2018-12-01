@@ -32,7 +32,6 @@ public class HTTPAdapter implements IHTTPAdapter {
         return instance;
     }
 
-
     public User getProfile(int user_id) {
 
         return null;
@@ -135,26 +134,28 @@ public class HTTPAdapter implements IHTTPAdapter {
         httpPost("update_bio", "{\"bio\": \"" + bio + "\"}");
     }
 
-    public List<JobRequest> getRequests(RequestQuery query) throws InterruptedException {
+    public List<JobRequest> getRequests(RequestQuery query) {
         HashMap<String, String> queryMap = query == null ? new HashMap<>() : query.toMap();
-        String result = httpGet("request", queryMap);
-        return null;
+        try {
+            String result = httpGet("request", queryMap);
+            RequestsWrapper requestsWrapper = new Gson().fromJson(result, RequestsWrapper.class);
+            return requestsWrapper.requests;
+        } catch (InterruptedException e) {
+            return new ArrayList<>();
+        }
     }
 
     public JobRequest createRequest(CreateRequest createrequest) {
         return null;
     }
 
-
     public void deleteRequest(int requestId) {
 
     }
 
-
     public User findWorker(int userId) {
         return null;
     }
-
 
     public JobRequest findJob(Integer duration, Integer radius, Double latitude, Double longitude) {
         return null;
@@ -171,5 +172,12 @@ public class HTTPAdapter implements IHTTPAdapter {
             return null;
         }
         return user;
+    }
+
+    static class RequestsWrapper {
+        ArrayList<JobRequest> requests;
+
+        RequestsWrapper() {
+        }
     }
 }
