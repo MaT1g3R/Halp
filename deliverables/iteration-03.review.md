@@ -54,14 +54,9 @@ Review meeting will occur on November 2, in person in Myhal's Atrium.
  
 
 #### Goals and/or tasks that were planned but not met/completed:
-
 There are multiple tasks that weren't completed, but all of them fall under the same class. Our HTTP interface is not completed, and these are the following tasks in that interface that were not implemented fully: 
-     -workers can't accept jobs:
-     we wanted workers to be able to accept jobs, and send this to the backend server. We were unable to implement this because we did  
-     not have enough time.
-
-
-     -pair real-time customers with workers, we currently only survice jobs in the future
+   - workers can't accept jobs: we wanted workers to be able to accept jobs, and send this to the backend server. We were unable to implement this because we did not have enough time.
+   - pair real-time customers with workers, we currently only survice jobs in the future
      We wanted to have workers be able to "look for work now" and get paired using priority queues with customers "looking for workers        now". The logic is completed in the backend, but we did not have time to implement this in the activities and the HTTP interface. 
 
 
