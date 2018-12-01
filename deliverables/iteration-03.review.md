@@ -3,48 +3,25 @@
 
 Review meeting will occur on November 2, in person in Myhal's Atrium.
 
-## Process - Reflection
-
-(Optional) Short introduction
-
 #### Decisions that turned out well
 
-List process-related (i.e. team organization) decisions that, in retrospect, turned out to be successful.
-
-
- * 2 - 4 decisions.
- * Ordered from most to least important.
- * Explain why (i.e. give a supporting argument) you consider a decision to be successful.
- * Feel free to refer/link to process artifact(s).
+ Branching went well. We managed our branches efficiently, having four major branches; Master, Backend, HTTPStuff and Mock. Better   organization led to better merging and more organized work. We ran into almost no merge conflicts, and this was bolstered by our decision to do most of the front end via pair programming.
  
- Branching went well. 
+ For the largest portions of the application, other than the backend service, we used pair programming sessions. The active members of the group would meet in MyHal and all work on the code together for many hours at a time. This was very effective because each member had different insights, and with each of us having a laptop would could all take turns looking at each others code and problems. We were able to learn a lot from each other and tackle every major problem as a unit. 
  
- Pair Programming.
- 
- Communication between active members improved.
+ Active members weere in constant communication. By tackling any problem an individual member faced together, we were able to all learn from each other and solve issues very quickly. This is similar to the benefits of pair programming, but we also did this when we were not all together, over discord. The active members of the group met up in person or on discord mutliple times throughout the sprint. 
  
 
 #### Decisions that did not turn out as well as we hoped
-
-List process-related (i.e. team organization) decisions that, in retrospect, were not as successful as you thought they would be.
-
- * 2 - 4 decisions.
- * Ordered from most to least important.
- * Feel free to refer/link to process artifact(s).
  
  Communication with non-active memebrs was fairly poor. The more active members of the group could have done more to motivate or contact the non-active members. We are usure if putting more effort into motivating the less active members would have resulted in larger output from them. However, by not pushing those members to do more, a lot of untapped resources were lost and overall the amount of output the team could have produced was significantly reduced. 
  
- Work organization, division of work and order of task completion.
+ Work organization, division of work and order of task completion. We didn't properly set expectations and we didn't complete tasks in order of priority, resulting in us having non-important tasks completed while some of our core/important features could not be implemented due to the time constraints.
  
  Because we were unable to estimate how much work we could get done, we decided to additionally work on a less complicated version of the app at the same time. This ended up splitting our resources, and the version we thought was less complicated(using mock data) ended up taking more of our time than we initially thought. This resulted in neither implementation being fully complete, with large portions of each being functional. If we had instead dedicated all of our time to one implementation, we may have been able to complete more work and would have wasted less time and effort. 
 
 
 #### Planned changes
-
-List any process-related changes you are planning to make (if there are any)
-
- * Ordered from most to least important.
- * Explain why you are making a change.
  
  The most important thing would be to to make sure communication with all members is strong. The active members are communicating effectively, but more could be done to include everyone in the conversation. Motivating all members is something that needs to be focused on in the future. 
  
@@ -56,10 +33,6 @@ List any process-related changes you are planning to make (if there are any)
 ## Product - Review
 
 #### Goals and/or tasks that were met/completed:
-
- * From most to least important.
- * Refer/link to artifact(s) that show that a goal/task was met/completed.
- * If a goal/task was not part of the original iteration plan, please mention it.ed.
  
  The back end service is completed, well tested and deployable on AWS:
       Handling Requests
@@ -90,26 +63,16 @@ There are multiple tasks that weren't completed, but all of them fall under the 
 
      -pair real-time customers with workers, we currently only survice jobs in the future
      We wanted to have workers be able to "look for work now" and get paired using priority queues with customers "looking for workers        now". The logic is completed in the backend, but we did not have time to implement this in the activities and the HTTP interface. 
-     
-     
-     
 
- * From most to least important.
- * For each goal/task, explain why it was not met/completed.      
-   e.g. Did you change your mind, or did you just not get to it yet?
 
 ## Meeting Highlights
 
 Going into the next iteration, our main insights are:
 
- Pair programming worked really well. We got the most work done during long sessions on campus with all active members present. 
+ Pair programming worked really well. We got the most work done during long sessions on campus with all active members present. Having high comminication and asking each other questions helps improve everyone's understanding and solve problems quickly. 
  
- We need to communicate more with non-active members and make sure to motivate everyone. 
+ We need to communicate more with non-active members and make sure to motivate everyone. We want everyone to be motivated and believe that by enabling members to output their best work everyone is benefitted. 
  
- We need to plan around unexpected changes in plans and lost time by having better contingencies and working on items much earlier in the sprint. 
+ We need to plan around unexpected changes and lost time by having better contingency planning and working on items much earlier in the sprint. Overall, being more proactive is something we want everyone to work on. It can be difficult during the last few weeks of school, when everyone has many projects to work on, but dedicating time into organizing the team early on would have gone a long way during this iteration cycle.  
 
- * 2 - 4 items
- * Short (no more than one short paragraph per item)
- * High-level concepts that should guide your work for the next iteration.
- * These concepts should help you decide on where to focus your efforts.
- * Can be related to product and/or process.
+
