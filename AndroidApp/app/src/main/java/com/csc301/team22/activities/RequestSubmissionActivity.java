@@ -1,5 +1,7 @@
 package com.csc301.team22.activities;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
@@ -28,10 +30,6 @@ public class RequestSubmissionActivity extends AppCompatActivity {
         editTextTitle = findViewById(R.id.editTextTitle);
         editTextDescription = findViewById(R.id.editTextDescription);
 
-        // D3
-        description = editTextDescription.getText().toString();
-        title = editTextTitle.getText().toString();
-
 //        CreateUser newUser = new CreateUser.Builder().first_name("jeb")
 //                .last_name("jeb").email("jeb").password("jeb").build();
 //
@@ -45,16 +43,28 @@ public class RequestSubmissionActivity extends AppCompatActivity {
 
         //TODO: Make help now go to found worker page
         buttonHelpNow.setOnClickListener(v ->{
-            Bundle bundle = new Bundle();
-            bundle.putString("title", getRequestTitle());
-            bundle.putString("description", getRequestDescription());
-            Util.openActivity(this, LookingForWorkerActivity.class, bundle);
+            // D3
+            title = editTextTitle.getText().toString();
+            description = editTextDescription.getText().toString();
+            SharedPreferences sharedPreferences = getSharedPreferences("calendar", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("title", title);
+            editor.putString("desc", description);
+            editor.apply();
+            Util.openActivity(this, LookingForWorkerActivity.class);
         });
         buttonHelpLater.setOnClickListener(v -> {
-            Bundle bundle = new Bundle();
-            bundle.putString("title", getRequestTitle());
-            bundle.putString("description", getRequestDescription());
-            Util.openActivity(this, CalendarActivity.class, bundle);
+
+            // D3
+            title = editTextTitle.getText().toString();
+            description = editTextDescription.getText().toString();
+            SharedPreferences sharedPreferences = getSharedPreferences("calendar", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putString("title", title);
+            editor.putString("desc", description);
+            editor.apply();
+            Util.openActivity(this, CalendarActivity.class);
+
         });
     }
 

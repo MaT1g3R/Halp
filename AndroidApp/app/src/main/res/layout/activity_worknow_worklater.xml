@@ -61,18 +61,23 @@
         app:layout_constraintTop_toBottomOf="@+id/buttonWorkLater"
         app:layout_constraintVertical_bias="0.189" />
 
-    <EditText
-        android:id="@+id/address"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Radius"
-        android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <Spinner
+        android:id="@+id/spinnerDud2"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonWorkLater"
-        app:layout_constraintVertical_bias="0.483" />
+        tools:layout_editor_absoluteY="420dp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="114dp"
+        android:layout_height="27dp"
+        android:text="Pick a radius (km)"
+        app:layout_constraintBottom_toTopOf="@+id/spinnerDud2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

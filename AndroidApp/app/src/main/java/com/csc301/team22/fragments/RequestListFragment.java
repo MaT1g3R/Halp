@@ -45,7 +45,7 @@ public class RequestListFragment extends Fragment implements Observer {
     public void addToLinearLayout(Context context, LinearLayout layout) {
 //        for (Request request : RequestManager.getInstance().getRequests()) {
         for (Request request: mock.requests) {
-            RequestCardView cardView = toCardView(context, request.getDescription(), request.getDescription());
+            RequestCardView cardView = toCardView(context, request.getTitle(), request.getDescription());
             LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
             layout.addView(cardView.getLayout(), lp);
             cardView.getObservable().addObserver(this);

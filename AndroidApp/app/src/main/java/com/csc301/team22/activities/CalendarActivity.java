@@ -3,6 +3,7 @@ package com.csc301.team22.activities;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -22,6 +23,12 @@ import android.widget.TimePicker;
 import com.csc301.team22.R;
 import com.csc301.team22.Util;
 import com.csc301.team22.api.*;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -31,7 +38,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-public class CalendarActivity extends AppCompatActivity {
+public class CalendarActivity extends AppCompatActivity implements OnMapReadyCallback {
     MockHTTPAdapter mock = MockHTTPAdapter.getInstance();
     TextView chooseTime, pickTime;
     TimePickerDialog timePickerDialog;
@@ -43,12 +50,18 @@ public class CalendarActivity extends AppCompatActivity {
     private TextView mDisplayDate;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
 
+    public static final String SHARED_PREFS = "sharedPrefs";
+
     private Spinner spinnerDuration;
 
     // D3 storing values
     private long saveDate, start_time;
     private int duration;
 
+    private String title, description;
+
+    private GoogleMap mMap;
+    private LatLng sydney;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,35 +70,44 @@ public class CalendarActivity extends AppCompatActivity {
 
 //        Bundle extras = getIntent().getExtras();
 //        assert extras != null;
-//        String title = extras.getString("title");
-//        String description = extras.getString("description");
+//        title = extras.getString("title");
+//        description = extras.getString("description");
 //        assert title != null;
 //        assert description != null;
 
         submit = findViewById(R.id.submitButton);
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map2);
+        mapFragment.getMapAsync(this);
         submit.setOnClickListener(v -> {
 
             // Add the date and time together to make them a single varirable
             start_time += saveDate;
 
+
             // Use this block on every page to get user_id and User
-            SharedPreferences id = getSharedPreferences(ProfileActivity.SHARED_PREFS,
-                    Context.MODE_PRIVATE);
+            SharedPreferences id = getSharedPreferences(SHARED_PREFS,
+                    MODE_PRIVATE);
 
-            int user_id = id.getInt(ProfileActivity.SHARED_PREFS, -1);
+            int user_id = id.getInt("ID", -1);
 
-            User customer = mock.getProfile(user_id);
+            User user = mock.getProfile(user_id);
             // End of block
 
+            SharedPreferences sharedPreferences = getSharedPreferences("calendar", MODE_PRIVATE);
+
+            title = sharedPreferences.getString("title", "default");
+            description = sharedPreferences.getString("desc", "default");
+
+            CreateRequest newr = new CreateRequest.Builder().start_time(start_time)
+                .duration(duration).customer(user).latitude(sydney.latitude)
+                    .longitude(sydney.longitude).description(description).title(title).build();
+
+            Request req = mock.createRequest(newr);
 
 
 
-
-//            Request newr = new Request.Builder().request_id().start_time(17)
-//                .duration(2).customer(customer).latitude(30).longitude(50)
-//                .description("jebjebjeb jeb").build();
-
-            Util.openActivity(this, JobDescriptionActivity.class);
+            Util.openActivity(this, PostJobFindWorkActivity.class);
         });
 
         spinnerDuration = findViewById(R.id.spinnerDud);
@@ -107,7 +129,7 @@ public class CalendarActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
+                duration = 1;
             }
         });
 
@@ -188,28 +210,15 @@ public class CalendarActivity extends AppCompatActivity {
 
             timePickerDialog.show();
         });
+    }
 
-//        // "To" time
-//        pickTime = findViewById(R.id.calendarTo);
-//        pickTime.setOnClickListener(view -> {
-//            calendar = Calendar.getInstance();
-//            currentHour = calendar.get(Calendar.HOUR_OF_DAY);
-//            currentMinute = calendar.get(Calendar.MINUTE);
-//
-//            timePickerDialog = new TimePickerDialog(CalendarActivity.this, new TimePickerDialog.OnTimeSetListener() {
-//                @Override
-//                public void onTimeSet(TimePicker timePicker, int hourOfDay, int minutes) {
-//                    if (hourOfDay >= 12) {
-//                        amPm = "PM";
-//                        hourOfDay -= 12;
-//                    } else {
-//                        amPm = "AM";
-//                    }
-//                    pickTime.setText(String.format("%d:%d ", hourOfDay, minutes) + amPm);
-//                }
-//            }, currentHour, currentMinute, false);
-//
-//            timePickerDialog.show();
-//        });
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+
+        // Add a marker in Sydney and move the camera
+        sydney = new LatLng(43.6, -79.4);
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Spadina"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 }

@@ -9,7 +9,7 @@ public class Request {
     private User assigned_to;
     private double latitude, longitude;
     private boolean finished;
-    private String description;
+    private String description, title;
     private List<Response> responses;
 
     private Request(Builder builder) {
@@ -23,6 +23,7 @@ public class Request {
         this.finished = builder.finished;
         this.description = builder.description;
         this.responses = builder.responses;
+        this.title = builder.title;
     }
 
     public Request() {}
@@ -63,6 +64,10 @@ public class Request {
         return description;
     }
 
+    public String getTitle() {
+        return title;
+    }
+
     public List<Response> getResponses() {
         return responses;
     }
@@ -74,11 +79,16 @@ public class Request {
         private User assigned_to = null;
         private Double latitude = null, longitude = null;
         private boolean finished = false;
-        private String description = null;
+        private String description = null, title = null;
         private List<Response> responses = null;
 
         public Builder request_id(int request_id) {
             this.request_id = request_id;
+            return this;
+        }
+
+        public Builder title(String title) {
+            this.title = title;
             return this;
         }
 

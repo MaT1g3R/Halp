@@ -71,7 +71,7 @@ public class MockHTTPAdapter implements IHTTPAdapter {
                 .start_time(createrequest.getStart_time()).duration(createrequest.getDuration())
                 .customer(createrequest.getCustomer()).latitude(createrequest.getLatitude())
                 .longitude(createrequest.getLongitude())
-                .description(createrequest.getDescription())
+                .description(createrequest.getDescription()).title(createrequest.getTitle())
                 .build();
 
         r_id_counter++;
