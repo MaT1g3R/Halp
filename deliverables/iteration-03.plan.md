@@ -28,7 +28,7 @@
 
 - Pablo: Front End Programmer, Mockup Programmer, Planning Meeting Writer and Review Meeting Writer
 
-Each indicidual is responsible for coding a working version of one or more of the tasks that were created during this planning meeting. In addition, Pablo and Mat are responsible for writing up the planning meeting document along with deciding the database, architecture and their diagrams, with Brandon coming in to help so the three make decisions on the tasks to be implemented.
+Each individual is responsible for coding a working version of one or more of the tasks that were created during this planning meeting. In addition, Pablo and Mat are responsible for writing up the planning meeting document along with deciding the database, architecture and their diagrams, with Brandon coming in to help so the three make decisions on the tasks to be implemented.
 
 #### Events
 
@@ -80,8 +80,6 @@ List/describe the artifacts you will produce in order to organize your team.
 List/describe the artifacts you will produce in order to present your project idea.
 
  * Video
- * Live Demo
  * Code
  * Architecture diagram: https://github.com/csc301-fall-2018/project-team-22/blob/master/deliverables/Artifacts/architecture.pdf
  * Database Tables: https://github.com/csc301-fall-2018/project-team-22/blob/master/deliverables/Artifacts/Tables.md
-
