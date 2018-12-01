@@ -37,8 +37,8 @@ Review meeting will occur on November 30, in person in Myhal's Atrium.
 The back end service is completed, well tested and deployable on AWS:
    - Handling Requests
    - Database and Serialization
-   - API documentation: https://github.com/csc301-fall-2018/project-team-22/blob/master/deliverables/Artifacts/API.md
-   - Test coverage: https://github.com/csc301-fall-2018/project-team-22/blob/master/deliverables/Artifacts/coverage.png
+   - [API documentation](Artifacts/API.md)
+   - [Test coverage](Artifacts/coverage.png)
 
  
  Google Maps API is completed.
@@ -72,5 +72,3 @@ Going into the next iteration, our main insights are:
  We need to communicate more with non-active members and make sure to motivate everyone. We want everyone to be motivated and believe that by enabling members to output their best work everyone is benefitted. 
  
  We need to plan around unexpected changes and lost time by having better contingency planning and working on items much earlier in the sprint. Overall, being more proactive is something we want everyone to work on. It can be difficult during the last few weeks of school, when everyone has many projects to work on, but dedicating time into organizing the team early on would have gone a long way during this iteration cycle.  
-
-
