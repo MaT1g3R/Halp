@@ -169,13 +169,14 @@ def get_reqeusts(valid_data: Dict, user: User) -> Result[List[Dict], HttpError]:
     'type': 'object',
     'properties': {
         'start_time': {'type': 'integer'},
+        'title': {'type': 'string'},
         'duration': {'type': 'integer', 'minimum': 0},
         'latitude': {'type': 'number', 'minimum': -90, 'maximum': 90},
         'longitude': {'type': 'number', 'minimum': -180, 'maximum': 180},
         'description': {'type': 'string'}
     },
     'additionalProperties': False,
-    'required': ['duration', 'latitude', 'longitude', 'description']
+    'required': ['duration', 'latitude', 'longitude', 'description', 'title']
 })
 def create_request(valid_data: Dict, user: User):
     try:

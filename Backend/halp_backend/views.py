@@ -1,4 +1,5 @@
 from django.http import HttpRequest, JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 from halp_backend import controller, user_converter
 from halp_backend.auth import require_auth
@@ -6,8 +7,6 @@ from halp_backend.models import User
 from halp_backend.util import (
     allow_methods, convert_dict_types, validate_bool, validate_float, validate_int,
 )
-
-from django.views.decorators.csrf import csrf_exempt
 
 
 @csrf_exempt

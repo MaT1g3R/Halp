@@ -16,6 +16,7 @@ def to_dict(request: Request) -> Dict:
         'longitude': float(request.longitude),
         'finished': request.finished,
         'description': request.description,
+        'title': request.title,
         'assigned_to': None if assigned_to is None else user_converter.to_dict(assigned_to),
         'responses': [
             response_converter.to_dict(response) for response in request.response_set.all()
