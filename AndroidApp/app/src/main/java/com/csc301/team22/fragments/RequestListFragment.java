@@ -45,12 +45,16 @@ public class RequestListFragment extends Fragment implements Observer {
 
     public void addToLinearLayout(Context context, LinearLayout layout) {
 //        for (Request request : RequestManager.getInstance().getRequests()) {
-        for (JobRequest request : http.getRequests(null)) {
-            RequestCardView cardView = toCardView(context, request.getTitle(), request.getDescription());
-            LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-            layout.addView(cardView.getLayout(), lp);
-            cardView.getObservable().addObserver(this);
-            observableList.add(cardView.getObservable());
+        try {
+            for (JobRequest request : http.getRequests(null)) {
+                RequestCardView cardView = toCardView(context, request.getTitle(), request.getDescription());
+                LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+                layout.addView(cardView.getLayout(), lp);
+                cardView.getObservable().addObserver(this);
+                observableList.add(cardView.getObservable());
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 

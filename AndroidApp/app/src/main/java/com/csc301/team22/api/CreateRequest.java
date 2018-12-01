@@ -2,7 +2,7 @@ package com.csc301.team22.api;
 
 
 public class CreateRequest {
-    private Integer start_time = null;
+    private Long start_time = null;
     private User customer;
     private int duration = 0;
     private double latitude = 0, longitude = 0;
@@ -22,7 +22,7 @@ public class CreateRequest {
     public CreateRequest() {
     }
 
-    public Integer getStart_time() {
+    public Long getStart_time() {
         return start_time;
     }
 
@@ -51,7 +51,8 @@ public class CreateRequest {
     }
 
     public static class Builder {
-        private Integer start_time = null, duration = null;
+        private Long start_time = null;
+        private Integer duration = null;
         private User customer = null;
         private Double latitude = null, longitude = null;
         private String description = null;
@@ -65,7 +66,7 @@ public class CreateRequest {
             return this;
         }
 
-        public Builder start_time(int start_time) {
+        public Builder start_time(Long start_time) {
             this.start_time = start_time;
             return this;
         }
