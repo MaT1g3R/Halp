@@ -3,6 +3,7 @@ import json
 import pytest
 
 from halp_backend import request_converter
+from halp_backend.models import Request
 from halp_backend.tests.conftest import encode_auth, fake_request, generate_users
 
 pytestmark = pytest.mark.django_db
@@ -16,10 +17,12 @@ def test_assign_success_self(create_full_user, client, has_start_time):
     resp = client.post(
         '/api/v1/assign_worker',
         data={'request_id': request.id},
+        content_type='application/json',
         HTTP_AUTHORIZATION=encode_auth(user.email, password)
     )
 
     assert resp.status_code == 200
+    request = Request.objects.get(id=request.id)
     assert request.assigned_to == user
     assert json.loads(resp.content) == request_converter.to_dict(request)
 
@@ -36,10 +39,12 @@ def test_assign_success_other(client, has_start_time):
     resp = client.post(
         '/api/v1/assign_worker',
         data={'request_id': request.id, 'worker_id': worker.id},
+        content_type='application/json',
         HTTP_AUTHORIZATION=encode_auth(user.email, password)
     )
 
     assert resp.status_code == 200
+    request = Request.objects.get(id=request.id)
     assert request.assigned_to == worker
     assert json.loads(resp.content) == request_converter.to_dict(request)
 
@@ -60,6 +65,7 @@ def test_fail_already_assigned(client, has_start_time):
     resp = client.post(
         '/api/v1/assign_worker',
         data={'request_id': request.id, 'worker_id': worker.id},
+        content_type='application/json',
         HTTP_AUTHORIZATION=encode_auth(user.email, password)
     )
 
@@ -80,6 +86,7 @@ def test_fail_cannot_assign_self(create_full_user, client, has_start_time, has_i
     resp = client.post(
         '/api/v1/assign_worker',
         data=data,
+        content_type='application/json',
         HTTP_AUTHORIZATION=encode_auth(user.email, password)
     )
 
@@ -101,6 +108,7 @@ def test_fail_cannot_assign_others_job(client, has_start_time):
     resp = client.post(
         '/api/v1/assign_worker',
         data={'request_id': request.id, 'worker_id': worker.id},
+        content_type='application/json',
         HTTP_AUTHORIZATION=encode_auth(user.email, password)
     )
 
@@ -115,6 +123,7 @@ def test_fail_job_not_found(create_full_user, has_start_time, client):
     resp = client.post(
         '/api/v1/assign_worker',
         data={'request_id': request.id + 1},
+        content_type='application/json',
         HTTP_AUTHORIZATION=encode_auth(user.email, password)
     )
 
@@ -128,7 +137,8 @@ def test_fail_worker_not_found(create_full_user, has_start_time, client):
     request = fake_request(has_start_time)
     resp = client.post(
         '/api/v1/assign_worker',
-        data={'request_id': request.id, 'worker_id': user.id + 1},
+        data={'request_id': request.id, 'worker_id': user.id + request.customer.id + 1},
+        content_type='application/json',
         HTTP_AUTHORIZATION=encode_auth(user.email, password)
     )
 
@@ -145,6 +155,7 @@ def test_fail_finished(create_full_user, client, has_start_time):
     resp = client.post(
         '/api/v1/assign_worker',
         data={'request_id': request.id},
+        content_type='application/json',
         HTTP_AUTHORIZATION=encode_auth(user.email, password)
     )
 

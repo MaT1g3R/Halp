@@ -90,4 +90,4 @@ def find_job(user: User, request: HttpRequest):
 @allow_methods(methods=['POST'])
 @require_auth
 def assign_worker(user: User, request: HttpRequest):
-    pass
+    return controller.assign_worker(request.body, user)
