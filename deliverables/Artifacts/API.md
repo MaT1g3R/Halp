@@ -62,6 +62,7 @@ curl -i -H "Authorization: Basic aGFscEBoYWxwLm9yZzpoYWxwIG1l" -H "Accept: appli
 | Name | Type | Description |
 | ---  | ---  | ----------- |
 | request_id | Int | The id of the request |
+| title | String | The title of the request |
 | customer | [User](#user) | The customer that made this request |
 | start_time | Optional\[Int\] | The start date and time for this request, in Unix epoch. If the start time is null, the request can start at any time. |
 | duration | Int | The duration of this request, in seconds |
@@ -241,6 +242,7 @@ Response:
     "requests": [
         {
             "request_id": 1,
+            "title": "title 1",
             "customer": {
                 "user_id": 1,
                 "firt_name": "Dennis",
@@ -284,6 +286,7 @@ Response:
         },
         {
             "request_id": 2,
+            "title": "title 2",
             "customer": {
                 "user_id": 27,
                 "firt_name": "Boss",
@@ -335,6 +338,7 @@ Response:
     "requests": [
         {
             "request_id": 2,
+            "title": "title 2",
             "customer": {
                 "user_id": 27,
                 "firt_name": "Boss",
@@ -410,6 +414,7 @@ Request Body:
 ```json
 {
     "start_time": 1543278946,
+    "title": "title 5",
     "duration": 3600,
     "latitude": 52.48,
     "longitude": -66.71,
@@ -421,6 +426,7 @@ Response:
 ```json
 {
     "request_id": 5,
+    "title": "title 5",
     "customer": {
         "user_id": 22,
         "first_name": "Tired",
@@ -495,6 +501,7 @@ Response:
 ```json
 {
     "request_id": 5,
+    "title": "title 5",
     "customer_id": 22,
     "start_time": 1543278946,
     "duration": 3600,
@@ -616,6 +623,7 @@ Response:
 {
     "request": {
         "request_id": 9,
+        "title": "title 9",
         "customer": {
             "user_id": 66,
             "first_name": "Tom",
