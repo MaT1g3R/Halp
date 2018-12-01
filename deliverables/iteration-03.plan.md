@@ -81,5 +81,5 @@ List/describe the artifacts you will produce in order to present your project id
 
  * Video
  * Code
- * Architecture diagram: https://github.com/csc301-fall-2018/project-team-22/blob/master/deliverables/Artifacts/architecture.pdf
- * Database Tables: https://github.com/csc301-fall-2018/project-team-22/blob/master/deliverables/Artifacts/Tables.md
+ * [Architecture diagram](Artifacts/architecture.pdf)
+ * [Database Tables](Artifacts/Tables.md)
