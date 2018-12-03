@@ -9,8 +9,9 @@ import android.widget.TextView;
 
 import com.csc301.team22.R;
 import com.csc301.team22.Util;
-import com.csc301.team22.api.HTTPAdapter;
 import com.csc301.team22.api.User;
+import com.csc301.team22.api.http.HTTPAdapter;
+import com.csc301.team22.api.http.HttpException;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -36,13 +37,13 @@ public class ProfileActivity extends AppCompatActivity {
         buttonHome.setOnClickListener(v -> goHome());
 
         try {
-            User user = http.authenticate(http.email, http.password);
+            User user = http.getUser();
             first = user.getFirst_name();
             last = user.getLast_name();
             bio = user.getBio();
             updateViews();
-        } catch (Exception e) {
-
+        } catch (HttpException e) {
+            Util.showError(this, "Failed to get user profile", e.getMessage());
         }
     }
 
@@ -56,8 +57,14 @@ public class ProfileActivity extends AppCompatActivity {
     public void goHome() {
         String newBio = bi_o.getText().toString();
         if (!newBio.equals(bio)) {
-            http.updateBio(newBio);
+            try {
+                http.updateBio(newBio);
+                Util.openActivity(this, PostJobFindWorkActivity.class);
+            } catch (HttpException e) {
+                Util.showError(this, "Cannot set user bio", e.getMessage());
+            }
+        } else {
+            Util.openActivity(this, PostJobFindWorkActivity.class);
         }
-        Util.openActivity(this, PostJobFindWorkActivity.class);
     }
 }

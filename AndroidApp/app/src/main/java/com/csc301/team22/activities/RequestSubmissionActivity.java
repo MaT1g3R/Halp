@@ -8,11 +8,11 @@ import android.widget.EditText;
 
 import com.csc301.team22.R;
 import com.csc301.team22.Util;
-import com.csc301.team22.api.MockHTTPAdapter;
+import com.csc301.team22.api.http.HTTPAdapter;
 
 public class RequestSubmissionActivity extends AppCompatActivity {
 
-    MockHTTPAdapter mock = MockHTTPAdapter.getInstance();
+    HTTPAdapter http = HTTPAdapter.getInstance();
     private Button buttonHelpNow;
     private Button buttonHelpLater;
     private EditText editTextTitle;

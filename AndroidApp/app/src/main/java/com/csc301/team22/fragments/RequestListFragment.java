@@ -14,17 +14,18 @@ import com.csc301.team22.EButtonState;
 import com.csc301.team22.R;
 import com.csc301.team22.Util;
 import com.csc301.team22.activities.JobDescriptionActivity;
-import com.csc301.team22.api.HTTPAdapter;
 import com.csc301.team22.api.JobRequest;
+import com.csc301.team22.api.http.HTTPAdapter;
+import com.csc301.team22.api.http.HttpException;
 import com.csc301.team22.views.RequestCardObservable;
 import com.csc301.team22.views.RequestCardView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
-//import com.csc301.team22.JobRequest;
 
 public class RequestListFragment extends Fragment implements Observer {
     HTTPAdapter http = HTTPAdapter.getInstance();
@@ -43,13 +44,17 @@ public class RequestListFragment extends Fragment implements Observer {
     }
 
     public void addToLinearLayout(Context context, LinearLayout layout) {
-//        for (Request request : RequestManager.getInstance().getRequests()) {
-        for (JobRequest request : http.getRequests(null)) {
-            RequestCardView cardView = toCardView(context, request.getTitle(), request.getDescription());
-            LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-            layout.addView(cardView.getLayout(), lp);
-            cardView.getObservable().addObserver(this);
-            observableList.add(cardView.getObservable());
+        try {
+            List<JobRequest> requests = http.getRequests(new HashMap<>());
+            requests.forEach(request -> {
+                RequestCardView cardView = toCardView(context, request.getTitle(), request.getDescription());
+                LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+                layout.addView(cardView.getLayout(), lp);
+                cardView.getObservable().addObserver(this);
+                observableList.add(cardView.getObservable());
+            });
+        } catch (HttpException e) {
+            Util.showError(context, "Failed to get requests", e.getMessage());
         }
     }
 

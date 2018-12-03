@@ -1,65 +1,46 @@
 package com.csc301.team22.api;
 
+import com.google.gson.Gson;
+
 public class CreateUser {
-    private String first_name = "", last_name = "", email = "", password = "";
+    private String first_name = null;
+    private String last_name = null;
+    private String email = null;
+    private String password = null;
 
-    private CreateUser(Builder builder) {
-        this.first_name = builder.first_name;
-        this.last_name = builder.last_name;
-        this.email = builder.email;
-        this.password = builder.password;
-    }
-
-    public String getFirst_name() {
-        return first_name;
-    }
-
-    public String getLast_name() {
-        return last_name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPassword() {
-        return password;
+    public String toJson() {
+        return new Gson().toJson(this);
     }
 
     public static class Builder {
-        private String first_name = null, last_name = null, email = null, password = null;
+        private CreateUser createUser = new CreateUser();
 
-        public Builder first_name(String first_name) {
-            this.first_name = first_name;
+        public Builder firstName(String first_name) {
+            createUser.first_name = first_name;
             return this;
         }
 
-        public Builder last_name(String last_name) {
-            this.last_name = last_name;
+        public Builder lastName(String last_name) {
+            createUser.last_name = last_name;
             return this;
         }
 
         public Builder email(String email) {
-            this.email = email;
+            createUser.email = email;
             return this;
         }
 
         public Builder password(String password) {
-            this.password = password;
+            createUser.password = password;
             return this;
         }
 
         public CreateUser build() {
-
-            if (first_name == null || last_name == null
-                    || email == null || password == null) {
-
+            if (createUser.first_name == null || createUser.last_name == null
+                    || createUser.email == null || createUser.password == null) {
                 throw new IllegalArgumentException("All CreateUser attributes must not be null");
             }
-
-            return new CreateUser(this);
+            return createUser;
         }
-
     }
-
 }

@@ -8,9 +8,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.csc301.team22.R;
+import com.csc301.team22.Util;
 import com.csc301.team22.api.CreateUser;
-import com.csc301.team22.api.HTTPAdapter;
 import com.csc301.team22.api.User;
+import com.csc301.team22.api.http.HTTPAdapter;
+import com.csc301.team22.api.http.HttpException;
 
 
 public class CreateAccountActivity extends AppCompatActivity {
@@ -54,17 +56,17 @@ public class CreateAccountActivity extends AppCompatActivity {
             wrong.setText(emptyError);
         } else {
 
-            CreateUser newUser = new CreateUser.Builder().first_name(first_name)
-                    .last_name(last_name).email(email).password(pass).build();
-
-            User nUser = http.createUser(newUser);
-
-            Intent intent = new Intent(this, LoginActivity.class);
-
-            // Passing user_id to next activity
-            intent.putExtra("CREATEID", nUser.getUser_id());
-
-            startActivity(intent);
+            CreateUser newUser = new CreateUser.Builder().firstName(first_name)
+                    .lastName(last_name).email(email).password(pass).build();
+            try {
+                User nUser = http.createUser(newUser);
+                Intent intent = new Intent(this, LoginActivity.class);
+                // Passing user_id to next activity
+                intent.putExtra("CREATEID", nUser.getUser_id());
+                startActivity(intent);
+            } catch (HttpException e) {
+                Util.showError(this, "Failed to Create New User", e.getMessage());
+            }
         }
     }
 }

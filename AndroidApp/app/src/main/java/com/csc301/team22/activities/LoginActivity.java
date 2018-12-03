@@ -13,8 +13,8 @@ import android.widget.TextView;
 
 import com.csc301.team22.R;
 import com.csc301.team22.Util;
-import com.csc301.team22.api.HTTPAdapter;
-import com.csc301.team22.api.User;
+import com.csc301.team22.api.http.HTTPAdapter;
+import com.csc301.team22.api.http.HttpException;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -57,13 +57,10 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         try {
-            User user = http.authenticate(email, password);
-            if (user == null) {
-                throw new IllegalAccessException();
-            }
-            Intent intent = new Intent(this, WorkNowWorkLaterActivity.class);
+            http.authenticate(email, password);
+            Intent intent = new Intent(this, ProfileActivity.class);
             startActivity(intent);
-        } catch (Exception e) {
+        } catch (HttpException e) {
             errorBox.setText("Invalid login info");
         }
     }
