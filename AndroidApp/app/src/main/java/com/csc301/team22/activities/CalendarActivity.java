@@ -209,8 +209,9 @@ public class CalendarActivity extends AppCompatActivity implements OnMapReadyCal
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        sydney = new LatLng(43.6, -79.4);
+        sydney = new LatLng(44.6, -79.4);
         mMap.addMarker(new MarkerOptions().position(sydney).title("Spadina"));
+        mMap.moveCamera(CameraUpdateFactory.zoomTo(16));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 }
