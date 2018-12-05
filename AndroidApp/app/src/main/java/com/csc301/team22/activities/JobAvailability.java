@@ -5,7 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.TimePicker;
 
 import com.csc301.team22.R;
@@ -18,11 +20,14 @@ public class JobAvailability extends AppCompatActivity {
     EditText chooseTime, pickTime;
     TimePickerDialog timePickerDialog;
     Calendar calendar;
+    CalendarView calendarInput;
     int currentHour;
     int currentMinute;
     String amPm;
     Button submit;
     Button use_profile;
+    long pickedTimeFrom= 0 ;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,11 +35,26 @@ public class JobAvailability extends AppCompatActivity {
         setContentView(R.layout.activity_job_availability);
         submit = findViewById(R.id.button);
         use_profile = findViewById(R.id.button2);
+        calendarInput = findViewById(R.id.calendarView);
 
-        submit.setOnClickListener(v -> Util.openActivity(this,
-                JobListingActivity.class));
-        use_profile.setOnClickListener(v -> Util.openActivity(this,
-                JobListingActivity.class));
+        submit.setOnClickListener(v -> {
+            Bundle bundle = new Bundle();
+            Long date = calendarInput.getDate() / 1000;
+            date += pickedTimeFrom;
+            bundle.putLong("from_datetime", date);
+            Util.openActivity(this,
+                    JobListingActivity.class, bundle);
+        });
+
+
+        use_profile.setOnClickListener(v -> {
+            Bundle bundle = new Bundle();
+            Long date = calendarInput.getDate() / 1000;
+            date += pickedTimeFrom;
+            bundle.putLong("from_datetime", date);
+            Util.openActivity(this,
+                    JobListingActivity.class, bundle);
+        });
 
 
         chooseTime = findViewById(R.id.editText8);
@@ -54,6 +74,7 @@ public class JobAvailability extends AppCompatActivity {
                         } else {
                             amPm = "AM";
                         }
+                        pickedTimeFrom = (long) hourOfDay * 3600 + minutes * 60;
                         chooseTime.setText(String.format("%02d:%02d", hourOfDay, minutes) + amPm);
                     }
                 }, currentHour, currentMinute, false);
@@ -84,6 +105,7 @@ public class JobAvailability extends AppCompatActivity {
                 }, currentHour, currentMinute, false);
 
                 timePickerDialog.show();
+
             }
         });
     }

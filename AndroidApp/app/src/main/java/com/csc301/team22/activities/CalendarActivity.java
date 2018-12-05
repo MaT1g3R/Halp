@@ -48,6 +48,10 @@ public class CalendarActivity extends AppCompatActivity implements OnMapReadyCal
     private TextView mDisplayDate;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
     private Spinner spinnerDuration;
+    private TextView calendartv;
+    private TextView timeFrom;
+    long date;
+    long time;
 
     // D3 storing values
     private long saveDate, start_time;
@@ -71,12 +75,15 @@ public class CalendarActivity extends AppCompatActivity implements OnMapReadyCal
 //        assert description != null;
 
         submit = findViewById(R.id.submitButton);
+        timeFrom = findViewById(R.id.calendarFrom);
+        calendartv = findViewById(R.id.calendartv);
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map2);
         mapFragment.getMapAsync(this);
         submit.setOnClickListener(v -> {
 
             // Add the date and time together to make them a single varirable
+
             start_time += saveDate;
 
 

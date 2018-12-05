@@ -33,16 +33,6 @@ public class RequestSubmissionActivity extends AppCompatActivity {
         description = editTextDescription.getText().toString();
         title = editTextTitle.getText().toString();
 
-//        CreateUser newUser = new CreateUser.Builder().first_name("jeb")
-//                .last_name("jeb").email("jeb").password("jeb").build();
-//
-//        User user = mock.createUser(newUser);
-//
-//        JobRequest newr = new JobRequest.Builder().request_id(2).start_time(17)
-//                .duration(2).customer(user).latitude(30).longitude(50)
-//                .description("jebjebjeb jeb").build();
-
-//        mock.jobRequests.add(newr);
 
         //TODO: Make help now go to found worker page
         buttonHelpNow.setOnClickListener(v -> {

@@ -14,6 +14,7 @@ import com.csc301.team22.EButtonState;
 import com.csc301.team22.R;
 import com.csc301.team22.Util;
 import com.csc301.team22.api.JobRequest;
+import com.csc301.team22.api.QueryBuilder;
 import com.csc301.team22.api.http.HTTPAdapter;
 import com.csc301.team22.api.http.HttpException;
 import com.csc301.team22.views.RequestCardObservable;
@@ -23,6 +24,7 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -33,20 +35,31 @@ public class RequestListFragment extends Fragment implements Observer {
     private List<RequestCardObservable> observableList = new ArrayList<>();
     private AppCompatActivity activity;
     private List<JobRequest> requests = null;
+    private long fromDateTime = 0;
+    private Map<String, String> queries;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         activity = (AppCompatActivity) getActivity();
-        assert activity != null;
+        Bundle passedBundle = activity.getIntent().getExtras();
+        if (passedBundle != null){
+            fromDateTime = passedBundle.getLong("from_datetime");
+        }
 
+        assert activity != null;
+        QueryBuilder queryBuilder = new QueryBuilder();
+        if (fromDateTime != 0) {
+            queryBuilder.add("starts_after", fromDateTime).add("finished", false).add("assigned", false);
+        }
+        queries = queryBuilder.build();
         linearLayoutRequestList = activity.findViewById(R.id.linearLayoutRequestList);
         addToLinearLayout(activity, linearLayoutRequestList);
     }
 
     public void addToLinearLayout(Context context, LinearLayout layout) {
         try {
-            requests = http.getRequests(new HashMap<>());
+            requests = http.getRequests(queries);
             requests.forEach(request -> {
                 RequestCardView cardView = toCardView(context, request);
                 LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
