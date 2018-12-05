@@ -52,5 +52,5 @@ def test_bad_format(request_factory, create_full_user):
 def test_bad_encode(request_factory, create_full_user):
     user, password = create_full_user
     request = request_factory.get('/')
-    request.META['HTTP_AUTHORIZATION'] = encode_auth(user.email, password)[1:]
+    request.META['HTTP_AUTHORIZATION'] = encode_auth(user.email, password)[:-1]
     assert authenticate_user(request).is_none

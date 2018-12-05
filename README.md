@@ -13,7 +13,9 @@ cannot render these correctly.
 
 ## Code
 
-All of the code are under the [AndroidApp](AndroidApp) sub directory.
+Code for the mobile application are under the [AndroidApp](AndroidApp) sub directory.
+
+Code for the back end are under the [Backend](Backend) sub directory.
 
 ## References
 

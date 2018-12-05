@@ -5,6 +5,15 @@ public class Response {
     private User worker;
     private String comment;
 
-    public Response() {
+    public int getResponse_id() {
+        return response_id;
+    }
+
+    public User getWorker() {
+        return worker;
+    }
+
+    public String getComment() {
+        return comment;
     }
 }

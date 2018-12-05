@@ -27,4 +27,5 @@ urlpatterns = [
     path('api/v1/create_response', views.create_response),
     path('api/v1/find_job', views.find_job),
     path('api/v1/find_worker', views.find_worker),
+    path('api/v1/assign_worker', views.assign_worker),
 ]

@@ -19,8 +19,8 @@ import android.widget.TimePicker;
 import com.csc301.team22.R;
 import com.csc301.team22.Util;
 import com.csc301.team22.api.CreateRequest;
-import com.csc301.team22.api.HTTPAdapter;
-import com.csc301.team22.api.JobRequest;
+import com.csc301.team22.api.http.HTTPAdapter;
+import com.csc301.team22.api.http.HttpException;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -94,10 +94,12 @@ public class CalendarActivity extends AppCompatActivity implements OnMapReadyCal
                     .duration(duration * 3600).latitude(sydney.latitude)
                     .longitude(sydney.longitude).description(description).title(title).build();
 
-            JobRequest req = http.createRequest(newr);
-
-
-            Util.openActivity(this, PostJobFindWorkActivity.class);
+            try {
+                http.createRequest(newr);
+                Util.openActivity(this, PostJobFindWorkActivity.class);
+            } catch (HttpException e) {
+                Util.showError(this, "Cannot Create Request", e.getMessage());
+            }
         });
 
         spinnerDuration = findViewById(R.id.spinnerDud);

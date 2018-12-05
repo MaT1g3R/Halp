@@ -269,3 +269,43 @@ def find_job(valid_data: Dict, user: User):
     if job:
         return Ok(request_converter.to_dict(job.value))
     return Ok(None)
+
+
+@json_resposne(request_converter.to_dict)
+@require_json_string_validation({
+    'type': 'object',
+    'properties': {
+        'request_id': {'type': 'integer'},
+        'worker_id': {'type': 'integer'}
+    },
+    'additionalProperties': False,
+    'required': ['request_id']
+})
+def assign_worker(valid_data: Dict, user: User):
+    worker_id = valid_data.get('worker_id')
+    if worker_id is not None:
+        try:
+            worker = User.objects.get(id=worker_id)
+        except (OverflowError, User.DoesNotExist):
+            return Err(HttpError(404, f'Worker with ID {worker_id} does not exist'))
+    else:
+        worker = user
+
+    request_id = valid_data['request_id']
+    try:
+        request = Request.objects.get(id=request_id)
+    except (OverflowError, Request.DoesNotExist):
+        return Err(HttpError(404, f'Request with ID {request_id} does not exist'))
+
+    if request.finished:
+        return Err(HttpError(400, f'Request with ID {request_id} is already finished'))
+    if request.assigned_to is not None:
+        return Err(HttpError(400, f'Request with ID {request_id} is already assigned'))
+    if worker == request.customer:
+        return Err(HttpError(400, 'Cannot assign yourself to your own request'))
+    if user != worker and request.customer != user:
+        return Err(HttpError(403, "Cannot assign a worker to someone else's request"))
+
+    request.assigned_to = worker
+    request.save()
+    return Ok(request)

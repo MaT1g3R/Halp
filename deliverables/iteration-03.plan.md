@@ -79,7 +79,7 @@ List/describe the artifacts you will produce in order to organize your team.
 
 List/describe the artifacts you will produce in order to present your project idea.
 
- * Video
+ * Video: https://github.com/csc301-fall-2018/project-team-22/blob/master/deliverables/Artifacts/Demo2.mp4
  * Code
  * [Architecture diagram](Artifacts/architecture.pdf)
  * [Database Tables](Artifacts/Tables.md)
