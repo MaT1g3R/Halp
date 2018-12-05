@@ -13,12 +13,12 @@ import android.widget.LinearLayout.LayoutParams;
 import com.csc301.team22.EButtonState;
 import com.csc301.team22.R;
 import com.csc301.team22.Util;
-import com.csc301.team22.activities.JobDescriptionActivity;
 import com.csc301.team22.api.JobRequest;
 import com.csc301.team22.api.http.HTTPAdapter;
 import com.csc301.team22.api.http.HttpException;
 import com.csc301.team22.views.RequestCardObservable;
 import com.csc301.team22.views.RequestCardView;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,6 +32,7 @@ public class RequestListFragment extends Fragment implements Observer {
     private LinearLayout linearLayoutRequestList;
     private List<RequestCardObservable> observableList = new ArrayList<>();
     private AppCompatActivity activity;
+    private List<JobRequest> requests = null;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -45,9 +46,9 @@ public class RequestListFragment extends Fragment implements Observer {
 
     public void addToLinearLayout(Context context, LinearLayout layout) {
         try {
-            List<JobRequest> requests = http.getRequests(new HashMap<>());
+            requests = http.getRequests(new HashMap<>());
             requests.forEach(request -> {
-                RequestCardView cardView = toCardView(context, request.getTitle(), request.getDescription());
+                RequestCardView cardView = toCardView(context, request);
                 LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
                 layout.addView(cardView.getLayout(), lp);
                 cardView.getObservable().addObserver(this);
@@ -77,13 +78,12 @@ public class RequestListFragment extends Fragment implements Observer {
                 if (!nextObservable.equals(observable)) {
                     nextObservable.getView().setCollapsed();
                 }
+
             }
-        } else {
-            Util.openActivity(activity, JobDescriptionActivity.class);
         }
     }
 
-    public RequestCardView toCardView(Context context, String name, String description) {
-        return new RequestCardView(context, name, description);
+    public RequestCardView toCardView(Context context, JobRequest job) {
+        return new RequestCardView(context, job);
     }
 }

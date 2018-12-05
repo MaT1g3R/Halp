@@ -3,7 +3,6 @@ package com.csc301.team22.api.http;
 
 import android.os.AsyncTask;
 
-import com.csc301.team22.Request;
 import com.csc301.team22.api.CreateRequest;
 import com.csc301.team22.api.CreateUser;
 import com.csc301.team22.api.JobRequest;
@@ -135,7 +134,7 @@ public class HTTPAdapter {
         return resp;
     }
 
-    public Request createResponse(int requestId, String comment) throws HttpException {
+    public JobRequest createResponse(int requestId, String comment) throws HttpException {
         JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put("request_id", requestId);
@@ -144,14 +143,14 @@ public class HTTPAdapter {
             throw new HttpException(400, e.getMessage());
         }
         String result = post("create_response", jsonObject.toString());
-        return new Gson().fromJson(result, Request.class);
+        return new Gson().fromJson(result, JobRequest.class);
     }
 
-    public Request assignWorker(int requestId) throws HttpException {
+    public JobRequest assignWorker(int requestId) throws HttpException {
         return assignWorker(requestId, null);
     }
 
-    public Request assignWorker(int requestId, Integer workerId) throws HttpException {
+    public JobRequest assignWorker(int requestId, Integer workerId) throws HttpException {
         JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put("request_id", requestId);
@@ -162,7 +161,7 @@ public class HTTPAdapter {
             throw new HttpException(400, e.getMessage());
         }
         String result = post("assign_worker", jsonObject.toString());
-        return new Gson().fromJson(result, Request.class);
+        return new Gson().fromJson(result, JobRequest.class);
     }
 
     public Optional<User> findWorker(int requestId) throws HttpException {

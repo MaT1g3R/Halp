@@ -7,22 +7,25 @@ import android.widget.TextView;
 
 import com.csc301.team22.EButtonState;
 import com.csc301.team22.R;
+import com.csc301.team22.api.JobRequest;
 
 public class RequestCardView extends ExpandableView {
     private Button buttonTitle;
     private TextView textViewDescription;
     private RequestCardObservable observable;
+    private JobRequest job;
 
-    public RequestCardView(Context context, String title, String description) {
+    public RequestCardView(Context context, JobRequest job) {
         super();
         layout = new LinearLayout(context);
+        this.job = job;
 
         buttonTitle = new Button(layout.getContext());
-        buttonTitle.setText(title);
+        buttonTitle.setText(job.getTitle());
         setButtonColorDefault();
 
         textViewDescription = new TextView(layout.getContext());
-        textViewDescription.setText(description);
+        textViewDescription.setText(job.getDescription());
         textViewDescription.setPadding(10, 10, 10, 10);
 
         titleView = buttonTitle;
@@ -32,6 +35,10 @@ public class RequestCardView extends ExpandableView {
         setUpViews();
 
         this.observable = new RequestCardObservable(this);
+    }
+
+    public JobRequest getJob() {
+        return job;
     }
 
     public RequestCardObservable getObservable() {
