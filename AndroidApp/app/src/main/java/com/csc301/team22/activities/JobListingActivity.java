@@ -36,9 +36,7 @@ public class JobListingActivity extends AppCompatActivity {
                 Util.showError(this, "Failed to accept job", e.getMessage());
                 return;
             }
-            new AlertDialog.Builder(this)
-                    .setTitle("Job Accepted!")
-                    .setNeutralButton("Ok", (dialog, id) -> Util.openActivity(this, PostJobFindWorkActivity.class)).show();
+            Util.openActivity(this, JobConfirmationActivity.class);
         });
     }
 }

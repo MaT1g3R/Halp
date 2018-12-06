@@ -28,13 +28,13 @@
         android:layout_height="160dp"
         android:layout_marginStart="77dp"
         android:layout_marginEnd="107dp"
-        android:layout_marginBottom="356dp"
-        android:text="Good job, head on over to the job site!"
+        android:layout_marginBottom="344dp"
+        android:text="Job Accepted! Here is the job location."
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <fragment
