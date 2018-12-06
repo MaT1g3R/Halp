@@ -1,7 +1,7 @@
 package com.csc301.team22.activities;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
 
 import com.csc301.team22.R;

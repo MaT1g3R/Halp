@@ -2,6 +2,7 @@ package com.csc301.team22.fragments;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -19,10 +20,8 @@ import com.csc301.team22.api.http.HTTPAdapter;
 import com.csc301.team22.api.http.HttpException;
 import com.csc301.team22.views.RequestCardObservable;
 import com.csc301.team22.views.RequestCardView;
-import com.google.gson.Gson;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Observable;
@@ -42,12 +41,12 @@ public class RequestListFragment extends Fragment implements Observer {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         activity = (AppCompatActivity) getActivity();
+        assert activity != null;
         Bundle passedBundle = activity.getIntent().getExtras();
-        if (passedBundle != null){
+        if (passedBundle != null) {
             fromDateTime = passedBundle.getLong("from_datetime");
         }
 
-        assert activity != null;
         QueryBuilder queryBuilder = new QueryBuilder();
         if (fromDateTime != 0) {
             queryBuilder.add("starts_after", fromDateTime).add("finished", false).add("assigned", false);
@@ -74,7 +73,7 @@ public class RequestListFragment extends Fragment implements Observer {
 
     @Override
     public View
-    onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_request_list, container, false);
     }
@@ -91,7 +90,6 @@ public class RequestListFragment extends Fragment implements Observer {
                 if (!nextObservable.equals(observable)) {
                     nextObservable.getView().setCollapsed();
                 }
-
             }
         }
     }
