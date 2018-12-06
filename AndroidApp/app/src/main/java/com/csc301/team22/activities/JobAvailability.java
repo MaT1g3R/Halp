@@ -22,7 +22,6 @@ public class JobAvailability extends AppCompatActivity {
     Button submit;
     Button use_profile;
     long pickedTimeFrom = 0;
-    long date = 0;
 
 
     @Override
@@ -35,11 +34,12 @@ public class JobAvailability extends AppCompatActivity {
         calendarInput.setOnDateChangeListener((view, year, month, day) -> {
             final Calendar c = Calendar.getInstance();
             c.set(year, month, day);
-            pickedTimeFrom = c.getTimeInMillis() / 1000;
+            view.setDate(c.getTimeInMillis());
         });
 
         submit.setOnClickListener(v -> {
             Bundle bundle = new Bundle();
+            final long date = calendarInput.getDate() / 1000;
             bundle.putLong("from_datetime", date + pickedTimeFrom);
             Util.openActivity(this,
                     JobListingActivity.class, bundle);
@@ -48,6 +48,7 @@ public class JobAvailability extends AppCompatActivity {
 
         use_profile.setOnClickListener(v -> {
             Bundle bundle = new Bundle();
+            final long date = calendarInput.getDate() / 1000;
             bundle.putLong("from_datetime", date + pickedTimeFrom);
             Util.openActivity(this,
                     JobListingActivity.class, bundle);

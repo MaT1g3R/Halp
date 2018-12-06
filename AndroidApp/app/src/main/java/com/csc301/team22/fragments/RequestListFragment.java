@@ -29,36 +29,40 @@ import java.util.Observer;
 
 
 public class RequestListFragment extends Fragment implements Observer {
-    HTTPAdapter http = HTTPAdapter.getInstance();
-    private LinearLayout linearLayoutRequestList;
-    private List<RequestCardObservable> observableList = new ArrayList<>();
-    private AppCompatActivity activity;
-    private List<JobRequest> requests = null;
-    private long fromDateTime = 0;
-    private Map<String, String> queries;
+    final HTTPAdapter http = HTTPAdapter.getInstance();
+    private final List<RequestCardObservable> observableList = new ArrayList<>();
+    private JobRequest selectedJob = null;
+
+    public JobRequest getSelectedJob() {
+        return selectedJob;
+    }
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        activity = (AppCompatActivity) getActivity();
+        AppCompatActivity activity = (AppCompatActivity) getActivity();
         assert activity != null;
         Bundle passedBundle = activity.getIntent().getExtras();
+
+        long fromDateTime = 0;
         if (passedBundle != null) {
             fromDateTime = passedBundle.getLong("from_datetime");
         }
 
         QueryBuilder queryBuilder = new QueryBuilder();
         if (fromDateTime != 0) {
-            queryBuilder.add("starts_after", fromDateTime).add("finished", false).add("assigned", false);
+            queryBuilder
+                    .add("starts_after", fromDateTime)
+                    .add("finished", false)
+                    .add("assigned", false);
         }
-        queries = queryBuilder.build();
-        linearLayoutRequestList = activity.findViewById(R.id.linearLayoutRequestList);
-        addToLinearLayout(activity, linearLayoutRequestList);
+        LinearLayout linearLayoutRequestList = activity.findViewById(R.id.linearLayoutRequestList);
+        addToLinearLayout(activity, linearLayoutRequestList, queryBuilder.build());
     }
 
-    public void addToLinearLayout(Context context, LinearLayout layout) {
+    public void addToLinearLayout(Context context, LinearLayout layout, Map<String, String> queries) {
         try {
-            requests = http.getRequests(queries);
+            List<JobRequest> requests = http.getRequests(queries);
             requests.forEach(request -> {
                 RequestCardView cardView = toCardView(context, request);
                 LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
@@ -86,6 +90,7 @@ public class RequestListFragment extends Fragment implements Observer {
         RequestCardObservable observable = (RequestCardObservable) o;
         EButtonState buttonState = (EButtonState) arg;
         if (buttonState == EButtonState.EXPANDED) {
+            selectedJob = observable.getView().getJob();
             for (RequestCardObservable nextObservable : observableList) {
                 if (!nextObservable.equals(observable)) {
                     nextObservable.getView().setCollapsed();

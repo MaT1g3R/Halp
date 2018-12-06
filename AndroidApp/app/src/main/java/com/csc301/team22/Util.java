@@ -30,13 +30,17 @@ public final class Util {
         source.startActivity(intent);
     }
 
-    public static void showError(Context context, String title, String message) {
+    public static void showError(Context context, String title, String message, boolean cancelable) {
         AlertDialog.Builder builder;
         builder = new AlertDialog.Builder(context, android.R.style.Theme_Material_Dialog_Alert);
         builder.setTitle(title)
                 .setMessage(message)
                 .setIcon(android.R.drawable.ic_dialog_alert)
-                .setCancelable(true)
+                .setCancelable(cancelable)
                 .show();
+    }
+
+    public static void showError(Context context, String title, String message) {
+        showError(context, title, message, true);
     }
 }
