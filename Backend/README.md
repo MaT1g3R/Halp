@@ -1,9 +1,6 @@
 Halp Back end
 =============
 
-## API Documentation
-API documentation can be found at: https://github.com/csc301-fall-2018/project-team-22/blob/master/deliverables/Artifacts/API.md
-
 ## Developing
 - Requirements:
     - Python 3.7 or above
